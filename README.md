@@ -17,7 +17,3 @@ Usage
 
 TODO...
 
-
-[1]:http://nodered.org
-[2]:https://github.com/nomos-system
-[3]:http://www.nomos-system.com
