@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    const NODE_NAME = 'getComponentsByRoom';
+    RED.nodes.registerType('nomosapi-getcomponentsbyroom', {
+        category: 'nomos API Components',
+        color: '#eee',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ['Success', 'Error'],
+        icon: 'function.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        }
+    });
+</script>
+<script data-template-name="nomosapi-getcomponentsbyroom" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-filter" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
+    </div>
+</script>
+<script data-help-name="nomosapi-getcomponentsbyroom" type="text/x-red">
+    <p>The Service node represents <strong>getComponentsByRoom</strong> nomos API Function: <br>
+        Get Components by Room
+    </p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
+            value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.room <span class="property-type">number</span></dt><dd>Room ID to filter for</dd></dl><dl class="message-properties"><dt>payload.sortBy <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.filterOutTag <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Tags to filter out</dd></dl><dl class="message-properties"><dt>payload.withProperties <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Return Properties/Actions Meta-Information<br>Default value: <code>true</code></dd></dl><dl class="message-properties"><dt>payload.withMappings <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Return Mappings/Feedbacks Meta-Information<br>Default value: <code>true</code></dd></dl><dl class="message-properties"><dt>payload.withData <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Return Data/Values<br>Default value: <code>true</code></dd></dl>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>API result
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Component Name</dd></dl><dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd>System ID</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.className <span class="property-type">string</span></dt><dd>Class Name</dd></dl><dl class="message-properties"><dt>payload.subClassName <span class="property-type">string</span></dt><dd>Subclass Name</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.engineType <span class="property-type">string</span></dt><dd>Engine Type</dd></dl><dl class="message-properties"><dt>payload.version <span class="property-type">string</span></dt><dd>Library Version</dd></dl><dl class="message-properties"><dt>payload.platform <span class="property-type">string</span></dt><dd>Platform</dd></dl><dl class="message-properties"><dt>payload.manufacturer <span class="property-type">string</span></dt><dd>Manufacturer</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd><em>(optional) </em>Hostname/IP</dd></dl><dl class="message-properties"><dt>payload.uuid <span class="property-type">string</span></dt><dd><em>(optional) </em>UUID</dd></dl><dl class="message-properties"><dt>payload.mainComponent <span class="property-type">string</span></dt><dd><em>(optional) </em>Main Component ID (if a nested Component)</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Device Type</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Device Category</dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string[]</span></dt><dd>Tags</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd>Additional Meta Informations</dd></dl><dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.rooms <span class="property-type">integer[]</span></dt><dd>Rooms Assignment</dd></dl><dl class="message-properties"><dt>payload.data <span class="property-type">object[]</span></dt><dd>Current Property Data/Values</dd></dl><dl class="message-properties"><dt>payload.data.content <span class="property-type">string/boolean</span></dt><dd>Content</dd></dl><dl class="message-properties"><dt>payload.data.value <span class="property-type">integer/float/boolean</span></dt><dd><em>(optional) </em>Value in correct Data Type</dd></dl><dl class="message-properties"><dt>payload.data.unit <span class="property-type">string</span></dt><dd><em>(optional) </em>Unit of Value</dd></dl><dl class="message-properties"><dt>payload.data.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.data.property <span class="property-type">string</span></dt><dd>Property Name</dd></dl><dl class="message-properties"><dt>payload.properties <span class="property-type">object</span></dt><dd><em>(optional) </em>Properties/Actions</dd></dl><dl class="message-properties"><dt>payload.properties.sizeInBit <span class="property-type">number</span></dt><dd>Size in Bit</dd></dl><dl class="message-properties"><dt>payload.properties.datatype <span class="property-type">string</span></dt><dd>Datatype (see <a href="http://docs.nomos-system.com/api/#DATATYPES">Data Types</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.properties.method <span class="property-type">string</span></dt><dd>Method</dd></dl><dl class="message-properties"><dt>payload.properties.property <span class="property-type">string</span></dt><dd>Property Name</dd></dl><dl class="message-properties"><dt>payload.properties.value <span class="property-type">string</span></dt><dd><em>(optional) </em>Fixed Value</dd></dl><dl class="message-properties"><dt>payload.properties.join <span class="property-type">string</span></dt><dd><em>(optional) </em>(mremote) Join Type</dd></dl><dl class="message-properties"><dt>payload.properties.min <span class="property-type">number</span></dt><dd><em>(optional) </em>Minimum Value (for UI)</dd></dl><dl class="message-properties"><dt>payload.properties.max <span class="property-type">number</span></dt><dd><em>(optional) </em>Maximum Value (for UI)</dd></dl><dl class="message-properties"><dt>payload.properties.internalMin <span class="property-type">number</span></dt><dd><em>(optional) </em>Minimum Value (Control-wise, Auto Scaling)</dd></dl><dl class="message-properties"><dt>payload.properties.internalMax <span class="property-type">number</span></dt><dd><em>(optional) </em>Maximum Value (Control-wise, Auto Scaling)</dd></dl><dl class="message-properties"><dt>payload.properties.maxlength <span class="property-type">number</span></dt><dd><em>(optional) </em>Maximum Length</dd></dl><dl class="message-properties"><dt>payload.properties.valueList <span class="property-type">object[]</span></dt><dd><em>(optional) </em>List of possible Key/Value Pairs</dd></dl><dl class="message-properties"><dt>payload.propertiesMeta <span class="property-type">object</span></dt><dd><em>(optional) </em>Properties/Actions Meta Data</dd></dl><dl class="message-properties"><dt>payload.propertiesMeta.text <span class="property-type">string</span></dt><dd>Text/Description</dd></dl><dl class="message-properties"><dt>payload.propertiesMeta.properties <span class="property-type">object[]</span></dt><dd>Child Elements</dd></dl><dl class="message-properties"><dt>payload.propertiesAddresses <span class="property-type">object</span></dt><dd><em>(optional) </em>KNX Group Addresses for Properties</dd></dl><dl class="message-properties"><dt>payload.propertiesValues <span class="property-type">object</span></dt><dd><em>(optional) </em>Fixed/default Values for Properties</dd></dl><dl class="message-properties"><dt>payload.mappings <span class="property-type">object</span></dt><dd><em>(optional) </em>Mappings/Feedbacks</dd></dl><dl class="message-properties"><dt>payload.mappings.sizeInBit <span class="property-type">number</span></dt><dd>Size in Bit</dd></dl><dl class="message-properties"><dt>payload.mappings.datatype <span class="property-type">string</span></dt><dd>Datatype (see <a href="http://docs.nomos-system.com/api/#DATATYPES">Data Types</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.mappings.method <span class="property-type">string</span></dt><dd>Method</dd></dl><dl class="message-properties"><dt>payload.mappings.property <span class="property-type">string</span></dt><dd>Property Name</dd></dl><dl class="message-properties"><dt>payload.mappings.onChange <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Trigger always or just on change<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.mappings.join <span class="property-type">string</span></dt><dd><em>(optional) </em>(mremote) Join Type</dd></dl><dl class="message-properties"><dt>payload.mappings.valueList <span class="property-type">object[]</span></dt><dd><em>(optional) </em>List of possible Key/Value Pairs</dd></dl><dl class="message-properties"><dt>payload.mappingsMeta <span class="property-type">object</span></dt><dd><em>(optional) </em>Mappings/Feedbacks Meta Data</dd></dl><dl class="message-properties"><dt>payload.mappingsMeta.text <span class="property-type">string</span></dt><dd>Text/Description</dd></dl><dl class="message-properties"><dt>payload.mappingsMeta.properties <span class="property-type">object[]</span></dt><dd>Child Elements</dd></dl><dl class="message-properties"><dt>payload.mappingsAddresses <span class="property-type">object</span></dt><dd><em>(optional) </em>KNX Group Addresses for Mappings</dd></dl>
+         </li>
+         <li>API error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>
+                    <dt>payload.errorCode <span class="property-type">integer</span></dt>
+                    <dd>Error Code</dd>
+                    <dt>payload.errorText <span class="property-type">string</span></dt>
+                    <dd>Error Message Text</dd>
+                 </dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Components-getComponentsByRoom" target="_blank">nomos API Docs</a> - <strong>getComponentsByRoom</strong> API Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Components | 0.2.34</em></div>
+</script>

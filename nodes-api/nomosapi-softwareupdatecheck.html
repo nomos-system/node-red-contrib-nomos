@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    const NODE_NAME = 'softwareUpdateCheck';
+    RED.nodes.registerType('nomosapi-softwareupdatecheck', {
+        category: 'nomos API System',
+        color: '#eee',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ['Success', 'Error'],
+        icon: 'function.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        }
+    });
+</script>
+<script data-template-name="nomosapi-softwareupdatecheck" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-filter" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
+    </div>
+</script>
+<script data-help-name="nomosapi-softwareupdatecheck" type="text/x-red">
+    <p>The Service node represents <strong>softwareUpdateCheck</strong> nomos API Function: <br>
+        Check for Software Updates
+    </p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
+            value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.force <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Force check<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>API result
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.OEM <span class="property-type">string</span></dt><dd>OEM Name/ID</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Product ID</dd></dl><dl class="message-properties"><dt>payload.title <span class="property-type">string</span></dt><dd>Product Title</dd></dl><dl class="message-properties"><dt>payload.channel <span class="property-type">string</span></dt><dd>Update Channel</dd></dl><dl class="message-properties"><dt>payload.versionInstalled <span class="property-type">string</span></dt><dd>Version currently installed</dd></dl><dl class="message-properties"><dt>payload.versionAvailable <span class="property-type">string</span></dt><dd>Version available</dd></dl><dl class="message-properties"><dt>payload.updateAvailable <span class="property-type">boolean</span></dt><dd>Update available<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.changeLog <span class="property-type">string</span></dt><dd>Changelog Text</dd></dl><dl class="message-properties"><dt>payload.changeLogUrl <span class="property-type">string</span></dt><dd>Changelog URL</dd></dl><dl class="message-properties"><dt>payload.diskUsage <span class="property-type">object</span></dt><dd>Disk Space Informations</dd></dl><dl class="message-properties"><dt>payload.diskUsage.status <span class="property-type">string</span></dt><dd>Status</dd></dl><dl class="message-properties"><dt>payload.diskUsage.total <span class="property-type">number</span></dt><dd>Total Disk Space (in Kilobytes)</dd></dl><dl class="message-properties"><dt>payload.diskUsage.free <span class="property-type">number</span></dt><dd>Free Disk Space (in Kilobytes)</dd></dl><dl class="message-properties"><dt>payload.diskUsage.used <span class="property-type">string</span></dt><dd>Used Disk Space in Percent</dd></dl><dl class="message-properties"><dt>payload.packages <span class="property-type">object[]</span></dt><dd>Packages Details by ID</dd></dl><dl class="message-properties"><dt>payload.packages.name <span class="property-type">string</span></dt><dd>Package Name</dd></dl><dl class="message-properties"><dt>payload.packages.versionInstalled <span class="property-type">string</span></dt><dd>Version currently installed</dd></dl><dl class="message-properties"><dt>payload.packages.versionAvailable <span class="property-type">string</span></dt><dd>Version available</dd></dl><dl class="message-properties"><dt>payload.packages.updateAvailable <span class="property-type">boolean</span></dt><dd>Update available<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+         </li>
+         <li>API error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>
+                    <dt>payload.errorCode <span class="property-type">integer</span></dt>
+                    <dd>Error Code</dd>
+                    <dt>payload.errorText <span class="property-type">string</span></dt>
+                    <dd>Error Message Text</dd>
+                 </dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-System-softwareUpdateCheck" target="_blank">nomos API Docs</a> - <strong>softwareUpdateCheck</strong> API Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>System | 0.2.10</em></div>
+</script>

@@ -1,0 +1,127 @@
+<script type="text/javascript">
+    const NODE_NAME = 'Notification';
+
+    RED.nodes.registerType('nomos-notificationprofile', {
+        category: 'nomos Extras',
+        color: '#aaa',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            profile: {value: '', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 1,
+        outputs: 1,
+        outputLabels: ['State'],
+        icon: 'envelope.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        },
+        oneditprepare: function() {
+            var self = this;
+            function loadProfiles() {
+                var host = $('#node-input-config option:selected').text();
+                if(host.indexOf('...') < 0 && typeof getNomosHostSettings === 'function') {
+                    host = getNomosHostSettings().apihost;
+                }
+
+                if(host && host.indexOf('...') < 0) {
+                    $('#node-input-profile').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
+                    $.getJSON('http://' + host + '/nodered/v1/notificationprofiles', function(result) {
+                        $('#node-input-profile').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
+                        if(Array.isArray(result)) {
+                            const select = document.getElementById('node-input-profile');
+                            result.forEach(function(p) {
+                                var option = document.createElement('option');
+                                option.text = p.name;
+                                option.value = p.id;
+                                if(p.id === self.profile) {
+                                    option.selected = true;
+                                }
+                                select.add(option);
+                            });
+                        }
+                    });
+                }
+                else {
+                    $('#node-input-profile').css('cursor', '').prop('disabled', true).empty().append('<option value="">Please select nomos.hub ...</option>');
+                }
+            }
+
+            // (re)load profiles on hub change
+            $('#node-input-config').on('change', function() {
+                loadProfiles();
+            });
+
+            // default name proposal
+            $('#node-input-profile').on('change', function() {
+                if($(this).find('option:selected').val() && $('#node-input-name').val() == '') {
+                    $('#node-input-name').val($(this).find('option:selected').text());
+                }
+            });
+        }
+    });
+</script>
+<script data-template-name="nomos-notificationprofile" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-profile"><i class="fa fa-bell"></i> Profile</label>
+        <select id="node-input-profile" style="width:62%"></select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-filter" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
+    </div>
+</script>
+<script data-help-name="nomos-notificationprofile" type="text/x-red">
+    <p>The Service node represents a nomos Notification Profile you can trigger.</p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Profile</strong>: Selected nomos notification profile</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
+            value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">object</span>
+        </dt>
+        <dd>The payload object. </dd>
+        <dt>payload.variables
+            <span class="property-type">string[]</span>
+        </dt>
+        <dd><em>Optional</em> variables which can take place in notification text(s). </dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>State
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">boolean</span></dt>
+                 <dd>error <code>true</code> or <code>false</code>.</dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Notification-sendNotification" target="_blank">nomos API Docs</a> - full Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+</script>

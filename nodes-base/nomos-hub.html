@@ -1,0 +1,55 @@
+<!-- CONFIG -->
+<script type="text/javascript">
+    RED.nodes.registerType('nomos-hub', {
+        category: 'config',
+        defaults: {
+            host: {
+                value: '',
+                required: true
+            },
+            port: {
+                value: 81,
+                required: true,
+                validate: RED.validators.number()
+            }
+        },
+        credentials: {
+            username: {
+                type: 'text'
+            },
+            password: {
+                type: 'password'
+            }
+        },
+        label: function() {
+            return this.host + ':' + this.port || '';
+        },
+        oneditprepare: function() {
+            if(typeof getNomosHostSettings === 'function') {
+                const settings = getNomosHostSettings();
+                if($('#node-config-input-host').val() === '') {
+                    $('#node-config-input-host').val(settings.host);
+                    $('#node-config-input-port').val(settings.port);
+                }
+            }
+        }
+    });
+</script>
+<script type="text/x-red" data-template-name="nomos-hub">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-globe"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa fa-globe"></i> Port</label>
+        <input type="number" id="node-config-input-port">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-config-input-password">
+    </div>
+</script>

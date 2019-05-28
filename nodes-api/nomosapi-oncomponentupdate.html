@@ -1,0 +1,60 @@
+<script type="text/javascript">
+    const NODE_NAME = 'onComponentUpdate';
+    RED.nodes.registerType('nomosapi-oncomponentupdate', {
+        category: 'nomos API Components',
+        color: '#ccc',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 0,
+        outputs: 1,
+        outputLabels: ['Data'],
+        icon: 'feed.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        }
+    });
+</script>
+<script data-template-name="nomosapi-oncomponentupdate" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+<script data-help-name="nomosapi-oncomponentupdate" type="text/x-red">
+    <p>The Service node represents <strong>onComponentUpdate</strong> nomos API Event: <br>
+        Update Event when a Component was updated
+    </p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node.
+    </ul>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>Data
+            <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>with Component Objects</dd></dl><dl class="message-properties"><dt>payload.Array.Object <span class="property-type">object</span></dt><dd>Component Object</dd></dl><dl class="message-properties"><dt>payload.Array.Object.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl><dl class="message-properties"><dt>payload.Array.Object.property <span class="property-type">string</span></dt><dd>Property Name</dd></dl><dl class="message-properties"><dt>payload.Array.Object.content <span class="property-type">string/boolean</span></dt><dd>Content</dd></dl><dl class="message-properties"><dt>payload.Array.Object.value <span class="property-type">integer/float/boolean</span></dt><dd><em>(optional) </em>Value in correct Data Type</dd></dl><dl class="message-properties"><dt>payload.Array.Object.unit <span class="property-type">string</span></dt><dd><em>(optional) </em>Unit of Value</dd></dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Components-onComponentUpdate" target="_blank">nomos API Docs</a> - <strong>onComponentUpdate</strong> API Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Components | 0.2.11</em></div>
+</script>

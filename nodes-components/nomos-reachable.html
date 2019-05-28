@@ -1,0 +1,131 @@
+<script type="text/javascript">
+    const NODE_NAME = 'Reachable';
+    const FILTER_NAME = 'reachable';
+
+    RED.nodes.registerType('nomos-reachable', {
+        category: 'nomos Components',
+        color: '#888',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            cid: {value: '', required: true},
+            name: {value: ''},
+            topic: {value: ''}
+        },
+        inputs: 0,
+        outputs: 2,
+        outputLabels: ['Events output', NODE_NAME + ' output'],
+        icon: 'feed.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        },
+        oneditprepare: function() {
+            var self = this;
+            function loadComponents() {
+                var host = $('#node-input-config option:selected').text();
+                if(host.indexOf('...') < 0 && typeof getNomosHostSettings === 'function') {
+                    host = getNomosHostSettings().apihost;
+                }
+
+                if(host && host.indexOf('...') < 0) {
+                    $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
+                    $.getJSON('http://' + host + '/nodered/v1/components/' + FILTER_NAME, function(result) {
+                        $('#node-input-cid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
+                        if(Array.isArray(result)) {
+                            const select = document.getElementById('node-input-cid');
+                            result.forEach(function(component) {
+                                var option = document.createElement('option');
+                                option.text = component.name;
+                                option.value = component.cid;
+                                if(component.cid === self.cid) {
+                                    option.selected = true;
+                                }
+                                select.add(option);
+                            });
+                        }
+                    });
+                }
+                else {
+                    $('#node-input-cid').css('cursor', '').prop('disabled', true).empty().append('<option value="">Please select nomos.hub ...</option>');
+                }
+            }
+
+            // (re)load components on hub change
+            $('#node-input-config').on('change', function() {
+                loadComponents();
+            });
+
+            // default name proposal
+            $('#node-input-cid').on('change', function() {
+                if($(this).find('option:selected').val() && $('#node-input-name').val() == '') {
+                    $('#node-input-name').val($(this).find('option:selected').text() + ' | ' + NODE_NAME);
+                }
+            });
+        }
+    });
+</script>
+<script data-template-name="nomos-reachable" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-cid"><i class="fa fa-microchip"></i> Component</label>
+        <select id="node-input-cid" style="width:62%"></select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+<script data-help-name="nomos-reachable" type="text/x-red">
+    <p>The Service node represents a single nomos Device/Component with <strong>Reachable</strong> Property you want to query.</p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Component</strong>: Selected nomos device/component</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node.
+    </ul>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>Events output
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>the default output on component updates.</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.cid <span class="property-type">string</span></dt>
+                 <dd>component id</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.property <span class="property-type">string</span></dt>
+                 <dd>property name</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.content <span class="property-type">any</span></dt>
+                 <dd>raw value/content</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.value <span class="property-type">boolean</span></dt>
+                 <dd>the parsed value</dd>
+             </dl>
+         </li>
+         <li>Reachable output
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">boolean</span></dt>
+                 <dd>the new state on component updates.</dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://apidocs.nomos-system.com" target="_blank">nomos API Docs</a> - full Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+</script>

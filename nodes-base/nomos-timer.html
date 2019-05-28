@@ -1,0 +1,157 @@
+<script type="text/javascript">
+    const NODE_NAME = 'Timer';
+
+    RED.nodes.registerType('nomos-timer', {
+        category: 'nomos Extras',
+        color: '#aaa',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            eid: {value: '', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ['Control error', 'Events output'],
+        icon: 'hash.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        },
+        oneditprepare: function() {
+            var self = this;
+            function loadTimers() {
+                var host = $('#node-input-config option:selected').text();
+                if(host.indexOf('...') < 0 && typeof getNomosHostSettings === 'function') {
+                    host = getNomosHostSettings().apihost;
+                }
+
+                if(host && host.indexOf('...') < 0) {
+                    $('#node-input-eid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
+                    $.getJSON('http://' + host + '/nodered/v1/timers', function(result) {
+                        $('#node-input-eid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
+                        if(Array.isArray(result)) {
+                            const select = document.getElementById('node-input-eid');
+                            result.forEach(function(timer) {
+                                var option = document.createElement('option');
+                                option.text = timer.name;
+                                option.value = timer.eid;
+                                if(timer.eid === self.eid) {
+                                    option.selected = true;
+                                }
+                                select.add(option);
+                            });
+                        }
+                    });
+                }
+                else {
+                    $('#node-input-eid').css('cursor', '').prop('disabled', true).empty().append('<option value="">Please select nomos.hub ...</option>');
+                }
+            }
+
+            // (re)load timers on hub change
+            $('#node-input-config').on('change', function() {
+                loadTimers();
+            });
+
+            // default name proposal
+            $('#node-input-eid').on('change', function() {
+                if($(this).find('option:selected').val() && $('#node-input-name').val() == '') {
+                    $('#node-input-name').val(NODE_NAME + ' - ' + $(this).find('option:selected').text());
+                }
+            });
+        }
+    });
+</script>
+<script data-template-name="nomos-timer" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-eid"><i class="fa fa-clock-o"></i> Timer</label>
+        <select id="node-input-eid" style="width:62%"></select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-filter" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
+    </div>
+</script>
+<script data-help-name="nomos-timer" type="text/x-red">
+    <p>The Service node represents a nomos Timer/Schedule you can control or query.</p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Timer</strong>: Selected nomos timer/schedule</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
+            value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">any</span>
+        </dt>
+        <dd>The payload object. Set to <code>true</code> or <code>false</code> to enable/disable timer/schedule.</dd>
+        <dt>payload.trigger
+            <span class="property-type">string</span>
+        </dt>
+        <dd><em>Optional</em>: <code>enable</code> or <code>disable</code> to update timer/schedule accordingly.</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>Control error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">boolean</span></dt>
+                 <dd><code>true</code> or <code>false</code></dd>
+             </dl>
+         </li>
+         <li>Events output
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>The payload object.</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.minute <span class="property-type">number</span></dt>
+                 <dd>Usage count last minute</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.hour <span class="property-type">number</span></dt>
+                 <dd>Usage count last hour</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.day <span class="property-type">number</span></dt>
+                 <dd>Usage count last day</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.week <span class="property-type">number</span></dt>
+                 <dd>Usage count last week</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.month <span class="property-type">number</span></dt>
+                 <dd>Usage count last month</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>payload.year <span class="property-type">number</span></dt>
+                 <dd>Usage count last year</dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Timers" target="_blank">nomos API Docs</a> - full Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+</script>

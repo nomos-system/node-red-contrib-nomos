@@ -1,0 +1,60 @@
+<script type="text/javascript">
+    const NODE_NAME = 'zwaveStateChange';
+    RED.nodes.registerType('nomosapi-zwavestatechange', {
+        category: 'nomos API Zwave',
+        color: '#ccc',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 0,
+        outputs: 1,
+        outputLabels: ['Data'],
+        icon: 'feed.png',
+        paletteLabel: NODE_NAME,
+        label: function() {
+            return this.name || NODE_NAME;
+        }
+    });
+</script>
+<script data-template-name="nomosapi-zwavestatechange" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+<script data-help-name="nomosapi-zwavestatechange" type="text/x-red">
+    <p>The Service node represents <strong>zwaveStateChange</strong> nomos API Event: <br>
+        Update Event when Zwave State Events get fired
+    </p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node.
+    </ul>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>Data
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd>System ID</dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Status<br><br>Allowed values: <code>NotActive</code> <code>Idle</code> <code>RemoveReady</code> <code>RemoveNodeFound</code> <code>RemoveLearning</code> <code>AddReady</code> <code>AddNodeFound</code> <code>AddLearning</code> <code>AddDone</code> <code>detected</code> </dd></dl><dl class="message-properties"><dt>payload.device <span class="property-type">string</span></dt><dd><em>(optional) </em>Node ID of the new Device</dd></dl><dl class="message-properties"><dt>payload.file <span class="property-type">string</span></dt><dd><em>(optional) </em>Node xml File of the new Device</dd></dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Zwave-zwaveStateChange" target="_blank">nomos API Docs</a> - <strong>zwaveStateChange</strong> API Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Zwave | 0.2.12</em></div>
+</script>
