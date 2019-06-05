@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.27",
+	"version": "1.0.28",
 	"description": "nomos Node.RED Connector",
 	"main": "nomos.js",
 	"scripts": {

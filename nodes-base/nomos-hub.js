@@ -95,6 +95,13 @@ module.exports = function(RED) {
                         text: 'node-red:common.status.disconnected'
                     };
                     break;
+                case 'invalidauth':
+                    s = {
+                        fill: 'red',
+                        shape: 'ring',
+                        text: 'authentication error'
+                    };
+                    break;
                 default:
                     s = {
                         fill: 'red',
@@ -132,25 +139,20 @@ module.exports = function(RED) {
         }
 
         node.socket.on('connect', function() {
-            node.socket.once('stateChange', function(result) {
-                // Handling User Password Authorization
-                if(result.state == 'User Authorization needed' && result.part == 'app') {
-                    node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
-                        if(auth === true) {
-                            // successful
-                            node.connected = true;
-                            node.setStatus('connect');
-                            log(node.log, 'Connected to ' + fullHost);
-                            socketInitialization();
-                        }
-                        else {
-                            // not successful
-                            node.setStatus('disconnect');
-                            setTimeout(function() {
-                                node.socket.close();
-                            }, 2400);
-                        }
-                    });
+            node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
+                if(auth === true) {
+                    // successful
+                    node.connected = true;
+                    node.setStatus('connect');
+                    log(node.log, 'Connected to ' + fullHost);
+                    socketInitialization();
+                }
+                else {
+                    // not successful
+                    node.setStatus('invalidauth');
+                    setTimeout(function() {
+                        node.socket.close();
+                    }, 3000);
                 }
             });
         });
