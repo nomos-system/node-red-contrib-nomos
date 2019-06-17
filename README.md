@@ -1,7 +1,7 @@
 # node-red-contrib-nomos
 > A <a href="http://nodered.org" target="_new">Node-RED</a> node to connect with nomos system hubs.
 
-[![Version](https://badge.fury.io/gh/nomos-system%2Fnode-red-contrib-nomos.svg)](https://badge.fury.io/gh/nomos-system%2Fnode-red-contrib-nomos)
+[![npm version](https://badge.fury.io/js/node-red-contrib-nomos.svg)](https://badge.fury.io/js/node-red-contrib-nomos)
 [![License][mit-badge]][mit-url]
 
 With this Nodes you can connect [nomos.hub](https://www.nomos-system.com) and [Node-RED](https://nodered.org/). Minimum requirement is you have nomos.hub 2.0 up and running. 
