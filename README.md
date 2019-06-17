@@ -19,8 +19,8 @@ or use the palette manager.
 -----
 1. Add a nomos node
 2. Add a new *nomos.hub* if not done already
-![img2](docs/img2.png)
-![img1](docs/img1.png)
+![img2](https://github.com/nomos-system/node-red-contrib-nomos/raw/master/docs/img2.png)
+![img1](https://github.com/nomos-system/node-red-contrib-nomos/raw/master/docs/img1.png)
 
 
 ## Usage
