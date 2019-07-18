@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    const NODE_NAME = 'setSpecialEvent';
-    RED.nodes.registerType('nomosapi-setspecialevent', {
-        category: 'nomos API Events',
+    const NODE_NAME = 'cloneScene';
+    RED.nodes.registerType('nomosapi-clonescene', {
+        category: 'nomos API Scenes',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -19,7 +19,7 @@
         }
     });
 </script>
-<script data-template-name="nomosapi-setspecialevent" type="text/x-red">
+<script data-template-name="nomosapi-clonescene" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -38,9 +38,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-setspecialevent" type="text/x-red">
-    <p>The Service node represents <strong>setSpecialEvent</strong> nomos API Function: <br>
-        Set/Update a Special Event (see Examples)
+<script data-help-name="nomosapi-clonescene" type="text/x-red">
+    <p>The Service node represents <strong>cloneScene</strong> nomos API Function: <br>
+        Clone/duplicate a Scene
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -51,13 +51,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.eid <span class="property-type">string</span></dt><dd>Event ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Event Name</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Special Event ID<br>Allowed values: <code>knx.volume.link.4bit</code> <code>knx.volume.link.8bit</code> <code>knx.level.link.4bit</code> <code>knx.lutronlevel.link.4bit</code> <code>knx.link.8bit</code> <code>knx.text.scrolling</code> <code>knx.playerinfo.scrolling</code> <code>knx.property.push</code> <code>property.push</code> <code>hue.colorloop</code> <code>inputloop</code> </dd></dl><dl class="message-properties"><dt>payload.data <span class="property-type">object[]</span></dt><dd>Component Data/Parameters necessary to configure the Special Event</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Enabled or disabled<br>Default value: <code>true</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Tagging</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional) </em>Additional Meta Informations</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Scene ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.eid <span class="property-type">string</span></dt><dd>The new Event ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>The new Scene ID</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -74,9 +74,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Events-setSpecialEvent" target="_blank">nomos API Docs</a> - <strong>setSpecialEvent</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Scenes-cloneScene" target="_blank">nomos API Docs</a> - <strong>cloneScene</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Events | 0.2.44</em></div>
+    <div style="text-align: right"><em>Scenes | 0.2.43</em></div>
 </script>
