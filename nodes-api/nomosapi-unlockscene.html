@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getExternalAccessClientToken';
-    RED.nodes.registerType('nomosapi-getexternalaccessclienttoken', {
-        category: 'nomos API ExternalAccess',
+    const NODE_NAME = 'unlockScene';
+    RED.nodes.registerType('nomosapi-unlockscene', {
+        category: 'nomos API Scenes',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -19,7 +19,7 @@
         }
     });
 </script>
-<script data-template-name="nomosapi-getexternalaccessclienttoken" type="text/x-red">
+<script data-template-name="nomosapi-unlockscene" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -38,9 +38,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getexternalaccessclienttoken" type="text/x-red">
-    <p>The Service node represents <strong>getExternalAccessClientToken</strong> nomos API Function: <br>
-        Get/Generate External Access Client Token. Tokens are valid for 3 months and have to be renewed before expire.
+<script data-help-name="nomosapi-unlockscene" type="text/x-red">
+    <p>The Service node represents <strong>unlockScene</strong> nomos API Function: <br>
+        Unlock Scene
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -51,13 +51,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.jwtid <span class="property-type">string</span></dt><dd>Unique Device ID</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Scene ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>DNS Name</dd></dl><dl class="message-properties"><dt>payload.jwt <span class="property-type">string</span></dt><dd>Token</dd></dl><dl class="message-properties"><dt>payload.jwtid <span class="property-type">string</span></dt><dd>Unique Device ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -74,9 +74,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-ExternalAccess-getExternalAccessClientToken" target="_blank">nomos API Docs</a> - <strong>getExternalAccessClientToken</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Scenes-unlockScene" target="_blank">nomos API Docs</a> - <strong>unlockScene</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>ExternalAccess | 0.2.33</em></div>
+    <div style="text-align: right"><em>Scenes | 0.2.45</em></div>
 </script>

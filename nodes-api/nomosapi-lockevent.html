@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    const NODE_NAME = 'setEventsProfile';
-    RED.nodes.registerType('nomosapi-seteventsprofile', {
+    const NODE_NAME = 'lockEvent';
+    RED.nodes.registerType('nomosapi-lockevent', {
         category: 'nomos API Events',
         color: '#eee',
         defaults: {
@@ -19,7 +19,7 @@
         }
     });
 </script>
-<script data-template-name="nomosapi-seteventsprofile" type="text/x-red">
+<script data-template-name="nomosapi-lockevent" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -38,9 +38,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-seteventsprofile" type="text/x-red">
-    <p>The Service node represents <strong>setEventsProfile</strong> nomos API Function: <br>
-        Set Events Profile
+<script data-help-name="nomosapi-lockevent" type="text/x-red">
+    <p>The Service node represents <strong>lockEvent</strong> nomos API Function: <br>
+        Lock Event to prevent unwanted changes
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -51,7 +51,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled Status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.debug <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Debug Status<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.eid <span class="property-type">string</span></dt><dd>Event ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -74,9 +74,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Events-setEventsProfile" target="_blank">nomos API Docs</a> - <strong>setEventsProfile</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Events-lockEvent" target="_blank">nomos API Docs</a> - <strong>lockEvent</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Events | 0.1.8</em></div>
+    <div style="text-align: right"><em>Events | 0.2.45</em></div>
 </script>
