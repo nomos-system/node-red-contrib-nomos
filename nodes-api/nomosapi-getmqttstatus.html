@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    const NODE_NAME = 'setComponent';
-    RED.nodes.registerType('nomosapi-setcomponent', {
-        category: 'nomos API Components',
+    const NODE_NAME = 'getMQTTStatus';
+    RED.nodes.registerType('nomosapi-getmqttstatus', {
+        category: 'nomos API MQTT',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -19,7 +19,7 @@
         }
     });
 </script>
-<script data-template-name="nomosapi-setcomponent" type="text/x-red">
+<script data-template-name="nomosapi-getmqttstatus" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -38,9 +38,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-setcomponent" type="text/x-red">
-    <p>The Service node represents <strong>setComponent</strong> nomos API Function: <br>
-        Set/Update a Component
+<script data-help-name="nomosapi-getmqttstatus" type="text/x-red">
+    <p>The Service node represents <strong>getMQTTStatus</strong> nomos API Function: <br>
+        Get MQTT Status Informations
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -51,13 +51,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional) </em>Name</dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Tagging</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional) </em>Additional Meta Informations</dd></dl><dl class="message-properties"><dt>payload.propertiesValues <span class="property-type">object</span></dt><dd><em>(optional) </em>Fixed/default Values for Properties</dd></dl><dl class="message-properties"><dt>payload.propertiesOverrides <span class="property-type">object</span></dt><dd><em>(optional) </em>Override Properties Settings</dd></dl><dl class="message-properties"><dt>payload.mappingsOverrides <span class="property-type">object</span></dt><dd><em>(optional) </em>Override Mappings Settings</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Connection status as text</dd></dl><dl class="message-properties"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Connection connected status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.brokerUrl <span class="property-type">string</span></dt><dd>Broker Url</dd></dl><dl class="message-properties"><dt>payload.statusTopic <span class="property-type">string</span></dt><dd>nomos Status Topic</dd></dl><dl class="message-properties"><dt>payload.subscriberTopic <span class="property-type">string</span></dt><dd>nomos Subscription Topic</dd></dl><dl class="message-properties"><dt>payload.publisherTopic <span class="property-type">string</span></dt><dd>nomos Publish Topic</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -74,9 +74,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Components-setComponent" target="_blank">nomos API Docs</a> - <strong>setComponent</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-MQTT-getMQTTStatus" target="_blank">nomos API Docs</a> - <strong>getMQTTStatus</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Components | 0.2.46</em></div>
+    <div style="text-align: right"><em>MQTT | 0.2.46</em></div>
 </script>

@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.33",
+	"version": "1.0.35",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -177,6 +177,7 @@
 			"getlicenseconfig": "nodes-api/nomosapi-getlicenseconfig.js",
 			"getproductprofile": "nodes-api/nomosapi-getproductprofile.js",
 			"getversion": "nodes-api/nomosapi-getversion.js",
+			"getmqttstatus": "nodes-api/nomosapi-getmqttstatus.js",
 			"addnetatmodevice": "nodes-api/nomosapi-addnetatmodevice.js",
 			"getnetatmodevices": "nodes-api/nomosapi-getnetatmodevices.js",
 			"getnetatmouser": "nodes-api/nomosapi-getnetatmouser.js",
@@ -489,6 +490,7 @@
 		"getlicenseconfig",
 		"getproductprofile",
 		"getversion",
+		"getmqttstatus",
 		"addnetatmodevice",
 		"getnetatmodevices",
 		"getnetatmouser",
