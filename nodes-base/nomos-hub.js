@@ -163,6 +163,13 @@ module.exports = function(RED) {
             node.socket.off('onComponentUpdate', node.componentUpdateHandler);
             log(node.log, 'Disconnected from ' + fullHost);
         });
+
+        node.socket.on('error', function() {
+            node.socket.disconnect();
+            process.nextTick(function() {
+                node.socket.connect();
+            });
+        });
     }
 
     RED.nodes.registerType(ID, nomosConfigNode, {
