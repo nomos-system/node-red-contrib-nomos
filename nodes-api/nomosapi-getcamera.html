@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getCameraName';
-    RED.nodes.registerType('nomosapi-getcameraname', {
+    const NODE_NAME = 'getCamera';
+    RED.nodes.registerType('nomosapi-getcamera', {
         category: 'nomos API Cameras',
         color: '#eee',
         defaults: {
@@ -19,7 +19,7 @@
         }
     });
 </script>
-<script data-template-name="nomosapi-getcameraname" type="text/x-red">
+<script data-template-name="nomosapi-getcamera" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -38,9 +38,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getcameraname" type="text/x-red">
-    <p>The Service node represents <strong>getCameraName</strong> nomos API Function: <br>
-        Get Camera Name
+<script data-help-name="nomosapi-getcamera" type="text/x-red">
+    <p>The Service node represents <strong>getCamera</strong> nomos API Function: <br>
+        Get Camera by ID
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -51,13 +51,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID to get name from</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Camera Name</dd></dl><dl class="message-properties"><dt>payload.object.url <span class="property-type">string</span></dt><dd>Camera Url</dd></dl><dl class="message-properties"><dt>payload.object.type <span class="property-type">string</span></dt><dd>Type of Url<br>Allowed values: <code>snapshot</code> <code>mjpeg</code> </dd></dl><dl class="message-properties"><dt>payload.object.refreshRate <span class="property-type">number</span></dt><dd><em>(optional) </em>Refresh Rate for Snapshot Type (in ms)</dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -74,7 +74,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Cameras-getCameraName" target="_blank">nomos API Docs</a> - <strong>getCameraName</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Cameras-getCamera" target="_blank">nomos API Docs</a> - <strong>getCamera</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
