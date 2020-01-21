@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    const NODE_NAME = 'enableProfile';
-    RED.nodes.registerType('nomosapi-enableprofile', {
-        category: 'nomos API Profiles',
+    const NODE_NAME = 'getHAPSettings';
+    RED.nodes.registerType('nomosapi-gethapsettings', {
+        category: 'nomos API HAP',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -19,7 +19,7 @@
         }
     });
 </script>
-<script data-template-name="nomosapi-enableprofile" type="text/x-red">
+<script data-template-name="nomosapi-gethapsettings" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -38,9 +38,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-enableprofile" type="text/x-red">
-    <p>The Service node represents <strong>enableProfile</strong> nomos API Function: <br>
-        Enable a Profile
+<script data-help-name="nomosapi-gethapsettings" type="text/x-red">
+    <p>The Service node represents <strong>getHAPSettings</strong> nomos API Function: <br>
+        Get HAP Settings
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -51,13 +51,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name<br>Allowed values: <code>hap</code> <code>hue</code> <code>knx</code> <code>netatmo</code> <code>sonos</code> <code>zwave</code> <code>remote</code> <code>addons</code> <code>tv</code> <code>tado</code> <code>lutron</code> <code>mqtt</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>HAP Name</dd></dl><dl class="message-properties"><dt>payload.pincode <span class="property-type">string</span></dt><dd>HAP Pin Code</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -74,9 +74,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Profiles-enableProfile" target="_blank">nomos API Docs</a> - <strong>enableProfile</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-HAP-getHAPSettings" target="_blank">nomos API Docs</a> - <strong>getHAPSettings</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Profiles | 0.2.46</em></div>
+    <div style="text-align: right"><em>HAP | 0.2.47</em></div>
 </script>
