@@ -1,6 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'Notification';
-
     RED.nodes.registerType('nomos-notificationprofile', {
         category: 'nomos Extras',
         color: '#aaa',
@@ -15,9 +13,9 @@
         outputs: 1,
         outputLabels: ['State'],
         icon: 'envelope.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'Notification',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'Notification';
         },
         oneditprepare: function() {
             var self = this;

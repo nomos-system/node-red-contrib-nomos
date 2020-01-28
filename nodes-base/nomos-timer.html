@@ -1,6 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'Timer';
-
     RED.nodes.registerType('nomos-timer', {
         category: 'nomos Extras',
         color: '#aaa',
@@ -15,9 +13,9 @@
         outputs: 2,
         outputLabels: ['Control error', 'Events output'],
         icon: 'hash.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'Timer',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'Timer';
         },
         oneditprepare: function() {
             var self = this;
@@ -58,7 +56,7 @@
             // default name proposal
             $('#node-input-eid').on('change', function() {
                 if($(this).find('option:selected').val() && $('#node-input-name').val() == '') {
-                    $('#node-input-name').val(NODE_NAME + ' - ' + $(this).find('option:selected').text());
+                    $('#node-input-name').val('Timer' + ' - ' + $(this).find('option:selected').text());
                 }
             });
         }

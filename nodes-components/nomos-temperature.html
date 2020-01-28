@@ -1,7 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'Temperature';
-    const FILTER_NAME = 'temperature';
-
     RED.nodes.registerType('nomos-temperature', {
         category: 'nomos Components',
         color: '#888',
@@ -14,11 +11,11 @@
         },
         inputs: 0,
         outputs: 2,
-        outputLabels: ['Events output', NODE_NAME + ' output'],
+        outputLabels: ['Events output', 'Temperature' + ' output'],
         icon: 'debug.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'Temperature',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'Temperature';
         },
         oneditprepare: function() {
             var self = this;
@@ -30,7 +27,7 @@
 
                 if(host && host.indexOf('...') < 0) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.getJSON('http://' + host + '/nodered/v1/components/' + FILTER_NAME, function(result) {
+                    $.getJSON('http://' + host + '/nodered/v1/components/' + 'temperature', function(result) {
                         $('#node-input-cid').empty().css('cursor', '').prop('disabled', false).append('<option value="">Please select...</option>');
                         if(Array.isArray(result)) {
                             const select = document.getElementById('node-input-cid');
@@ -59,7 +56,7 @@
             // default name proposal
             $('#node-input-cid').on('change', function() {
                 if($(this).find('option:selected').val() && $('#node-input-name').val() == '') {
-                    $('#node-input-name').val($(this).find('option:selected').text() + ' | ' + NODE_NAME);
+                    $('#node-input-name').val($(this).find('option:selected').text() + ' | ' + 'Temperature');
                 }
             });
         }

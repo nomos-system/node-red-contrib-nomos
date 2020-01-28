@@ -1,6 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'Generic';
-
     RED.nodes.registerType('nomos-raw', {
         category: 'nomos Components',
         color: '#888',
@@ -15,11 +13,11 @@
         },
         inputs: 1,
         outputs: 3,
-        outputLabels: ['Control error', 'Events output', NODE_NAME + ' output'],
+        outputLabels: ['Control error', 'Events output', 'Generic' + ' output'],
         icon: 'serial.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'Generic',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'Generic';
         },
         oneditprepare: function() {
             var self = this;

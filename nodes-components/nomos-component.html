@@ -1,6 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'Component';
-
     RED.nodes.registerType('nomos-component', {
         category: 'nomos Components',
         color: '#888',
@@ -15,9 +13,9 @@
         outputs: 2,
         outputLabels: ['Control error', 'Events output'],
         icon: 'serial.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'Component',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'Component';
         },
         oneditprepare: function() {
             var self = this;
