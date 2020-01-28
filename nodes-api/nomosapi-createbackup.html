@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'createBackup';
     RED.nodes.registerType('nomosapi-createbackup', {
         category: 'nomos API BackupRestore',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'createBackup',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'createBackup';
         }
     });
 </script>

@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'addTVDevice';
     RED.nodes.registerType('nomosapi-addtvdevice', {
         category: 'nomos API TV',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'addTVDevice',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'addTVDevice';
         }
     });
 </script>

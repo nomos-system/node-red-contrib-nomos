@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getComponentInitData';
     RED.nodes.registerType('nomosapi-getcomponentinitdata', {
         category: 'nomos API Components',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'getComponentInitData',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'getComponentInitData';
         }
     });
 </script>

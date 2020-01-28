@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getMQTTStatus';
     RED.nodes.registerType('nomosapi-getmqttstatus', {
         category: 'nomos API MQTT',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'getMQTTStatus',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'getMQTTStatus';
         }
     });
 </script>

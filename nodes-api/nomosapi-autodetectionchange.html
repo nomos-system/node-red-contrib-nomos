@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'autoDetectionChange';
     RED.nodes.registerType('nomosapi-autodetectionchange', {
         category: 'nomos API Components',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'autoDetectionChange',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'autoDetectionChange';
         }
     });
 </script>

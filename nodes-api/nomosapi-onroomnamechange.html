@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onRoomNameChange';
     RED.nodes.registerType('nomosapi-onroomnamechange', {
         category: 'nomos API Rooms',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onRoomNameChange',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onRoomNameChange';
         }
     });
 </script>

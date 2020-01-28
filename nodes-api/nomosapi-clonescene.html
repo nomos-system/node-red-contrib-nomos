@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'cloneScene';
     RED.nodes.registerType('nomosapi-clonescene', {
         category: 'nomos API Scenes',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'cloneScene',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'cloneScene';
         }
     });
 </script>

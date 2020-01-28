@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getNotifications';
     RED.nodes.registerType('nomosapi-getnotifications', {
         category: 'nomos API Notification',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'getNotifications',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'getNotifications';
         }
     });
 </script>

@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'stopZwaveExcludeMode';
     RED.nodes.registerType('nomosapi-stopzwaveexcludemode', {
         category: 'nomos API Zwave',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'stopZwaveExcludeMode',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'stopZwaveExcludeMode';
         }
     });
 </script>

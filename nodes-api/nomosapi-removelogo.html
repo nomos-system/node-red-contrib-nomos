@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'removeLogo';
     RED.nodes.registerType('nomosapi-removelogo', {
         category: 'nomos API Miscellaneous',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'removeLogo',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'removeLogo';
         }
     });
 </script>

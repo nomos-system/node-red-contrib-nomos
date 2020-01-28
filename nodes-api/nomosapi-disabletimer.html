@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'disableTimer';
     RED.nodes.registerType('nomosapi-disabletimer', {
         category: 'nomos API Timers',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'disableTimer',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'disableTimer';
         }
     });
 </script>

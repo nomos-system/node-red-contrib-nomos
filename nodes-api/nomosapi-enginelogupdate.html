@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'engineLogUpdate';
     RED.nodes.registerType('nomosapi-enginelogupdate', {
         category: 'nomos API Scripting',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'engineLogUpdate',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'engineLogUpdate';
         }
     });
 </script>

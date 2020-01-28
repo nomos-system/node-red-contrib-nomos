@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getCameraName';
     RED.nodes.registerType('nomosapi-getcameraname', {
         category: 'nomos API Cameras',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'getCameraName',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'getCameraName';
         }
     });
 </script>

@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onComponentDetached';
     RED.nodes.registerType('nomosapi-oncomponentdetached', {
         category: 'nomos API Components',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onComponentDetached',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onComponentDetached';
         }
     });
 </script>

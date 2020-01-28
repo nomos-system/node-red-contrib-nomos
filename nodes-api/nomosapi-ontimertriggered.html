@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onTimerTriggered';
     RED.nodes.registerType('nomosapi-ontimertriggered', {
         category: 'nomos API Timers',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onTimerTriggered',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onTimerTriggered';
         }
     });
 </script>

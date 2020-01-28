@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'softwareUpdateProgress';
     RED.nodes.registerType('nomosapi-softwareupdateprogress', {
         category: 'nomos API System',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'softwareUpdateProgress',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'softwareUpdateProgress';
         }
     });
 </script>

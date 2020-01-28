@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = '%NAME%';
     RED.nodes.registerType('%FILENAME%', {
         category: 'nomos API %GROUP%',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: '%NAME%',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || '%NAME%';
         }
     });
 </script>

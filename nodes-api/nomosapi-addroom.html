@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'addRoom';
     RED.nodes.registerType('nomosapi-addroom', {
         category: 'nomos API Rooms',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'addRoom',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'addRoom';
         }
     });
 </script>

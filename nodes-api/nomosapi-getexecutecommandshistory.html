@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getExecuteCommandsHistory';
     RED.nodes.registerType('nomosapi-getexecutecommandshistory', {
         category: 'nomos API Scripting',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'getExecuteCommandsHistory',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'getExecuteCommandsHistory';
         }
     });
 </script>

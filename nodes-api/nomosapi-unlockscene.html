@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'unlockScene';
     RED.nodes.registerType('nomosapi-unlockscene', {
         category: 'nomos API Scenes',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'unlockScene',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'unlockScene';
         }
     });
 </script>

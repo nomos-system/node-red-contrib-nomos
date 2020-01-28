@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'lutronImportError';
     RED.nodes.registerType('nomosapi-lutronimporterror', {
         category: 'nomos API Lutron',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'lutronImportError',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'lutronImportError';
         }
     });
 </script>

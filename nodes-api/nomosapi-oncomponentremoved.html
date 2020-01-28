@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onComponentRemoved';
     RED.nodes.registerType('nomosapi-oncomponentremoved', {
         category: 'nomos API Components',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onComponentRemoved',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onComponentRemoved';
         }
     });
 </script>

@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'getSystemUnits';
     RED.nodes.registerType('nomosapi-getsystemunits', {
         category: 'nomos API System',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'getSystemUnits',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'getSystemUnits';
         }
     });
 </script>

@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onAddonProfileAdded';
     RED.nodes.registerType('nomosapi-onaddonprofileadded', {
         category: 'nomos API Addons',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onAddonProfileAdded',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onAddonProfileAdded';
         }
     });
 </script>

@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'setZwaveControllerFrequency';
     RED.nodes.registerType('nomosapi-setzwavecontrollerfrequency', {
         category: 'nomos API Zwave',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'setZwaveControllerFrequency',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'setZwaveControllerFrequency';
         }
     });
 </script>

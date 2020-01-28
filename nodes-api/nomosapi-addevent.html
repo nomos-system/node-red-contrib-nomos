@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'addEvent';
     RED.nodes.registerType('nomosapi-addevent', {
         category: 'nomos API Events',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'addEvent',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'addEvent';
         }
     });
 </script>

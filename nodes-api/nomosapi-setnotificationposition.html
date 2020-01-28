@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'setNotificationPosition';
     RED.nodes.registerType('nomosapi-setnotificationposition', {
         category: 'nomos API NotificationProfile',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'setNotificationPosition',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'setNotificationPosition';
         }
     });
 </script>

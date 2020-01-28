@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onSceneTriggered';
     RED.nodes.registerType('nomosapi-onscenetriggered', {
         category: 'nomos API Scenes',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onSceneTriggered',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onSceneTriggered';
         }
     });
 </script>

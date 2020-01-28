@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'identifyHUE';
     RED.nodes.registerType('nomosapi-identifyhue', {
         category: 'nomos API PhilipsHUE',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'identifyHUE',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'identifyHUE';
         }
     });
 </script>

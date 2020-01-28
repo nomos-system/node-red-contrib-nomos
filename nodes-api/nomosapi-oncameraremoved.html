@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onCameraRemoved';
     RED.nodes.registerType('nomosapi-oncameraremoved', {
         category: 'nomos API Cameras',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onCameraRemoved',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onCameraRemoved';
         }
     });
 </script>

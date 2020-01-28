@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'revokeExternalAccessClientToken';
     RED.nodes.registerType('nomosapi-revokeexternalaccessclienttoken', {
         category: 'nomos API ExternalAccess',
         color: '#eee',
@@ -13,9 +12,9 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'revokeExternalAccessClientToken',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'revokeExternalAccessClientToken';
         }
     });
 </script>

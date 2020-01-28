@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'onTadoAuthorization';
     RED.nodes.registerType('nomosapi-ontadoauthorization', {
         category: 'nomos API Tado',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'onTadoAuthorization',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'onTadoAuthorization';
         }
     });
 </script>

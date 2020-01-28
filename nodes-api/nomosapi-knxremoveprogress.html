@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    const NODE_NAME = 'knxRemoveProgress';
     RED.nodes.registerType('nomosapi-knxremoveprogress', {
         category: 'nomos API KNX',
         color: '#ccc',
@@ -13,9 +12,9 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: NODE_NAME,
+        paletteLabel: 'knxRemoveProgress',
         label: function() {
-            return this.name || NODE_NAME;
+            return this.name || 'knxRemoveProgress';
         }
     });
 </script>
