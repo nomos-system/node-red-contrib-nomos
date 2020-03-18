@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-gettadodevices', {
-        category: 'nomos API Tado',
+    RED.nodes.registerType('nomosapi-gethaplasterror', {
+        category: 'nomos API HAP',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getTadoDevices',
+        paletteLabel: 'getHAPLastError',
         label: function() {
-            return this.name || 'getTadoDevices';
+            return this.name || 'getHAPLastError';
         }
     });
 </script>
-<script data-template-name="nomosapi-gettadodevices" type="text/x-red">
+<script data-template-name="nomosapi-gethaplasterror" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-gettadodevices" type="text/x-red">
-    <p>The Service node represents <strong>getTadoDevices</strong> nomos API Function: <br>
-        Get tado° devices that are reported by the cloud
+<script data-help-name="nomosapi-gethaplasterror" type="text/x-red">
+    <p>The Service node represents <strong>getHAPLastError</strong> nomos API Function: <br>
+        Get HAP Last Error Message
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -56,7 +56,7 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>ID of the home</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the home</dd></dl><dl class="message-properties"><dt>payload.zones <span class="property-type">object[]</span></dt><dd>Array with all the zones</dd></dl><dl class="message-properties"><dt>payload.zones.id <span class="property-type">number</span></dt><dd>ID of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.name <span class="property-type">string</span></dt><dd>Name of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.type <span class="property-type">string</span></dt><dd>Type of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.profile <span class="property-type">string</span></dt><dd>Profile of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.lid <span class="property-type">string</span></dt><dd>Library ID of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.zones.propertiesOverrides <span class="property-type">object</span></dt><dd>Override Properties Settings</dd></dl><dl class="message-properties"><dt>payload.zones.mappingsOverrides <span class="property-type">object</span></dt><dd>Override Mappings Settings</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.error <span class="property-type">string</span></dt><dd>Error Message</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Tado-getTadoDevices" target="_blank">nomos API Docs</a> - <strong>getTadoDevices</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-HAP-getHAPLastError" target="_blank">nomos API Docs</a> - <strong>getHAPLastError</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Tado | 0.2.47</em></div>
+    <div style="text-align: right"><em>HAP | 0.2.47</em></div>
 </script>

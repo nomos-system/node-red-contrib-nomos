@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-onscenepositionchange', {
-        category: 'nomos API Scenes',
+    RED.nodes.registerType('nomosapi-oncameraupdated', {
+        category: 'nomos API Cameras',
         color: '#ccc',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: 'onScenePositionChange',
+        paletteLabel: 'onCameraUpdated',
         label: function() {
-            return this.name || 'onScenePositionChange';
+            return this.name || 'onCameraUpdated';
         }
     });
 </script>
-<script data-template-name="nomosapi-onscenepositionchange" type="text/x-red">
+<script data-template-name="nomosapi-oncameraupdated" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -32,9 +32,9 @@
         <input type="text" id="node-input-topic" placeholder="Topic">
     </div>
 </script>
-<script data-help-name="nomosapi-onscenepositionchange" type="text/x-red">
-    <p>The Service node represents <strong>onScenePositionChange</strong> nomos API Event: <br>
-        Update Event when a Scene Position has been changed
+<script data-help-name="nomosapi-oncameraupdated" type="text/x-red">
+    <p>The Service node represents <strong>onCameraUpdated</strong> nomos API Event: <br>
+        Update Event when a Camera has been updated
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -45,15 +45,15 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>Data
-            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Scene ID</dd></dl><dl class="message-properties"><dt>payload.position <span class="property-type">number</span></dt><dd>Position</dd></dl>
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID</dd></dl>
          </li>
     </ol>
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Scenes-onScenePositionChange" target="_blank">nomos API Docs</a> - <strong>onScenePositionChange</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Cameras-onCameraUpdated" target="_blank">nomos API Docs</a> - <strong>onCameraUpdated</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Scenes | 0.2.46</em></div>
+    <div style="text-align: right"><em>Cameras | 0.2.47</em></div>
 </script>

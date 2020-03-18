@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the Camera</dd></dl><dl class="message-properties"><dt>payload.url <span class="property-type">string</span></dt><dd>The Url of the Camera</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional) </em>Type of Url<br>Default value: <code>snapshot</code><br>Allowed values: <code>snapshot</code> <code>mjpeg</code> </dd></dl><dl class="message-properties"><dt>payload.refreshRate <span class="property-type">integer{50-60000}</span></dt><dd><em>(optional) </em>Refresh Rate for Snapshot Type (in ms)<br>Default value: <code>100</code></dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the Camera</dd></dl><dl class="message-properties"><dt>payload.rooms <span class="property-type">integer[]</span></dt><dd><em>(optional) </em>Rooms Assignment</dd></dl><dl class="message-properties"><dt>payload.url <span class="property-type">string</span></dt><dd>The Url of the Camera</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional) </em>Type of Url<br>Default value: <code>snapshot</code><br>Allowed values: <code>snapshot</code> <code>mjpeg</code> </dd></dl><dl class="message-properties"><dt>payload.refreshRate <span class="property-type">integer{50-60000}</span></dt><dd><em>(optional) </em>Refresh Rate for Snapshot Type (in ms)<br>Default value: <code>100</code></dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional) </em>Model</dd></dl><dl class="message-properties"><dt>payload.manufacturer <span class="property-type">string</span></dt><dd><em>(optional) </em>Manufacturer</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID attached to</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -77,5 +77,5 @@
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Cameras | 0.2.44</em></div>
+    <div style="text-align: right"><em>Cameras | 0.2.47</em></div>
 </script>
