@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getloggingstatus', {
+    RED.nodes.registerType('nomosapi-getloggingsettings', {
         category: 'nomos API Logging',
         color: '#eee',
         defaults: {
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getLoggingStatus',
+        paletteLabel: 'getLoggingSettings',
         label: function() {
-            return this.name || 'getLoggingStatus';
+            return this.name || 'getLoggingSettings';
         }
     });
 </script>
-<script data-template-name="nomosapi-getloggingstatus" type="text/x-red">
+<script data-template-name="nomosapi-getloggingsettings" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getloggingstatus" type="text/x-red">
-    <p>The Service node represents <strong>getLoggingStatus</strong> nomos API Function: <br>
-        Get enabled Logging Component Properties
+<script data-help-name="nomosapi-getloggingsettings" type="text/x-red">
+    <p>The Service node represents <strong>getLoggingSettings</strong> nomos API Function: <br>
+        Get Logging enabled Component Settings
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -73,7 +73,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Logging-getLoggingStatus" target="_blank">nomos API Docs</a> - <strong>getLoggingStatus</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Logging-getLoggingSettings" target="_blank">nomos API Docs</a> - <strong>getLoggingSettings</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 

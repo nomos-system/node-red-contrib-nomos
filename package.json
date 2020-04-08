@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.45",
+	"version": "1.0.46",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -94,6 +94,7 @@
 			"detachcomponent": "nodes-api/nomosapi-detachcomponent.js",
 			"startbatchmode": "nodes-api/nomosapi-startbatchmode.js",
 			"stopbatchmode": "nodes-api/nomosapi-stopbatchmode.js",
+			"getcomponentassociations": "nodes-api/nomosapi-getcomponentassociations.js",
 			"geteverything": "nodes-api/nomosapi-geteverything.js",
 			"oncomponentupdate": "nodes-api/nomosapi-oncomponentupdate.js",
 			"componentupdate": "nodes-api/nomosapi-componentupdate.js",
@@ -164,7 +165,8 @@
 			"getlibrarybyprofile": "nodes-api/nomosapi-getlibrarybyprofile.js",
 			"getlibrarybyid": "nodes-api/nomosapi-getlibrarybyid.js",
 			"enablelogging": "nodes-api/nomosapi-enablelogging.js",
-			"getloggingstatus": "nodes-api/nomosapi-getloggingstatus.js",
+			"getloggingsettings": "nodes-api/nomosapi-getloggingsettings.js",
+			"getallloggingsettings": "nodes-api/nomosapi-getallloggingsettings.js",
 			"disablelogging": "nodes-api/nomosapi-disablelogging.js",
 			"resetlogging": "nodes-api/nomosapi-resetlogging.js",
 			"getloggingdata": "nodes-api/nomosapi-getloggingdata.js",
@@ -415,6 +417,7 @@
 		"detachcomponent",
 		"startbatchmode",
 		"stopbatchmode",
+		"getcomponentassociations",
 		"geteverything",
 		"oncomponentupdate",
 		"componentupdate",
@@ -485,7 +488,8 @@
 		"getlibrarybyprofile",
 		"getlibrarybyid",
 		"enablelogging",
-		"getloggingstatus",
+		"getloggingsettings",
+		"getallloggingsettings",
 		"disablelogging",
 		"resetlogging",
 		"getloggingdata",
