@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.46",
+	"version": "1.0.47",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -276,6 +276,8 @@
 			"getfeatureflag": "nodes-api/nomosapi-getfeatureflag.js",
 			"setsystemconfigured": "nodes-api/nomosapi-setsystemconfigured.js",
 			"getsystemconfigured": "nodes-api/nomosapi-getsystemconfigured.js",
+			"setsystemdiagnostic": "nodes-api/nomosapi-setsystemdiagnostic.js",
+			"getsystemdiagnostic": "nodes-api/nomosapi-getsystemdiagnostic.js",
 			"setsystemlanguage": "nodes-api/nomosapi-setsystemlanguage.js",
 			"getsystemlanguage": "nodes-api/nomosapi-getsystemlanguage.js",
 			"setsystemname": "nodes-api/nomosapi-setsystemname.js",
@@ -286,6 +288,7 @@
 			"getsystemslist": "nodes-api/nomosapi-getsystemslist.js",
 			"getoperatingsysteminfos": "nodes-api/nomosapi-getoperatingsysteminfos.js",
 			"getoperatingsystemload": "nodes-api/nomosapi-getoperatingsystemload.js",
+			"migratesystem": "nodes-api/nomosapi-migratesystem.js",
 			"restartsystem": "nodes-api/nomosapi-restartsystem.js",
 			"getsystemserialports": "nodes-api/nomosapi-getsystemserialports.js",
 			"getcountries": "nodes-api/nomosapi-getcountries.js",
@@ -599,6 +602,8 @@
 		"getfeatureflag",
 		"setsystemconfigured",
 		"getsystemconfigured",
+		"setsystemdiagnostic",
+		"getsystemdiagnostic",
 		"setsystemlanguage",
 		"getsystemlanguage",
 		"setsystemname",
@@ -609,6 +614,7 @@
 		"getsystemslist",
 		"getoperatingsysteminfos",
 		"getoperatingsystemload",
+		"migratesystem",
 		"restartsystem",
 		"getsystemserialports",
 		"getcountries",

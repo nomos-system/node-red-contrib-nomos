@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getsystemslist', {
+    RED.nodes.registerType('nomosapi-setsystemdiagnostic', {
         category: 'nomos API System',
         color: '#eee',
         defaults: {
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getSystemsList',
+        paletteLabel: 'setSystemDiagnostic',
         label: function() {
-            return this.name || 'getSystemsList';
+            return this.name || 'setSystemDiagnostic';
         }
     });
 </script>
-<script data-template-name="nomosapi-getsystemslist" type="text/x-red">
+<script data-template-name="nomosapi-setsystemdiagnostic" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getsystemslist" type="text/x-red">
-    <p>The Service node represents <strong>getSystemsList</strong> nomos API Function: <br>
-        Get/find all other neighbour systems in local network
+<script data-help-name="nomosapi-setsystemdiagnostic" type="text/x-red">
+    <p>The Service node represents <strong>setSystemDiagnostic</strong> nomos API Function: <br>
+        Set/Update system diagnostic settings
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.usage <span class="property-type">boolean</span></dt><dd>Allow usage data collection</dd></dl><dl class="message-properties"><dt>payload.crashReports <span class="property-type">boolean</span></dt><dd>Allow crash reporting</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>System Objects</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>System Name</dd></dl><dl class="message-properties"><dt>payload.object.sid <span class="property-type">string</span></dt><dd>System ID</dd></dl><dl class="message-properties"><dt>payload.object.ip <span class="property-type">string</span></dt><dd>IP Address</dd></dl><dl class="message-properties"><dt>payload.object.version <span class="property-type">string</span></dt><dd>Version</dd></dl><dl class="message-properties"><dt>payload.object.manufacturer <span class="property-type">string</span></dt><dd>Manufacturer</dd></dl><dl class="message-properties"><dt>payload.object.model <span class="property-type">string</span></dt><dd>Model</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getSystemsList" target="_blank">nomos API Docs</a> - <strong>getSystemsList</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-System-setSystemDiagnostic" target="_blank">nomos API Docs</a> - <strong>setSystemDiagnostic</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.48</em></div>
+    <div style="text-align: right"><em>System | 0.2.49</em></div>
 </script>
