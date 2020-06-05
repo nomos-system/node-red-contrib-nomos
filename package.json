@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.47",
+	"version": "1.0.48",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -193,6 +193,7 @@
 			"setnetworkhostname": "nodes-api/nomosapi-setnetworkhostname.js",
 			"setnetworkconfig": "nodes-api/nomosapi-setnetworkconfig.js",
 			"resetnodered": "nodes-api/nomosapi-resetnodered.js",
+			"onnotification": "nodes-api/nomosapi-onnotification.js",
 			"getnotificationprofiles": "nodes-api/nomosapi-getnotificationprofiles.js",
 			"addnotificationprofile": "nodes-api/nomosapi-addnotificationprofile.js",
 			"setnotificationprofile": "nodes-api/nomosapi-setnotificationprofile.js",
@@ -334,6 +335,9 @@
 			"removewebhook": "nodes-api/nomosapi-removewebhook.js",
 			"enablewebhook": "nodes-api/nomosapi-enablewebhook.js",
 			"disablewebhook": "nodes-api/nomosapi-disablewebhook.js",
+			"setzeptrionsmartbutton": "nodes-api/nomosapi-setzeptrionsmartbutton.js",
+			"addzeptriondevice": "nodes-api/nomosapi-addzeptriondevice.js",
+			"getzeptriondevices": "nodes-api/nomosapi-getzeptriondevices.js",
 			"zwavestatechange": "nodes-api/nomosapi-zwavestatechange.js",
 			"addzwavedevice": "nodes-api/nomosapi-addzwavedevice.js",
 			"getzwavedevices": "nodes-api/nomosapi-getzwavedevices.js",
@@ -519,6 +523,7 @@
 		"setnetworkhostname",
 		"setnetworkconfig",
 		"resetnodered",
+		"onnotification",
 		"getnotificationprofiles",
 		"addnotificationprofile",
 		"setnotificationprofile",
@@ -660,6 +665,9 @@
 		"removewebhook",
 		"enablewebhook",
 		"disablewebhook",
+		"setzeptrionsmartbutton",
+		"addzeptriondevice",
+		"getzeptriondevices",
 		"zwavestatechange",
 		"addzwavedevice",
 		"getzwavedevices",

@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-setknxgroupaddress', {
-        category: 'nomos API KNX',
+    RED.nodes.registerType('nomosapi-setzeptrionsmartbutton', {
+        category: 'nomos API Zeptrion',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'setKNXGroupAddress',
+        paletteLabel: 'setZeptrionSmartButton',
         label: function() {
-            return this.name || 'setKNXGroupAddress';
+            return this.name || 'setZeptrionSmartButton';
         }
     });
 </script>
-<script data-template-name="nomosapi-setknxgroupaddress" type="text/x-red">
+<script data-template-name="nomosapi-setzeptrionsmartbutton" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-setknxgroupaddress" type="text/x-red">
-    <p>The Service node represents <strong>setKNXGroupAddress</strong> nomos API Function: <br>
-        Set/Update a KNX Group Address
+<script data-help-name="nomosapi-setzeptrionsmartbutton" type="text/x-red">
+    <p>The Service node represents <strong>setZeptrionSmartButton</strong> nomos API Function: <br>
+        Configure/Set Zeptrion Smartfront Button
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,7 +50,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.addr <span class="property-type">string</span></dt><dd>KNX Address</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional) </em>Name</dd></dl><dl class="message-properties"><dt>payload.description <span class="property-type">string</span></dt><dd><em>(optional) </em>Description</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional) </em>DPT Type</dd></dl><dl class="message-properties"><dt>payload.readOnInit <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Read on Initialization Flag<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.ignoreDependency <span class="property-type">boolean</span></dt><dd><em>(optional) </em>No Dependency Checks<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd>Host/Name of the Device</dd></dl><dl class="message-properties"><dt>payload.port <span class="property-type">number</span></dt><dd><em>(optional) </em>Port Number of the Device</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-KNX-setKNXGroupAddress" target="_blank">nomos API Docs</a> - <strong>setKNXGroupAddress</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Zeptrion-setZeptrionSmartButton" target="_blank">nomos API Docs</a> - <strong>setZeptrionSmartButton</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>KNX | 0.2.50</em></div>
+    <div style="text-align: right"><em>Zeptrion | 0.2.50</em></div>
 </script>
