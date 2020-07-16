@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-onsystemvariableadded', {
+    RED.nodes.registerType('nomosapi-onsystemvariableupdated', {
         category: 'nomos API SystemVariables',
         color: '#ccc',
         defaults: {
@@ -12,13 +12,13 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'feed.png',
-        paletteLabel: 'onSystemVariableAdded',
+        paletteLabel: 'onSystemVariableUpdated',
         label: function() {
-            return this.name || 'onSystemVariableAdded';
+            return this.name || 'onSystemVariableUpdated';
         }
     });
 </script>
-<script data-template-name="nomosapi-onsystemvariableadded" type="text/x-red">
+<script data-template-name="nomosapi-onsystemvariableupdated" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -32,9 +32,9 @@
         <input type="text" id="node-input-topic" placeholder="Topic">
     </div>
 </script>
-<script data-help-name="nomosapi-onsystemvariableadded" type="text/x-red">
-    <p>The Service node represents <strong>onSystemVariableAdded</strong> nomos API Event: <br>
-        Update Event when a new System Variable has been added
+<script data-help-name="nomosapi-onsystemvariableupdated" type="text/x-red">
+    <p>The Service node represents <strong>onSystemVariableUpdated</strong> nomos API Event: <br>
+        Update Event when a System Variable has been updated
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -45,13 +45,13 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>Data
-            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Variable ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.defaultValue <span class="property-type">string/integer/float/boolean</span></dt><dd>Default Value</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Datatype<br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>datetime</code> </dd></dl>
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Variable ID</dd></dl>
          </li>
     </ol>
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-SystemVariables-onSystemVariableAdded" target="_blank">nomos API Docs</a> - <strong>onSystemVariableAdded</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-SystemVariables-onSystemVariableUpdated" target="_blank">nomos API Docs</a> - <strong>onSystemVariableUpdated</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
