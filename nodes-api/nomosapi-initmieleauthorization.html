@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-disableprofile', {
-        category: 'nomos API Profiles',
+    RED.nodes.registerType('nomosapi-initmieleauthorization', {
+        category: 'nomos API Miele',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'disableProfile',
+        paletteLabel: 'initMieleAuthorization',
         label: function() {
-            return this.name || 'disableProfile';
+            return this.name || 'initMieleAuthorization';
         }
     });
 </script>
-<script data-template-name="nomosapi-disableprofile" type="text/x-red">
+<script data-template-name="nomosapi-initmieleauthorization" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-disableprofile" type="text/x-red">
-    <p>The Service node represents <strong>disableProfile</strong> nomos API Function: <br>
-        Disable a Profile
+<script data-help-name="nomosapi-initmieleauthorization" type="text/x-red">
+    <p>The Service node represents <strong>initMieleAuthorization</strong> nomos API Function: <br>
+        Initialize Miele Authorization
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name<br>Allowed values: <code>hap</code> <code>hue</code> <code>knx</code> <code>netatmo</code> <code>sonos</code> <code>zwave</code> <code>remote</code> <code>addons</code> <code>tv</code> <code>tado</code> <code>miele</code> <code>lutron</code> <code>mqtt</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.Redirect <span class="property-type">string</span></dt><dd>Url</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Profiles-disableProfile" target="_blank">nomos API Docs</a> - <strong>disableProfile</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Miele-initMieleAuthorization" target="_blank">nomos API Docs</a> - <strong>initMieleAuthorization</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Profiles | 0.2.46</em></div>
+    <div style="text-align: right"><em>Miele | 0.2.52</em></div>
 </script>
