@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.51",
+	"version": "1.0.52",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -135,6 +135,11 @@
 			"addfloor": "nodes-api/nomosapi-addfloor.js",
 			"onfloorremoved": "nodes-api/nomosapi-onfloorremoved.js",
 			"removefloor": "nodes-api/nomosapi-removefloor.js",
+			"addfreeathomedevice": "nodes-api/nomosapi-addfreeathomedevice.js",
+			"getfreeathomeaps": "nodes-api/nomosapi-getfreeathomeaps.js",
+			"removefreeathomeap": "nodes-api/nomosapi-removefreeathomeap.js",
+			"authorizefreeathomeap": "nodes-api/nomosapi-authorizefreeathomeap.js",
+			"getfreeathomedevices": "nodes-api/nomosapi-getfreeathomedevices.js",
 			"gethapstatus": "nodes-api/nomosapi-gethapstatus.js",
 			"gethaplasterror": "nodes-api/nomosapi-gethaplasterror.js",
 			"gethapsettings": "nodes-api/nomosapi-gethapsettings.js",
@@ -482,6 +487,11 @@
 		"addfloor",
 		"onfloorremoved",
 		"removefloor",
+		"addfreeathomedevice",
+		"getfreeathomeaps",
+		"removefreeathomeap",
+		"authorizefreeathomeap",
+		"getfreeathomedevices",
 		"gethapstatus",
 		"gethaplasterror",
 		"gethapsettings",

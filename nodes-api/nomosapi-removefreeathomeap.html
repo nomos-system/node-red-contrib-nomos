@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getmieledevices', {
-        category: 'nomos API Miele',
+    RED.nodes.registerType('nomosapi-removefreeathomeap', {
+        category: 'nomos API FreeAtHome',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getMieleDevices',
+        paletteLabel: 'removeFreeAtHomeAP',
         label: function() {
-            return this.name || 'getMieleDevices';
+            return this.name || 'removeFreeAtHomeAP';
         }
     });
 </script>
-<script data-template-name="nomosapi-getmieledevices" type="text/x-red">
+<script data-template-name="nomosapi-removefreeathomeap" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getmieledevices" type="text/x-red">
-    <p>The Service node represents <strong>getMieleDevices</strong> nomos API Function: <br>
-        Get Miele devices that are reported by the cloud
+<script data-help-name="nomosapi-removefreeathomeap" type="text/x-red">
+    <p>The Service node represents <strong>removeFreeAtHomeAP</strong> nomos API Function: <br>
+        %DESCRIPTION%
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.mac <span class="property-type">string</span></dt><dd>Mac Address</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>ID of the device</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.mieleType <span class="property-type">number</span></dt><dd>Miele Type</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.ident <span class="property-type">object</span></dt><dd>Miele Identification Infos 1</dd></dl><dl class="message-properties"><dt>payload.ident2 <span class="property-type">object</span></dt><dd>Miele Identification Infos 2</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Miele-getMieleDevices" target="_blank">nomos API Docs</a> - <strong>getMieleDevices</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-FreeAtHome-removeFreeAtHomeAP" target="_blank">nomos API Docs</a> - <strong>removeFreeAtHomeAP</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Miele | 0.2.53</em></div>
+    <div style="text-align: right"><em>FreeAtHome | 0.2.54</em></div>
 </script>
