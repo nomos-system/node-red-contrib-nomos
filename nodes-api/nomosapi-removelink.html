@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-setportforwarding', {
-        category: 'nomos API Support',
+    RED.nodes.registerType('nomosapi-removelink', {
+        category: 'nomos API Links',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'setPortForwarding',
+        paletteLabel: 'removeLink',
         label: function() {
-            return this.name || 'setPortForwarding';
+            return this.name || 'removeLink';
         }
     });
 </script>
-<script data-template-name="nomosapi-setportforwarding" type="text/x-red">
+<script data-template-name="nomosapi-removelink" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-setportforwarding" type="text/x-red">
-    <p>The Service node represents <strong>setPortForwarding</strong> nomos API Function: <br>
-        Set/Update a Port Forwarding Rule
+<script data-help-name="nomosapi-removelink" type="text/x-red">
+    <p>The Service node represents <strong>removeLink</strong> nomos API Function: <br>
+        Remove a Link
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,7 +50,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Rule ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional) </em>The Name of the Rule</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional) </em>Type/Protocol<br>Allowed values: <code>TCP</code> <code>UDP</code> </dd></dl><dl class="message-properties"><dt>payload.localPort <span class="property-type">number</span></dt><dd><em>(optional) </em>Local Port</dd></dl><dl class="message-properties"><dt>payload.remoteHost <span class="property-type">string</span></dt><dd><em>(optional) </em>Remote Host</dd></dl><dl class="message-properties"><dt>payload.remotePort <span class="property-type">number</span></dt><dd><em>(optional) </em>Remote Port</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Enabled/Disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Link ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Support-setPortForwarding" target="_blank">nomos API Docs</a> - <strong>setPortForwarding</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Links-removeLink" target="_blank">nomos API Docs</a> - <strong>removeLink</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Support | 0.2.37</em></div>
+    <div style="text-align: right"><em>Links | 0.2.56</em></div>
 </script>
