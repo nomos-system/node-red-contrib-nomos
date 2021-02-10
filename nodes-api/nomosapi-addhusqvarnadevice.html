@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getsomfydevices', {
-        category: 'nomos API Somfy',
+    RED.nodes.registerType('nomosapi-addhusqvarnadevice', {
+        category: 'nomos API Husqvarna',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getSomfyDevices',
+        paletteLabel: 'addHusqvarnaDevice',
         label: function() {
-            return this.name || 'getSomfyDevices';
+            return this.name || 'addHusqvarnaDevice';
         }
     });
 </script>
-<script data-template-name="nomosapi-getsomfydevices" type="text/x-red">
+<script data-template-name="nomosapi-addhusqvarnadevice" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getsomfydevices" type="text/x-red">
-    <p>The Service node represents <strong>getSomfyDevices</strong> nomos API Function: <br>
-        Get Somfy sites/devices that are reported by the cloud
+<script data-help-name="nomosapi-addhusqvarnadevice" type="text/x-red">
+    <p>The Service node represents <strong>addHusqvarnaDevice</strong> nomos API Function: <br>
+        Add a Husqvarna device as component
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd><em>(optional) </em>System ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Device ID</dd></dl><dl class="message-properties"><dt>payload.husqvarnaType <span class="property-type">string</span></dt><dd>Husqvarna type</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd><em>(optional) </em>Capabilities of the Device</dd></dl><dl class="message-properties"><dt>payload.propertiesOverrides <span class="property-type">object</span></dt><dd><em>(optional) </em>Override Properties Settings</dd></dl><dl class="message-properties"><dt>payload.mappingsOverrides <span class="property-type">object</span></dt><dd><em>(optional) </em>Override Mappings Settings</dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Tagging</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional) </em>Additional Meta Informations</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the site</dd></dl><dl class="message-properties"><dt>payload.devices <span class="property-type">object[]</span></dt><dd>Array with all the devices</dd></dl><dl class="message-properties"><dt>payload.devices.id <span class="property-type">string</span></dt><dd>ID of the device</dd></dl><dl class="message-properties"><dt>payload.devices.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.devices.type <span class="property-type">string</span></dt><dd>Type</dd></dl><dl class="message-properties"><dt>payload.devices.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.devices.somfyType <span class="property-type">string</span></dt><dd>Somfy Type</dd></dl><dl class="message-properties"><dt>payload.devices.profile <span class="property-type">string</span></dt><dd>Profile</dd></dl><dl class="message-properties"><dt>payload.devices.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.devices.available <span class="property-type">string</span></dt><dd>Available/Connected</dd></dl><dl class="message-properties"><dt>payload.devices.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>new Component ID</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Somfy-getSomfyDevices" target="_blank">nomos API Docs</a> - <strong>getSomfyDevices</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Husqvarna-addHusqvarnaDevice" target="_blank">nomos API Docs</a> - <strong>addHusqvarnaDevice</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Somfy | 0.2.53</em></div>
+    <div style="text-align: right"><em>Husqvarna | 0.2.59</em></div>
 </script>
