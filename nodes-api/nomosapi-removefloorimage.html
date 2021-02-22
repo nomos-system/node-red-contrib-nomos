@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getrooms', {
-        category: 'nomos API Rooms',
+    RED.nodes.registerType('nomosapi-removefloorimage', {
+        category: 'nomos API Floors',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getRooms',
+        paletteLabel: 'removeFloorImage',
         label: function() {
-            return this.name || 'getRooms';
+            return this.name || 'removeFloorImage';
         }
     });
 </script>
-<script data-template-name="nomosapi-getrooms" type="text/x-red">
+<script data-template-name="nomosapi-removefloorimage" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getrooms" type="text/x-red">
-    <p>The Service node represents <strong>getRooms</strong> nomos API Function: <br>
-        Get Rooms
+<script data-help-name="nomosapi-removefloorimage" type="text/x-red">
+    <p>The Service node represents <strong>removeFloorImage</strong> nomos API Function: <br>
+        Remove a Floor image
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Floor ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Room Objects</dd></dl><dl class="message-properties"><dt>payload.object.id <span class="property-type">number</span></dt><dd>Room ID</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Room Name</dd></dl><dl class="message-properties"><dt>payload.object.image <span class="property-type">string</span></dt><dd>Image Name</dd></dl><dl class="message-properties"><dt>payload.object.floor <span class="property-type">integer[]</span></dt><dd>Floor ID's where this room is assigned to</dd></dl><dl class="message-properties"><dt>payload.object.meta <span class="property-type">object</span></dt><dd>Floor ID's and meta settings</dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.object.position <span class="property-type">number</span></dt><dd>Order Position</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Rooms-getRooms" target="_blank">nomos API Docs</a> - <strong>getRooms</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Floors-removeFloorImage" target="_blank">nomos API Docs</a> - <strong>removeFloorImage</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Rooms | 0.2.60</em></div>
+    <div style="text-align: right"><em>Floors | 0.2.60</em></div>
 </script>
