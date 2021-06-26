@@ -42,7 +42,7 @@ module.exports = function(RED) {
             if(msg.payload && msg.payload.__command) {
                 command = msg.payload.__command;
                 delete msg.payload.__command;
-                log(node.log, 'Executing "' + command + '" with payload ' + JSON.stringify(msg.payload));
+                if (node.log) log(node.log, 'Executing "' + command + '" with payload ' + JSON.stringify(msg.payload));
                 node.socket.emit(command, msg.payload, callback);
             }
         };
@@ -119,7 +119,7 @@ module.exports = function(RED) {
         //
         node.connected = false;
         const fullHost = 'http://' + config.host + ':' + config.port + '/api/v1';
-        log(this.log, 'Connecting to ' + fullHost);
+        if (this.log) log(this.log, 'Connecting to ' + fullHost);
         node.setStatus('connecting');
         node.socket = require('socket.io-client')(fullHost + '?knxgroupaddresses=1');
 
@@ -144,7 +144,7 @@ module.exports = function(RED) {
                     // successful
                     node.connected = true;
                     node.setStatus('connect');
-                    log(node.log, 'Connected to ' + fullHost);
+                    if (node.log) log(node.log, 'Connected to ' + fullHost);
                     socketInitialization();
                 }
                 else {
@@ -161,7 +161,7 @@ module.exports = function(RED) {
             node.connected = false;
             node.setStatus('disconnect');
             node.socket.off('onComponentUpdate', node.componentUpdateHandler);
-            log(node.log, 'Disconnected from ' + fullHost);
+            if (node.log) log(node.log, 'Disconnected from ' + fullHost);
         });
 
         node.socket.on('error', function() {
