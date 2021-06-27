@@ -42,7 +42,7 @@ module.exports = function(RED) {
             if(msg.payload && msg.payload.__command) {
                 command = msg.payload.__command;
                 delete msg.payload.__command;
-                if (node.log) log(node.log, 'Executing "' + command + '" with payload ' + JSON.stringify(msg.payload));
+                if (node && node.log) log(node.log, 'Executing "' + command + '" with payload ' + JSON.stringify(msg.payload));
                 node.socket.emit(command, msg.payload, callback);
             }
         };
@@ -144,7 +144,7 @@ module.exports = function(RED) {
                     // successful
                     node.connected = true;
                     node.setStatus('connect');
-                    if (node.log) log(node.log, 'Connected to ' + fullHost);
+                    if (node && node.log) log(node.log, 'Connected to ' + fullHost);
                     socketInitialization();
                 }
                 else {
@@ -161,7 +161,7 @@ module.exports = function(RED) {
             node.connected = false;
             node.setStatus('disconnect');
             node.socket.off('onComponentUpdate', node.componentUpdateHandler);
-            if (node.log) log(node.log, 'Disconnected from ' + fullHost);
+            if (node && node.log) log(node.log, 'Disconnected from ' + fullHost);
         });
 
         node.socket.on('error', function() {
