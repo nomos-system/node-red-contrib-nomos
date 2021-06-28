@@ -119,7 +119,7 @@ module.exports = function(RED) {
         //
         node.connected = false;
         const fullHost = 'http://' + config.host + ':' + config.port + '/api/v1';
-        if (this.log) log(this.log, 'Connecting to ' + fullHost);
+        if (this && this.log) log(this.log, 'Connecting to ' + fullHost);
         node.setStatus('connecting');
         node.socket = require('socket.io-client')(fullHost + '?knxgroupaddresses=1');
 
