@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-restartnodered', {
-        category: 'nomos API NodeRED',
+    RED.nodes.registerType('nomosapi-removewisergateway', {
+        category: 'nomos API Wiser',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'restartNodeRed',
+        paletteLabel: 'removeWiserGateway',
         label: function() {
-            return this.name || 'restartNodeRed';
+            return this.name || 'removeWiserGateway';
         }
     });
 </script>
-<script data-template-name="nomosapi-restartnodered" type="text/x-red">
+<script data-template-name="nomosapi-removewisergateway" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-restartnodered" type="text/x-red">
-    <p>The Service node represents <strong>restartNodeRed</strong> nomos API Function: <br>
-        Restart Node-RED service
+<script data-help-name="nomosapi-removewisergateway" type="text/x-red">
+    <p>The Service node represents <strong>removeWiserGateway</strong> nomos API Function: <br>
+        Remove a Wiser Gateway
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,7 +50,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Gateway ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-NodeRED-restartNodeRed" target="_blank">nomos API Docs</a> - <strong>restartNodeRed</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Wiser-removeWiserGateway" target="_blank">nomos API Docs</a> - <strong>removeWiserGateway</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>NodeRED | 0.2.64</em></div>
+    <div style="text-align: right"><em>Wiser | 0.2.64</em></div>
 </script>
