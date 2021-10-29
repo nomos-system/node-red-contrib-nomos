@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.75",
+	"version": "1.0.76",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -406,6 +406,8 @@
 			"addwiserdevice": "nodes-api/nomosapi-addwiserdevice.js",
 			"startwiseridentify": "nodes-api/nomosapi-startwiseridentify.js",
 			"stopwiseridentify": "nodes-api/nomosapi-stopwiseridentify.js",
+			"identifywisersmartbutton": "nodes-api/nomosapi-identifywisersmartbutton.js",
+			"addwisersmartbutton": "nodes-api/nomosapi-addwisersmartbutton.js",
 			"setzeptrionsmartbutton": "nodes-api/nomosapi-setzeptrionsmartbutton.js",
 			"addzeptriondevice": "nodes-api/nomosapi-addzeptriondevice.js",
 			"getzeptriondevices": "nodes-api/nomosapi-getzeptriondevices.js",
@@ -802,6 +804,8 @@
 		"addwiserdevice",
 		"startwiseridentify",
 		"stopwiseridentify",
+		"identifywisersmartbutton",
+		"addwisersmartbutton",
 		"setzeptrionsmartbutton",
 		"addzeptriondevice",
 		"getzeptriondevices",
