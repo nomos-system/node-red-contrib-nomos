@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.78",
+	"version": "1.0.79",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -76,10 +76,12 @@
 			"removeclient": "nodes-api/nomosapi-removeclient.js",
 			"getcloudstatus": "nodes-api/nomosapi-getcloudstatus.js",
 			"resetcloud": "nodes-api/nomosapi-resetcloud.js",
+			"enablecloudsync": "nodes-api/nomosapi-enablecloudsync.js",
+			"disablecloudsync": "nodes-api/nomosapi-disablecloudsync.js",
 			"enablecloud": "nodes-api/nomosapi-enablecloud.js",
-			"unregistercloud": "nodes-api/nomosapi-unregistercloud.js",
 			"disablecloud": "nodes-api/nomosapi-disablecloud.js",
-			"getsyncstatus": "nodes-api/nomosapi-getsyncstatus.js",
+			"registercloud": "nodes-api/nomosapi-registercloud.js",
+			"unregistercloud": "nodes-api/nomosapi-unregistercloud.js",
 			"autodetectionchange": "nodes-api/nomosapi-autodetectionchange.js",
 			"oncomponentadded": "nodes-api/nomosapi-oncomponentadded.js",
 			"oncomponentremoved": "nodes-api/nomosapi-oncomponentremoved.js",
@@ -372,8 +374,6 @@
 			"removetimer": "nodes-api/nomosapi-removetimer.js",
 			"enabletimer": "nodes-api/nomosapi-enabletimer.js",
 			"disabletimer": "nodes-api/nomosapi-disabletimer.js",
-			"addtvdevice": "nodes-api/nomosapi-addtvdevice.js",
-			"gettvdevices": "nodes-api/nomosapi-gettvdevices.js",
 			"getimportedupdatedetails": "nodes-api/nomosapi-getimportedupdatedetails.js",
 			"callimportedupdate": "nodes-api/nomosapi-callimportedupdate.js",
 			"licenseupdatecheck": "nodes-api/nomosapi-licenseupdatecheck.js",
@@ -436,8 +436,7 @@
 			"getzwavecontrollerfrequency": "nodes-api/nomosapi-getzwavecontrollerfrequency.js",
 			"setzwavecontrollerfrequency": "nodes-api/nomosapi-setzwavecontrollerfrequency.js",
 			"getzwavewakeupinterval": "nodes-api/nomosapi-getzwavewakeupinterval.js",
-			"setzwavewakeupinterval": "nodes-api/nomosapi-setzwavewakeupinterval.js",
-			"systemregistration": "nodes-api/nomosapi-systemregistration.js"
+			"setzwavewakeupinterval": "nodes-api/nomosapi-setzwavewakeupinterval.js"
 		}
 	},
 	"nomosapis": [
@@ -475,10 +474,12 @@
 		"removeclient",
 		"getcloudstatus",
 		"resetcloud",
+		"enablecloudsync",
+		"disablecloudsync",
 		"enablecloud",
-		"unregistercloud",
 		"disablecloud",
-		"getsyncstatus",
+		"registercloud",
+		"unregistercloud",
 		"autodetectionchange",
 		"oncomponentadded",
 		"oncomponentremoved",
@@ -771,8 +772,6 @@
 		"removetimer",
 		"enabletimer",
 		"disabletimer",
-		"addtvdevice",
-		"gettvdevices",
 		"getimportedupdatedetails",
 		"callimportedupdate",
 		"licenseupdatecheck",
@@ -835,8 +834,7 @@
 		"getzwavecontrollerfrequency",
 		"setzwavecontrollerfrequency",
 		"getzwavewakeupinterval",
-		"setzwavewakeupinterval",
-		"systemregistration"
+		"setzwavewakeupinterval"
 	],
 	"dependencies": {
 		"socket.io-client": "^2.2.0"
