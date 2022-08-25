@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-disableprofile', {
-        category: 'nomos API Profiles',
+    RED.nodes.registerType('nomosapi-authenticatenukibridge', {
+        category: 'nomos API Nuki',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'disableProfile',
+        paletteLabel: 'authenticateNukiBridge',
         label: function() {
-            return this.name || 'disableProfile';
+            return this.name || 'authenticateNukiBridge';
         }
     });
 </script>
-<script data-template-name="nomosapi-disableprofile" type="text/x-red">
+<script data-template-name="nomosapi-authenticatenukibridge" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-disableprofile" type="text/x-red">
-    <p>The Service node represents <strong>disableProfile</strong> nomos API Function: <br>
-        Disable a Profile
+<script data-help-name="nomosapi-authenticatenukibridge" type="text/x-red">
+    <p>The Service node represents <strong>authenticateNukiBridge</strong> nomos API Function: <br>
+        Authenticate a Nuki Bridge
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,7 +50,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name<br>Allowed values: <code>hap</code> <code>hue</code> <code>husqvarna</code> <code>freeathome</code> <code>knx</code> <code>netatmo</code> <code>sonos</code> <code>zwave</code> <code>remote</code> <code>addons</code> <code>tv</code> <code>tado</code> <code>miele</code> <code>somfy</code> <code>lutron</code> <code>mqtt</code> <code>nuki</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd><em>(optional) </em>System ID</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Nuki ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Profiles-disableProfile" target="_blank">nomos API Docs</a> - <strong>disableProfile</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Nuki-authenticateNukiBridge" target="_blank">nomos API Docs</a> - <strong>authenticateNukiBridge</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Profiles | 0.2.69</em></div>
+    <div style="text-align: right"><em>Nuki | 0.2.69</em></div>
 </script>
