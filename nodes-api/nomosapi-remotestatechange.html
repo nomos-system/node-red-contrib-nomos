@@ -1,0 +1,59 @@
+<script type="text/javascript">
+    RED.nodes.registerType('nomosapi-remotestatechange', {
+        category: 'nomos API Apple-Remote',
+        color: '#ccc',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 0,
+        outputs: 1,
+        outputLabels: ['Data'],
+        icon: 'feed.png',
+        paletteLabel: 'remoteStateChange',
+        label: function() {
+            return this.name || 'remoteStateChange';
+        }
+    });
+</script>
+<script data-template-name="nomosapi-remotestatechange" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+<script data-help-name="nomosapi-remotestatechange" type="text/x-red">
+    <p>The Service node represents <strong>remoteStateChange</strong> nomos API Event: <br>
+        Update Event when "remote" Apple State Events get fired
+    </p>
+    <ul>
+        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node.
+    </ul>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>Data
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd>System ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model/Type of Device<br>Allowed values: <code>iTunes</code> <code>Music</code> <code>AppleTV</code> </dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd>Host IP/Name of the Device</dd></dl><dl class="message-properties"><dt>payload.uuid <span class="property-type">string</span></dt><dd>UUID of Apple Device</dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Status</dd></dl><dl class="message-properties"><dt>payload.paired <span class="property-type">boolean</span></dt><dd>Pairing done<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Apple-Remote-remoteStateChange" target="_blank">nomos API Docs</a> - <strong>remoteStateChange</strong> API Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Apple-Remote | 0.2.70</em></div>
+</script>

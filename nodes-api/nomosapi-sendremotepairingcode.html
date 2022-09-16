@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addremotedevice', {
+    RED.nodes.registerType('nomosapi-sendremotepairingcode', {
         category: 'nomos API Apple-Remote',
         color: '#eee',
         defaults: {
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'addRemoteDevice',
+        paletteLabel: 'sendRemotePairingCode',
         label: function() {
-            return this.name || 'addRemoteDevice';
+            return this.name || 'sendRemotePairingCode';
         }
     });
 </script>
-<script data-template-name="nomosapi-addremotedevice" type="text/x-red">
+<script data-template-name="nomosapi-sendremotepairingcode" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addremotedevice" type="text/x-red">
-    <p>The Service node represents <strong>addRemoteDevice</strong> nomos API Function: <br>
-        Add a "remote" Apple iTunes/Music/AppleTV Device/Component
+<script data-help-name="nomosapi-sendremotepairingcode" type="text/x-red">
+    <p>The Service node represents <strong>sendRemotePairingCode</strong> nomos API Function: <br>
+        Send "remote" Apple Pairing PIN Code
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model/Type of Device<br>Allowed values: <code>iTunes</code> <code>Music</code> <code>AppleTV</code> </dd></dl><dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd><em>(optional) </em>System ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd><em>(optional) </em>Host IP/Name of the Device</dd></dl><dl class="message-properties"><dt>payload.uuid <span class="property-type">string</span></dt><dd><em>(optional) </em>UUID of Apple Device</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd><em>(optional) </em>Library ID of the Device<br>Allowed values: <code>remote.itunes</code> <code>remote.music</code> <code>remote.appletv</code> </dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd><em>(optional) </em>Profile of the Device<br>Allowed values: <code>itunes</code> <code>music</code> <code>appletv</code> </dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd><em>(optional) </em>Capabilities of the Device</dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Tagging</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional) </em>Additional Meta Informations</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.code <span class="property-type">string</span></dt><dd>PIN Code</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>The new Component ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,7 +73,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Apple-Remote-addRemoteDevice" target="_blank">nomos API Docs</a> - <strong>addRemoteDevice</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Apple-Remote-sendRemotePairingCode" target="_blank">nomos API Docs</a> - <strong>sendRemotePairingCode</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 

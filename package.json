@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.0.83",
+	"version": "1.0.84",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -268,8 +268,10 @@
 			"onpropertynamechange": "nodes-api/nomosapi-onpropertynamechange.js",
 			"setpropertyname": "nodes-api/nomosapi-setpropertyname.js",
 			"setproperty": "nodes-api/nomosapi-setproperty.js",
+			"remotestatechange": "nodes-api/nomosapi-remotestatechange.js",
 			"addremotedevice": "nodes-api/nomosapi-addremotedevice.js",
 			"getremotedevices": "nodes-api/nomosapi-getremotedevices.js",
+			"sendremotepairingcode": "nodes-api/nomosapi-sendremotepairingcode.js",
 			"startremotepairing": "nodes-api/nomosapi-startremotepairing.js",
 			"stopremotepairing": "nodes-api/nomosapi-stopremotepairing.js",
 			"onroomimageupload": "nodes-api/nomosapi-onroomimageupload.js",
@@ -683,8 +685,10 @@
 		"onpropertynamechange",
 		"setpropertyname",
 		"setproperty",
+		"remotestatechange",
 		"addremotedevice",
 		"getremotedevices",
+		"sendremotepairingcode",
 		"startremotepairing",
 		"stopremotepairing",
 		"onroomimageupload",
