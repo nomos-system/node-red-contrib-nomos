@@ -132,18 +132,18 @@ module.exports = function(RED) {
 
         node.socket.on('connect', function() {
             node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
-                if(auth === true) {
-                    // successful
-                    node.connected = true;
-                    node.setStatus('connect');
-                    socketInitialization();
-                }
-                else {
+                if(auth.errorCode || !auth) {
                     // not successful
                     node.setStatus('invalidauth');
                     setTimeout(function() {
                         node.socket.close();
                     }, 3000);
+                }
+                else {
+                    // successful
+                    node.connected = true;
+                    node.setStatus('connect');
+                    socketInitialization();
                 }
             });
         });
