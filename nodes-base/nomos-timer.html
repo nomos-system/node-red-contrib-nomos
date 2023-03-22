@@ -27,7 +27,7 @@
 
                 if(host && host.indexOf('...') < 0) {
                     $('#node-input-eid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.getJSON('http://' + host + '/nodered/v1/timers', function(result) {
+                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/timers'}).done(function(result) {
                         $('#node-input-eid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
                         if(Array.isArray(result)) {
                             const select = document.getElementById('node-input-eid');

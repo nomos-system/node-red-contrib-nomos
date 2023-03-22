@@ -31,7 +31,7 @@
 
                 if(host && host.indexOf('...') < 0) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.getJSON('http://' + host + '/nodered/v1/components/ALL', function(result) {
+                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/components/ALL'}).done(function(result) {
                         $('#node-input-cid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
                         if(Array.isArray(result)) {
                             const select = document.getElementById('node-input-cid');
@@ -67,7 +67,7 @@
                 if(host && cid) {
                     $('#node-input-propertyname').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
                     $('#node-input-mappingname').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.getJSON('http://' + host + '/nodered/v1/properties/' + $('#node-input-cid').val(), function(result) {
+                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/properties/' + $('#node-input-cid').val()}).done(function(result) {
                         $('#node-input-propertyname').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
                         $('#node-input-mappingname').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
 

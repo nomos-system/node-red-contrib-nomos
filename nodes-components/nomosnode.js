@@ -46,7 +46,7 @@ function nomosNode(filename, RED) {
                     newPayload.cid = config.cid;
                     newPayload.value = base.actionParser(msg);
 
-                    if(!newPayload.property || newPayload.property === '-none-') {
+                    if(!newPayload.property || newPayload.property === '-none-') {
                         log(ID, node.warn, "No property set. Dropping message.");
                         return;
                     }
