@@ -18,6 +18,7 @@
 	},
 	"homepage": "https://www.nomos-system.com",
 	"node-red": {
+		"version": ">=2.0.0",
 		"nodes": {
 			"config": "nodes-base/nomos-hub.js",
 			"reachable": "nodes-components/nomos-reachable.js",
@@ -987,6 +988,6 @@
 		"setzwavewakeupinterval"
 	],
 	"dependencies": {
-		"socket.io-client": "^2.2.0"
+		"socket.io-client": "2.5"
 	}
 }
