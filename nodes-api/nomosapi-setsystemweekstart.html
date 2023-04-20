@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getsystemunits', {
+    RED.nodes.registerType('nomosapi-setsystemweekstart', {
         category: 'nomos API System',
         color: '#eee',
         defaults: {
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getSystemUnits',
+        paletteLabel: 'setSystemWeekStart',
         label: function() {
-            return this.name || 'getSystemUnits';
+            return this.name || 'setSystemWeekStart';
         }
     });
 </script>
-<script data-template-name="nomosapi-getsystemunits" type="text/x-red">
+<script data-template-name="nomosapi-setsystemweekstart" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getsystemunits" type="text/x-red">
-    <p>The Service node represents <strong>getSystemUnits</strong> nomos API Function: <br>
-        Get System Units
+<script data-help-name="nomosapi-setsystemweekstart" type="text/x-red">
+    <p>The Service node represents <strong>setSystemWeekStart</strong> nomos API Function: <br>
+        Set System Week Start
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.day <span class="property-type">number</span></dt><dd>Sunday or Monday (<code>0</code> = Sunday, <code>1</code> = Monday)<br>Allowed values: <code>0</code> <code>1</code> </dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.metric <span class="property-type">number</span></dt><dd><em>(optional) </em>Metric Unit (<code>0</code> = Metric, <code>1</code> = US)<br>Allowed values: <code>0</code> <code>1</code> </dd></dl><dl class="message-properties"><dt>payload.temperature <span class="property-type">number</span></dt><dd><em>(optional) </em>Temperature Unit (<code>0</code> = Celsius, <code>1</code> = Fahrenheit)<br>Allowed values: <code>0</code> <code>1</code> </dd></dl><dl class="message-properties"><dt>payload.windspeed <span class="property-type">number</span></dt><dd><em>(optional) </em>Windspeed Unit (<code>0</code> = kph, <code>1</code> = mph, <code>2</code> = ms)<br>Allowed values: <code>0</code> <code>1</code> <code>2</code> </dd></dl><dl class="message-properties"><dt>payload.pressure <span class="property-type">number</span></dt><dd><em>(optional) </em>Pressure Unit (<code>0</code> = mbar, <code>1</code> = inHg, <code>2</code> = mmHg)<br>Allowed values: <code>0</code> <code>1</code> <code>2</code> </dd></dl><dl class="message-properties"><dt>payload.currency <span class="property-type">string</span></dt><dd><em>(optional) </em>Currency</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getSystemUnits" target="_blank">nomos API Docs</a> - <strong>getSystemUnits</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-System-setSystemWeekStart" target="_blank">nomos API Docs</a> - <strong>setSystemWeekStart</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.80</em></div>
+    <div style="text-align: right"><em>System | 0.2.81</em></div>
 </script>

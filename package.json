@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -391,6 +391,8 @@
 			"getsystemlanguage": "nodes-api/nomosapi-getsystemlanguage.js",
 			"setsystemname": "nodes-api/nomosapi-setsystemname.js",
 			"getsystemname": "nodes-api/nomosapi-getsystemname.js",
+			"setsystemweekstart": "nodes-api/nomosapi-setsystemweekstart.js",
+			"getsystemweekstart": "nodes-api/nomosapi-getsystemweekstart.js",
 			"setsystemdatetime": "nodes-api/nomosapi-setsystemdatetime.js",
 			"getsystemdatetime": "nodes-api/nomosapi-getsystemdatetime.js",
 			"gettimezoneconfig": "nodes-api/nomosapi-gettimezoneconfig.js",
@@ -872,6 +874,8 @@
 		"getsystemlanguage",
 		"setsystemname",
 		"getsystemname",
+		"setsystemweekstart",
+		"getsystemweekstart",
 		"setsystemdatetime",
 		"getsystemdatetime",
 		"gettimezoneconfig",
