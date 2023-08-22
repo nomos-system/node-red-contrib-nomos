@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getsystemvariable', {
-        category: 'nomos API SystemVariables',
+    RED.nodes.registerType('nomosapi-isknxgroupaddressused', {
+        category: 'nomos API KNX',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'getSystemVariable',
+        paletteLabel: 'isKNXGroupAddressUsed',
         label: function() {
-            return this.name || 'getSystemVariable';
+            return this.name || 'isKNXGroupAddressUsed';
         }
     });
 </script>
-<script data-template-name="nomosapi-getsystemvariable" type="text/x-red">
+<script data-template-name="nomosapi-isknxgroupaddressused" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getsystemvariable" type="text/x-red">
-    <p>The Service node represents <strong>getSystemVariable</strong> nomos API Function: <br>
-        Get System Variable
+<script data-help-name="nomosapi-isknxgroupaddressused" type="text/x-red">
+    <p>The Service node represents <strong>isKNXGroupAddressUsed</strong> nomos API Function: <br>
+        Is a KNX Group Address Used
     </p>
     <ul>
         <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.addr <span class="property-type">string</span></dt><dd><em>(optional) </em>KNX Address</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd><em>(optional) </em>Component ID</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">boolean</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.editable <span class="property-type">boolean</span></dt><dd>Editable</dd></dl><dl class="message-properties"><dt>payload.unremovable <span class="property-type">boolean</span></dt><dd>Unremovable</dd></dl><dl class="message-properties"><dt>payload.defaultValue <span class="property-type">string/integer/float/boolean</span></dt><dd>Default Value</dd></dl><dl class="message-properties"><dt>payload.currentValue <span class="property-type">string/integer/float/boolean</span></dt><dd>Current Value</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Datatype<br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> </dd></dl><dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-SystemVariables-getSystemVariable" target="_blank">nomos API Docs</a> - <strong>getSystemVariable</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-KNX-isKNXGroupAddressUsed" target="_blank">nomos API Docs</a> - <strong>isKNXGroupAddressUsed</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables | 0.2.84</em></div>
+    <div style="text-align: right"><em>KNX | 0.2.82</em></div>
 </script>

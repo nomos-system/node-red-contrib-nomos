@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.1.2",
+	"version": "1.1.4",
 	"description": "nomos Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -192,6 +192,8 @@
 			"removeknxgroupaddress": "nodes-api/nomosapi-removeknxgroupaddress.js",
 			"setknxgroupaddress": "nodes-api/nomosapi-setknxgroupaddress.js",
 			"getknxgroupaddresses": "nodes-api/nomosapi-getknxgroupaddresses.js",
+			"getknxgroupaddressesusedindevices": "nodes-api/nomosapi-getknxgroupaddressesusedindevices.js",
+			"isknxgroupaddressused": "nodes-api/nomosapi-isknxgroupaddressused.js",
 			"getknxaddresstypes": "nodes-api/nomosapi-getknxaddresstypes.js",
 			"getknxdatapointtypes": "nodes-api/nomosapi-getknxdatapointtypes.js",
 			"addknxdevice": "nodes-api/nomosapi-addknxdevice.js",
@@ -675,6 +677,8 @@
 		"removeknxgroupaddress",
 		"setknxgroupaddress",
 		"getknxgroupaddresses",
+		"getknxgroupaddressesusedindevices",
+		"isknxgroupaddressused",
 		"getknxaddresstypes",
 		"getknxdatapointtypes",
 		"addknxdevice",
