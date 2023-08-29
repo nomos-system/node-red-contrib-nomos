@@ -29,10 +29,10 @@
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
                     $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/components/' + 'motion-detected'}).done(function(result) {
                         $('#node-input-cid').empty().css('cursor', '').prop('disabled', false).append('<option value="">Please select...</option>');
+                        const select = document.getElementById('node-input-cid');
                         if(Array.isArray(result)) {
-                            const select = document.getElementById('node-input-cid');
                             result.forEach(function(component) {
-                                var option = document.createElement('option');
+                                const option = document.createElement('option');
                                 option.text = component.name;
                                 option.value = component.cid;
                                 if(component.cid === self.cid) {
@@ -41,14 +41,32 @@
                                 select.add(option);
                             });
                         }
+                        else if(typeof result === 'object') {
+                            Object.keys(result).forEach(function(groupName) {
+                                const optgroup = document.createElement('optgroup');
+                                optgroup.label = groupName;
+
+                                result[groupName].forEach(function(component) {
+                                    const option = document.createElement('option');
+                                    option.text = component.name;
+                                    option.value = component.cid;
+                                    if(component.cid === self.cid) {
+                                        option.selected = true;
+                                    }
+                                    optgroup.append(option);
+                                });
+
+                                select.add(optgroup);
+                            });
+                        }
                     });
                 }
                 else {
-                    $('#node-input-cid').css('cursor', '').prop('disabled', true).empty().append('<option value="">Please select nomos.hub ...</option>');
+                    $('#node-input-cid').css('cursor', '').prop('disabled', true).empty().append('<option value="">Please select nomos Controller...</option>');
                 }
             }
 
-            // (re)load components on hub change
+            // (re)load components on controller change
             $('#node-input-config').on('change', function() {
                 loadComponents();
             });
@@ -64,7 +82,7 @@
 </script>
 <script data-template-name="nomos-motion" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">
@@ -88,7 +106,7 @@
 <script data-help-name="nomos-motion" type="text/x-red">
     <p>The Service node represents a single nomos Device/Component with <strong>Motion Detection</strong> Property you want to query.</p>
     <ul>
-        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
         <li><strong>Component</strong>: Selected nomos device/component</li>
         <li><strong>Name</strong>: <em>optional</em></li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node.

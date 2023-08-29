@@ -16,7 +16,7 @@ function nomosNode(filename, RED) {
         node.mappingName = base.mappingName;
 
         //
-        // Actions to Hub
+        // Actions to Controller
         //
         if(this.nomosHub) {
             this.nomosHub.register(node);
@@ -64,11 +64,11 @@ function nomosNode(filename, RED) {
             }
         }
         else {
-            log(ID, node.error, 'No nomos.hub Configuration');
+            log(ID, node.error, 'No nomos Controller Configuration');
         }
 
         //
-        // Events from Hub
+        // Events from Controller
         //
         if(node._wireCount) {
             if(this.nomosHub) {
@@ -86,7 +86,7 @@ function nomosNode(filename, RED) {
         }
 
         //
-        // 'Reachable' event from Hub
+        // 'Reachable' event from Controller
         //
         if(this.nomosHub) {
             node.nomosHub.subscribe(node.id, config.cid, 'reachable', function(result) {

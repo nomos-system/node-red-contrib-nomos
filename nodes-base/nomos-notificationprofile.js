@@ -9,7 +9,7 @@ module.exports = function(RED) {
         this.nomosHub = RED.nodes.getNode(config.config);
 
         //
-        // Actions to Hub
+        // Actions to Controller
         //
         if(this.nomosHub) {
             this.nomosHub.register(node);
@@ -55,7 +55,7 @@ module.exports = function(RED) {
             });
         }
         else {
-            log(node.error, 'No nomos.hub Configuration');
+            log(node.error, 'No nomos Controller Configuration');
         }
     }
 

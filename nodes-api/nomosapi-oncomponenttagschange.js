@@ -21,11 +21,11 @@ module.exports = function(RED) {
             });
         }
         else {
-            log(node.error, 'No nomos.hub Configuration');
+            log(node.error, 'No nomos Controller Configuration');
         }
 
         //
-        // Events from Hub
+        // Events from Controller
         //
         if(node._wireCount) {
             if(this.nomosHub) {

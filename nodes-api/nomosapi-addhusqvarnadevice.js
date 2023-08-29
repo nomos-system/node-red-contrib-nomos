@@ -44,7 +44,7 @@ module.exports = function(RED) {
             });
         }
         else {
-            log(node.error, 'No nomos.hub Configuration');
+            log(node.error, 'No nomos Controller Configuration');
         }
     }
 

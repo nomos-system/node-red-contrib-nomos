@@ -20,7 +20,7 @@
 </script>
 <script data-template-name="nomosapi-getexternalaccessstatus" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">
@@ -39,10 +39,10 @@
 </script>
 <script data-help-name="nomosapi-getexternalaccessstatus" type="text/x-red">
     <p>The Service node represents <strong>getExternalAccessStatus</strong> nomos API Function: <br>
-        Get External Access Status Informations
+        Get Remote Access Status Informations
     </p>
     <ul>
-        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
         <li><strong>Name</strong>: <em>optional</em></li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
@@ -56,7 +56,7 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>External Access enabled or not.<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Connection status as text</dd></dl><dl class="message-properties"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Connection connected status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>DNS Name</dd></dl><dl class="message-properties"><dt>payload.issued <span class="property-type">string</span></dt><dd>Issued date</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Remote Access enabled or not.<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Connection status as text</dd></dl><dl class="message-properties"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Connection connected status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>DNS Name</dd></dl><dl class="message-properties"><dt>payload.issued <span class="property-type">string</span></dt><dd>Issued date</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">

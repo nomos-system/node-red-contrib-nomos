@@ -20,7 +20,7 @@
 </script>
 <script data-template-name="nomosapi-setscenename" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos.hub</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">
@@ -42,7 +42,7 @@
         Set a new Scene Name
     </p>
     <ul>
-        <li><strong>nomos.hub</strong>: The nomos.hub connected to</li>
+        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
         <li><strong>Name</strong>: <em>optional</em></li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
