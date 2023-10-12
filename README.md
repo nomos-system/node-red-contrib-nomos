@@ -26,14 +26,14 @@ or use the palette manager.
 ## Usage
 -----
 
-### nomos Components
+### nomos system Components
 With this nodes you can connect directly to nomos Controller components/devices. The nodes are bound to certain properties. For example components with *Level/Brightness* property. *Component* and *Generic* nodes are more flexible in the way you can control or query component properties.
 
-### nomos Extras
+### nomos system Extras
 Direct access to *Events*, *Timers*, *Scenes* and *Notifications* you have configured on your nomos Controller. Triggers are working as well. For example: You can use a *Scenes* node as trigger and attach for additional execution other Node-RED nodes to it.
 
-### nomos API
-The complete nomos API available as Node-RED nodes. See the documentation of each node for further informations.
+### nomos system API
+The complete nomos system API available as Node-RED nodes. See the documentation of each node for further informations.
 
 
 ## Changelog
