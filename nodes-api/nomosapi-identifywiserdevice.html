@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-restartservice', {
-        category: 'nomos API System',
+    RED.nodes.registerType('nomosapi-identifywiserdevice', {
+        category: 'nomos API Wiser',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'restartService',
+        paletteLabel: 'identifyWiserDevice',
         label: function() {
-            return this.name || 'restartService';
+            return this.name || 'identifyWiserDevice';
         }
     });
 </script>
-<script data-template-name="nomosapi-restartservice" type="text/x-red">
+<script data-template-name="nomosapi-identifywiserdevice" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-restartservice" type="text/x-red">
-    <p>The Service node represents <strong>restartService</strong> nomos API Function: <br>
-        Restart System Engine/Daemon Service(s)
+<script data-help-name="nomosapi-identifywiserdevice" type="text/x-red">
+    <p>The Service node represents <strong>identifyWiserDevice</strong> nomos API Function: <br>
+        Identify/Ping Wiser Device
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,7 +50,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional) </em>Name of Service to restart<br>Default value: <code>engine</code><br>Allowed values: <code>engine</code> <code>backend</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Gateway ID</dd></dl><dl class="message-properties"><dt>payload.deviceId <span class="property-type">string</span></dt><dd><em>(optional) </em>Device ID</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd><em>(optional) </em>Component ID</dd></dl><dl class="message-properties"><dt>payload.time <span class="property-type">number</span></dt><dd><em>(optional) </em>Time in ms<br>Default value: <code>2000</code></dd></dl><dl class="message-properties"><dt>payload.blink <span class="property-type">number</span></dt><dd><em>(optional) </em>Blink pattern<br>Default value: <code>4</code></dd></dl><dl class="message-properties"><dt>payload.color <span class="property-type">number</span></dt><dd><em>(optional) </em>Color<br>Default value: <code>#0000FF</code></dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-restartService" target="_blank">nomos API Docs</a> - <strong>restartService</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-Wiser-identifyWiserDevice" target="_blank">nomos API Docs</a> - <strong>identifyWiserDevice</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.84</em></div>
+    <div style="text-align: right"><em>Wiser | 0.3.0</em></div>
 </script>
