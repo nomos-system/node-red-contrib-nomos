@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getportforwardings" type="text/x-red">
     <p>The Service node represents <strong>getPortForwardings</strong> nomos system API Function: <br>
-        Get Support Port Forwardings. NAT forwardings can be inspected with `iptables -t nat -L`, but they only appear if VPN is enabled.
+        Get Support Port Forwardings
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -56,7 +56,7 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Rule Objects</dd></dl><dl class="message-properties"><dt>payload.rule.id <span class="property-type">number</span></dt><dd>ID</dd></dl><dl class="message-properties"><dt>payload.rule.name <span class="property-type">string</span></dt><dd>Rule Name</dd></dl><dl class="message-properties"><dt>payload.rule.type <span class="property-type">string</span></dt><dd>Type/Protocol<br>Allowed values: <code>TCP</code> <code>UDP</code> </dd></dl><dl class="message-properties"><dt>payload.rule.localPort <span class="property-type">number</span></dt><dd>Local Port</dd></dl><dl class="message-properties"><dt>payload.rule.remoteHost <span class="property-type">string</span></dt><dd>Remote Host</dd></dl><dl class="message-properties"><dt>payload.rule.remotePort <span class="property-type">number</span></dt><dd>Remote Port</dd></dl><dl class="message-properties"><dt>payload.rule.enabled <span class="property-type">boolean</span></dt><dd>Enabled/Disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.rule.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.rule.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Rule Objects</dd></dl><dl class="message-properties"><dt>payload.rule.id <span class="property-type">number</span></dt><dd>ID</dd></dl><dl class="message-properties"><dt>payload.rule.name <span class="property-type">string</span></dt><dd>Rule Name</dd></dl><dl class="message-properties"><dt>payload.rule.type <span class="property-type">string</span></dt><dd>Type/Protocol<br>Allowed values: <code>TCP</code> <code>UDP</code> <code>TCPUDP</code> </dd></dl><dl class="message-properties"><dt>payload.rule.localPort <span class="property-type">number</span></dt><dd>Local Port</dd></dl><dl class="message-properties"><dt>payload.rule.remoteHost <span class="property-type">string</span></dt><dd>Remote Host</dd></dl><dl class="message-properties"><dt>payload.rule.remotePort <span class="property-type">number</span></dt><dd>Remote Port</dd></dl><dl class="message-properties"><dt>payload.rule.enabled <span class="property-type">boolean</span></dt><dd>Enabled/Disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.rule.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.rule.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -77,5 +77,5 @@
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Support | 0.2.37</em></div>
+    <div style="text-align: right"><em>Support | 0.3.6</em></div>
 </script>

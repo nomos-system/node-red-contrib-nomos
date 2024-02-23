@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addportforwarding', {
-        category: 'nomos system API Support',
+    RED.nodes.registerType('nomosapi-disableemergencymode', {
+        category: 'nomos system API System',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'addPortForwarding',
+        paletteLabel: 'disableEmergencyMode',
         label: function() {
-            return this.name || 'addPortForwarding';
+            return this.name || 'disableEmergencyMode';
         }
     });
 </script>
-<script data-template-name="nomosapi-addportforwarding" type="text/x-red">
+<script data-template-name="nomosapi-disableemergencymode" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addportforwarding" type="text/x-red">
-    <p>The Service node represents <strong>addPortForwarding</strong> nomos system API Function: <br>
-        Add a Port Forwarding Rule
+<script data-help-name="nomosapi-disableemergencymode" type="text/x-red">
+    <p>The Service node represents <strong>disableEmergencyMode</strong> nomos system API Function: <br>
+        Disable Emergency Mode
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,13 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the Rule</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Type/Protocol<br>Allowed values: <code>TCP</code> <code>UDP</code> <code>TCPUDP</code> </dd></dl><dl class="message-properties"><dt>payload.localPort <span class="property-type">number</span></dt><dd>Local Port</dd></dl><dl class="message-properties"><dt>payload.remoteHost <span class="property-type">string</span></dt><dd>Remote Host</dd></dl><dl class="message-properties"><dt>payload.remotePort <span class="property-type">number</span></dt><dd>Remote Port</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Enabled/Disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Rule ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Support-addPortForwarding" target="_blank">nomos system API Docs</a> - <strong>addPortForwarding</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-System-disableEmergencyMode" target="_blank">nomos system API Docs</a> - <strong>disableEmergencyMode</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Support | 0.3.6</em></div>
+    <div style="text-align: right"><em>System | 0.3.4</em></div>
 </script>
