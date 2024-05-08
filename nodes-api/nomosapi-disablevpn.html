@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-removeroomimage', {
-        category: 'nomos system API Rooms',
+    RED.nodes.registerType('nomosapi-disablevpn', {
+        category: 'nomos system API VPN',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'function.png',
-        paletteLabel: 'removeRoomImage',
+        paletteLabel: 'disableVPN',
         label: function() {
-            return this.name || 'removeRoomImage';
+            return this.name || 'disableVPN';
         }
     });
 </script>
-<script data-template-name="nomosapi-removeroomimage" type="text/x-red">
+<script data-template-name="nomosapi-disablevpn" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-removeroomimage" type="text/x-red">
-    <p>The Service node represents <strong>removeRoomImage</strong> nomos system API Function: <br>
-        Remove a Room image
+<script data-help-name="nomosapi-disablevpn" type="text/x-red">
+    <p>The Service node represents <strong>disableVPN</strong> nomos system API Function: <br>
+        Disable VPN
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,7 +50,7 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Room ID</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
     </dl>
 
     <h3>Outputs</h3>
@@ -73,9 +73,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Rooms-removeRoomImage" target="_blank">nomos system API Docs</a> - <strong>removeRoomImage</strong> API Documentation</li>
+        <li><a href="http://docs.nomos-system.com/api/#api-VPN-disableVPN" target="_blank">nomos system API Docs</a> - <strong>disableVPN</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Rooms | 0.3.8</em></div>
+    <div style="text-align: right"><em>VPN | 0.3.9</em></div>
 </script>
