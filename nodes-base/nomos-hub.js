@@ -120,7 +120,7 @@ module.exports = function(RED) {
             node.socket.emit('init', {uagent: 'node-red-nomos v1', language: 'en'}, function() {
                 node.socket.emit('getProductProfile', {}, function(profile) {
                     if(profile.modules.nodered === undefined) {
-                        node.setStatus('disconnect');
+                        node.setStatus('not enabled');
                         setTimeout(function() {
                             node.socket.close();
                         }, 1000);
