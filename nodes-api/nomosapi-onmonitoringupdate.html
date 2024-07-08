@@ -1,0 +1,59 @@
+<script type="text/javascript">
+    RED.nodes.registerType('nomosapi-onmonitoringupdate', {
+        category: 'nomos system API Monitoring',
+        color: '#ccc',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 0,
+        outputs: 1,
+        outputLabels: ['Data'],
+        icon: 'feed.png',
+        paletteLabel: 'onMonitoringUpdate',
+        label: function() {
+            return this.name || 'onMonitoringUpdate';
+        }
+    });
+</script>
+<script data-template-name="nomosapi-onmonitoringupdate" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+<script data-help-name="nomosapi-onmonitoringupdate" type="text/x-red">
+    <p>The Service node represents <strong>onMonitoringUpdate</strong> nomos system API Event: <br>
+        Update Event when a Monitoring has been updated
+    </p>
+    <ul>
+        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node.
+    </ul>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>Data
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Monitoring ID</dd></dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="http://docs.nomos-system.com/api/#api-Monitoring-onMonitoringUpdate" target="_blank">nomos system API Docs</a> - <strong>onMonitoringUpdate</strong> API Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Monitoring | 0.3.10</em></div>
+</script>
