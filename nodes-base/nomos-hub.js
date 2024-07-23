@@ -7,8 +7,8 @@ module.exports = function(RED) {
     //
     function nomosConfigNode(config) {
         RED.nodes.createNode(this, config);
-        var node = this;
-        var subscriptions = {};
+        const node = this;
+        const subscriptions = {};
         node.nodesList = {};
 
         //
@@ -33,7 +33,7 @@ module.exports = function(RED) {
 
         // api command execution
         this.emit = function(msg, callback) {
-            var command = null;
+            let command = null;
             if(msg.payload && msg.payload.__command) {
                 command = msg.payload.__command;
                 delete msg.payload.__command;
@@ -66,7 +66,7 @@ module.exports = function(RED) {
         };
 
         this.setStatus = function(c) {
-            var s;
+            let s;
             switch (c) {
                 case 'connecting':
                     s = {
@@ -104,7 +104,9 @@ module.exports = function(RED) {
                     };
             }
             Object.keys(node.nodesList).forEach(function(id) {
-                node.nodesList[id].status(s);
+                try {
+                    node.nodesList[id].status(s);
+                } catch(e) {}
             });
         };
 
@@ -130,10 +132,18 @@ module.exports = function(RED) {
             node.socket.on('onComponentUpdate', node.componentUpdateHandler);
         }
 
+        function socketReconnect() {
+            clearTimeout(node.reconnectTimer);
+            node.reconnectTimer = setTimeout(function() {
+                node.socket.connect();
+            }, 3000);
+        }
+
         node.socket.on('connect', function() {
             node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
                 if(auth.errorCode || !auth) {
                     // not successful
+                    node.error('socket.io invalid auth');
                     node.setStatus('invalidauth');
                     setTimeout(function() {
                         node.socket.close();
@@ -141,6 +151,7 @@ module.exports = function(RED) {
                 }
                 else {
                     // successful
+                    node.log('socket.io connected');
                     node.connected = true;
                     node.setStatus('connect');
                     socketInitialization();
@@ -149,16 +160,16 @@ module.exports = function(RED) {
         });
 
         node.socket.on('disconnect', function() {
+            node.warn('socket.io disconnected');
             node.connected = false;
             node.setStatus('disconnect');
             node.socket.off('onComponentUpdate', node.componentUpdateHandler);
+            socketReconnect();
         });
 
         node.socket.on('error', function() {
             node.socket.disconnect();
-            process.nextTick(function() {
-                node.socket.connect();
-            });
+            socketReconnect();
         });
     }
 

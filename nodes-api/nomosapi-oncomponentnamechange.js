@@ -5,7 +5,7 @@ module.exports = function(RED) {
 
     function nomosObject(config) {
         RED.nodes.createNode(this, config);
-        var node = this;
+        const node = this;
         this.nomosHub = RED.nodes.getNode(config.config);
 
         this.eventHandler = function(result) {

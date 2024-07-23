@@ -9,7 +9,7 @@ function nomosNode(filename, RED) {
     function nomosObject(config) {
         // Init
         RED.nodes.createNode(this, config);
-        var node = this;
+        const node = this;
         this.nomosHub = RED.nodes.getNode(config.config);
         base.onNodeInit(node, config);
         node.propertyName = base.propertyName;      // important to assign it to inner object (for "raw" nodes working properly)
@@ -30,13 +30,13 @@ function nomosNode(filename, RED) {
                     // set topic and/or filter for topic
                     const topic = config.topic ? config.topic : config.name;
                     if(config.filter === true && msg.topic !== topic) {
-                        log(ID, node.warn, "msg.topic doesn't match configured value and filter is enabled. Dropping message.");
+                        log(ID, node.warn, 'msg.topic doesn\'t match configured value and filter is enabled. Dropping message.');
                         return;
                     }
                     // remember input topic for later output
                     node.topic_in = msg.topic ? msg.topic : '';
 
-                    var newPayload = msg.payload;
+                    let newPayload = msg.payload;
                     if(typeof newPayload !== 'object') {
                         newPayload = {};
                     }
@@ -47,11 +47,11 @@ function nomosNode(filename, RED) {
                     newPayload.value = base.actionParser(msg);
 
                     if(!newPayload.property || newPayload.property === '-none-') {
-                        log(ID, node.warn, "No property set. Dropping message.");
+                        log(ID, node.warn, 'No property set. Dropping message.');
                         return;
                     }
                     if(!newPayload.cid) {
-                        log(ID, node.warn, "No component set. Dropping message.");
+                        log(ID, node.warn, 'No component set. Dropping message.');
                         return;
                     }
 

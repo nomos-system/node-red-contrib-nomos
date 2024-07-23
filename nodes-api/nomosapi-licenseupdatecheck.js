@@ -5,7 +5,7 @@ module.exports = function(RED) {
 
     function nomosObject(config) {
         RED.nodes.createNode(this, config);
-        var node = this;
+        const node = this;
         this.nomosHub = RED.nodes.getNode(config.config);
 
         if(this.nomosHub) {
@@ -19,13 +19,13 @@ module.exports = function(RED) {
                 // set topic and/or filter for topic
                 const topic = config.topic ? config.topic : config.name;
                 if(config.filter === true && msg.topic !== topic) {
-                    log(node.warn, "msg.topic doesn't match configured value and filter is enabled. Dropping message.");
+                    log(node.warn, 'msg.topic doesn\'t match configured value and filter is enabled. Dropping message.');
                     return;
                 }
                 // remember input topic for later output
                 node.topic_in = msg.topic ? msg.topic : '';
 
-                var newPayload = msg.payload;
+                let newPayload = msg.payload;
                 if(typeof newPayload !== 'object') {
                     newPayload = {};
                 }
