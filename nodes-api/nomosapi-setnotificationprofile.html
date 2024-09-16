@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-setnotificationprofile" type="text/x-red">
     <p>The Service node represents <strong>setNotificationProfile</strong> nomos system API Function: <br>
-        Set/Update a Notification Profile
+        Set/Update a Notification Profile<br>(Version 0.2.75 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,24 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.description <span class="property-type">string</span></dt><dd>Profile Description</dd></dl><dl class="message-properties"><dt>payload.alertType <span class="property-type">string</span></dt><dd><em>(optional) </em>Profile Alert Type<br>Default value: <code>none</code><br>Allowed values: <code>none</code> <code>battery</code> <code>motion</code> <code>flood</code> <code>smoke</code> </dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Profile enabled/disabled<br>Default value: <code>true</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.global <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Global Flag<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.position <span class="property-type">number</span></dt><dd>Position</dd></dl><dl class="message-properties"><dt>payload.internal <span class="property-type">object</span></dt><dd><em>(optional) </em>Internal Message System Options/Settings (see <a href="http://docs.nomos-system.com/api/#api-Notification-sendNotification">sendNotification</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.email <span class="property-type">object</span></dt><dd><em>(optional) </em>E-Mail System Options/Settings (see <a href="http://docs.nomos-system.com/api/#api-Notification-sendNotification">sendNotification</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.push <span class="property-type">object</span></dt><dd><em>(optional) </em>Push Notification Message Options/Settings (see <a href="http://docs.nomos-system.com/api/#api-Notification-sendNotification">sendNotification</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name</dd></dl>
+<dl class="message-properties"><dt>payload.description <span class="property-type">string</span></dt><dd>Profile Description</dd></dl>
+<dl class="message-properties"><dt>payload.alertType <span class="property-type">string</span></dt><dd><em>(optional)</em> Profile Alert Type<br>Default value: <code>none</code><br>Allowed values: <code>none</code> <code>battery</code> <code>motion</code> <code>flood</code> <code>smoke</code> </dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Profile enabled/disabled<br>Default value: <code>true</code></dd></dl>
+<dl class="message-properties"><dt>payload.global <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Global Flag</dd></dl>
+<dl class="message-properties"><dt>payload.position <span class="property-type">number</span></dt><dd>Position</dd></dl>
+<dl class="message-properties"><dt>payload.internal <span class="property-type">object</span></dt><dd><em>(optional)</em> Internal Message System Options/Settings (see <a href="https://apidocs.nomos-system.com/#operation-request-sendNotification">sendNotification</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.email <span class="property-type">object</span></dt><dd><em>(optional)</em> E-Mail System Options/Settings (see <a href="https://apidocs.nomos-system.com/#operation-request-sendNotification">sendNotification</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.push <span class="property-type">object</span></dt><dd><em>(optional)</em> Push Notification Message Options/Settings (see <a href="https://apidocs.nomos-system.com/#operation-request-sendNotification">sendNotification</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +84,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-NotificationProfile-setNotificationProfile" target="_blank">nomos system API Docs</a> - <strong>setNotificationProfile</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setNotificationProfile" target="_blank">nomos system API Docs</a> - <strong>setNotificationProfile</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>NotificationProfile | 0.2.75</em></div>
+    <div style="text-align: right"><em>NotificationProfile</em></div>
 </script>

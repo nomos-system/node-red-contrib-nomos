@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getlicenseconfig" type="text/x-red">
     <p>The Service node represents <strong>getLicenseConfig</strong> nomos system API Function: <br>
-        Get License Configuration/Informations
+        Get License Configuration/Informations<br>(Version 0.2.19)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,16 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.license <span class="property-type">object</span></dt><dd>More detailed License Informations</dd></dl><dl class="message-properties"><dt>payload.serialNumber <span class="property-type">string</span></dt><dd>The serial number of the system.</dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Status Text</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd>More detailed License Informations</dd></dl>
+<dl class="message-properties"><dt>payload.serialNumber <span class="property-type">string</span></dt><dd>The serial number of the system.</dd></dl>
+<dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Status Text</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Licensing-getLicenseConfig" target="_blank">nomos system API Docs</a> - <strong>getLicenseConfig</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLicenseConfig" target="_blank">nomos system API Docs</a> - <strong>getLicenseConfig</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Licensing | 0.2.19</em></div>
+    <div style="text-align: right"><em>Licensing</em></div>
 </script>

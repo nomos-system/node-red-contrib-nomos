@@ -34,7 +34,7 @@
 </script>
 <script data-help-name="nomosapi-zwavestatechange" type="text/x-red">
     <p>The Service node represents <strong>zwaveStateChange</strong> nomos system API Event: <br>
-        Update when Zwave Status Event is triggered
+        Event Update when Zwave Status Change is triggered<br>(Version 0.2.71 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -45,15 +45,16 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>Data
-            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Status<br><br>Allowed values: <code>NotActive</code> <code>Idle</code> <code>RemoveReady</code> <code>RemoveNodeFound</code> <code>RemoveLearning</code> <code>AddReady</code> <code>AddNodeFound</code> <code>AddLearning</code> <code>AddDone</code> <code>detected</code> </dd></dl><dl class="message-properties"><dt>payload.device <span class="property-type">string</span></dt><dd><em>(optional) </em>Node ID of the new Device</dd></dl><dl class="message-properties"><dt>payload.file <span class="property-type">string</span></dt><dd><em>(optional) </em>Node xml File of the new Device</dd></dl><dl class="message-properties"><dt>payload.interview-progress <span class="property-type">number</span></dt><dd><em>(optional) </em>Interview Progress</dd></dl>
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
     </ol>
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Zwave-zwaveStateChange" target="_blank">nomos system API Docs</a> - <strong>zwaveStateChange</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-zwaveStateChange" target="_blank">nomos system API Docs</a> - <strong>zwaveStateChange</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Zwave | 0.2.71</em></div>
+    <div style="text-align: right"><em>Zwave</em></div>
 </script>

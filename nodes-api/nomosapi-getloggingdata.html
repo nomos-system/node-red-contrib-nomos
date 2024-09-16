@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getloggingdata" type="text/x-red">
     <p>The Service node represents <strong>getLoggingData</strong> nomos system API Function: <br>
-        Get Data Log for a particular Component Property
+        Get Data Log for a particular Component Property<br>(Version 0.2.84)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,26 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl><dl class="message-properties"><dt>payload.property <span class="property-type">string</span></dt><dd>Property/Mapping Name</dd></dl><dl class="message-properties"><dt>payload.aggregation <span class="property-type">string</span></dt><dd><em>(optional) </em>Aggregation<br>Default value: <code>live</code><br>Allowed values: <code>live</code> <code>hourly</code> <code>daily</code> <code>weekly</code> <code>monthly</code> <code>yearly</code> </dd></dl><dl class="message-properties"><dt>payload.from <span class="property-type">integer/string</span></dt><dd><em>(optional) </em>Timestamp from</dd></dl><dl class="message-properties"><dt>payload.to <span class="property-type">integer/string</span></dt><dd><em>(optional) </em>Timestamp to</dd></dl><dl class="message-properties"><dt>payload.limit <span class="property-type">number</span></dt><dd><em>(optional) </em>Limit Number of Data Rows to return</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
+<dl class="message-properties"><dt>payload.property <span class="property-type">string</span></dt><dd>Property/Mapping Name</dd></dl>
+<dl class="message-properties"><dt>payload.aggregation <span class="property-type">string</span></dt><dd><em>(optional)</em> Aggregation<br>Default value: <code>live</code><br>Allowed values: <code>live</code> <code>hourly</code> <code>daily</code> <code>weekly</code> <code>monthly</code> <code>yearly</code> </dd></dl>
+<dl class="message-properties"><dt>payload.from <span class="property-type">number</span></dt><dd><em>(optional)</em> Timestamp from</dd></dl>
+<dl class="message-properties"><dt>payload.to <span class="property-type">number</span></dt><dd><em>(optional)</em> Timestamp to</dd></dl>
+<dl class="message-properties"><dt>payload.limit <span class="property-type">number</span></dt><dd><em>(optional)</em> Limit Number of Data Rows to return</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.result <span class="property-type">object</span></dt><dd>Result Object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Is logging enabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.color <span class="property-type">string</span></dt><dd>Color Value</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Aggregation Type<br>Allowed values: <code>avg</code> <code>sum</code> </dd></dl><dl class="message-properties"><dt>payload.result.data <span class="property-type">object[]</span></dt><dd>Object with timestamp and value</dd></dl><dl class="message-properties"><dt>payload.result.unit <span class="property-type">string</span></dt><dd>Unit of Value</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Is logging enabled</dd></dl>
+<dl class="message-properties"><dt>payload.color <span class="property-type">string</span></dt><dd>Color Value</dd></dl>
+<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Aggregation Type<br>Allowed values: <code>avg</code> <code>sum</code> </dd></dl>
+<dl class="message-properties"><dt>payload.data <span class="property-type">array</span></dt><dd>Object with timestamp and value</dd></dl>
+<dl class="message-properties"><dt>payload.unit <span class="property-type">string</span></dt><dd>Unit of Value</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +86,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Logging-getLoggingData" target="_blank">nomos system API Docs</a> - <strong>getLoggingData</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLoggingData" target="_blank">nomos system API Docs</a> - <strong>getLoggingData</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Logging | 0.2.84</em></div>
+    <div style="text-align: right"><em>Logging</em></div>
 </script>

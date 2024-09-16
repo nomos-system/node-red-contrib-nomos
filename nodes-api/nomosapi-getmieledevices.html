@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getmieledevices" type="text/x-red">
     <p>The Service node represents <strong>getMieleDevices</strong> nomos system API Function: <br>
-        Get Miele devices that are reported by the cloud
+        Get Miele devices<br>(Version 0.2.53 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>ID of the device</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.mieleType <span class="property-type">number</span></dt><dd>Miele Type</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.ident <span class="property-type">object</span></dt><dd>Miele Identification Infos 1</dd></dl><dl class="message-properties"><dt>payload.ident2 <span class="property-type">object</span></dt><dd>Miele Identification Infos 2</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Miele-getMieleDevices" target="_blank">nomos system API Docs</a> - <strong>getMieleDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getMieleDevices" target="_blank">nomos system API Docs</a> - <strong>getMieleDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Miele | 0.2.53</em></div>
+    <div style="text-align: right"><em>Miele</em></div>
 </script>

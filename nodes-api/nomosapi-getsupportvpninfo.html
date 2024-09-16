@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('nomosapi-getsupportvpninfo', {
-        category: 'nomos system API Support',
+        category: 'nomos system API Support_VPN',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getsupportvpninfo" type="text/x-red">
     <p>The Service node represents <strong>getSupportVPNInfo</strong> nomos system API Function: <br>
-        Get Support VPN Information/Configuration
+        Get Support VPN Information/Configuration<br>(Version 0.2.47)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,17 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Support VPN enabled or not<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.ip <span class="property-type">string</span></dt><dd>The system's VPN IP Address</dd></dl><dl class="message-properties"><dt>payload.configName <span class="property-type">string</span></dt><dd>VPN Configuration Name</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Support VPN enabled state</dd></dl>
+<dl class="message-properties"><dt>payload.ip <span class="property-type">string</span></dt><dd>The system's VPN IP Address</dd></dl>
+<dl class="message-properties"><dt>payload.configName <span class="property-type">string</span></dt><dd>VPN Configuration Name</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Support-getSupportVPNInfo" target="_blank">nomos system API Docs</a> - <strong>getSupportVPNInfo</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSupportVPNInfo" target="_blank">nomos system API Docs</a> - <strong>getSupportVPNInfo</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Support | 0.2.47</em></div>
+    <div style="text-align: right"><em>Support_VPN</em></div>
 </script>

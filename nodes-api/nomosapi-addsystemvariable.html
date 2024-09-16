@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-addsystemvariable" type="text/x-red">
     <p>The Service node represents <strong>addSystemVariable</strong> nomos system API Function: <br>
-        Set a System Variable
+        Set a System Variable<br>(Version 0.2.84 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,23 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional) </em>Variable ID (will be generated if not specified)</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional) </em>Category</dd></dl><dl class="message-properties"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Editable</dd></dl><dl class="message-properties"><dt>payload.value <span class="property-type">string/integer/float/boolean</span></dt><dd><em>(optional) </em>Current Value</dd></dl><dl class="message-properties"><dt>payload.defaultValue <span class="property-type">string/integer/float/boolean</span></dt><dd><em>(optional) </em>Default Value</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional) </em>Datatype<br>Default value: <code>string</code><br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional)</em> Variable ID (will be generated if not specified)</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl>
+<dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional)</em> Category</dd></dl>
+<dl class="message-properties"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Editable</dd></dl>
+<dl class="message-properties"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Current Value</dd></dl>
+<dl class="message-properties"><dt>payload.defaultValue <span class="property-type">string</span></dt><dd><em>(optional)</em> Default Value</dd></dl>
+<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional)</em> Datatype<br>Default value: <code>string</code><br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> </dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>The Variable ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>The Variable ID</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +83,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-SystemVariables-addSystemVariable" target="_blank">nomos system API Docs</a> - <strong>addSystemVariable</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSystemVariable" target="_blank">nomos system API Docs</a> - <strong>addSystemVariable</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables | 0.2.84</em></div>
+    <div style="text-align: right"><em>SystemVariables</em></div>
 </script>

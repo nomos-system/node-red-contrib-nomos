@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-setprofilemeta" type="text/x-red">
     <p>The Service node represents <strong>setProfileMeta</strong> nomos system API Function: <br>
-        Set Profile Meta Data
+        Set Profile Meta Data<br>(Version 0.2.76 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,27 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name<br>Allowed values: <code>hap</code> <code>homeconnect</code> <code>hue</code> <code>husqvarna</code> <code>freeathome</code> <code>knx</code> <code>netatmo</code> <code>sonos</code> <code>zigbee</code> <code>zwave</code> <code>remote</code> <code>addons</code> <code>tv</code> <code>tado</code> <code>miele</code> <code>somfy</code> <code>spotify</code> <code>lutron</code> <code>mqtt</code> <code>nuki</code> </dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled Status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.debug <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Debug Status<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.brokerUrl <span class="property-type">string</span></dt><dd><em>(optional) </em>MQTT only: Broker Url</dd></dl><dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional) </em>MQTT only: Username/E-Mail</dd></dl><dl class="message-properties"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional) </em>MQTT only: Password</dd></dl><dl class="message-properties"><dt>payload.connectionType <span class="property-type">string</span></dt><dd><em>(optional) </em>KNX only: Connection Type<br>Default value: <code>ROUTING</code><br>Allowed values: <code>ROUTING</code> <code>TUNNELING</code> <code>TUNNELING_BRIDGE</code> </dd></dl><dl class="message-properties"><dt>payload.device_ip <span class="property-type">string</span></dt><dd><em>(optional) </em>KNX only: Device IP<br>Default value: <code>AUTO</code></dd></dl><dl class="message-properties"><dt>payload.multicast_ip <span class="property-type">string</span></dt><dd><em>(optional) </em>KNX only: Multicast IP<br>Default value: <code>AUTO</code></dd></dl><dl class="message-properties"><dt>payload.port <span class="property-type">string</span></dt><dd><em>(optional) </em>MQTT/KNX only: Port<br>Default value: <code>AUTO</code></dd></dl><dl class="message-properties"><dt>payload.physaddr <span class="property-type">string</span></dt><dd><em>(optional) </em>KNX only: Physical Address</dd></dl><dl class="message-properties"><dt>payload.addrForm <span class="property-type">integer{2-3}</span></dt><dd><em>(optional) </em>KNX only: Address Format (2 or 3 Step)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Profile Name<br>Allowed values: <code>hap</code> <code>homeconnect</code> <code>hue</code> <code>husqvarna</code> <code>freeathome</code> <code>knx</code> <code>netatmo</code> <code>sonos</code> <code>zigbee</code> <code>zwave</code> <code>remote</code> <code>addons</code> <code>tv</code> <code>tado</code> <code>miele</code> <code>somfy</code> <code>spotify</code> <code>lutron</code> <code>mqtt</code> <code>nuki</code> </dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled Status</dd></dl>
+<dl class="message-properties"><dt>payload.debug <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Debug Status</dd></dl>
+<dl class="message-properties"><dt>payload.brokerUrl <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT only: Broker Url</dd></dl>
+<dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT only: Username/E-Mail</dd></dl>
+<dl class="message-properties"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT only: Password</dd></dl>
+<dl class="message-properties"><dt>payload.connectionType <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Connection Type<br>Default value: <code>ROUTING</code><br>Allowed values: <code>ROUTING</code> <code>TUNNELING</code> <code>TUNNELING_BRIDGE</code> </dd></dl>
+<dl class="message-properties"><dt>payload.device_ip <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Device IP<br>Default value: <code>AUTO</code></dd></dl>
+<dl class="message-properties"><dt>payload.multicast_ip <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Multicast IP<br>Default value: <code>AUTO</code></dd></dl>
+<dl class="message-properties"><dt>payload.port <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT/KNX only: Port<br>Default value: <code>AUTO</code></dd></dl>
+<dl class="message-properties"><dt>payload.physaddr <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Physical Address</dd></dl>
+<dl class="message-properties"><dt>payload.addrForm <span class="property-type">number</span></dt><dd><em>(optional)</em> KNX only: Address Format (2 or 3 Step)<br>Maximum: <code>3</code></dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +87,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Profiles-setProfileMeta" target="_blank">nomos system API Docs</a> - <strong>setProfileMeta</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setProfileMeta" target="_blank">nomos system API Docs</a> - <strong>setProfileMeta</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Profiles | 0.2.76</em></div>
+    <div style="text-align: right"><em>Profiles</em></div>
 </script>

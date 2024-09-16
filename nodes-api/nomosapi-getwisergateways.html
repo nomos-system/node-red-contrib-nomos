@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getwisergateways" type="text/x-red">
     <p>The Service node represents <strong>getWiserGateways</strong> nomos system API Function: <br>
-        Get added Wiser Gateway(s)
+        Get added Wiser Gateway(s)<br>(Version 0.3.0 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>ID of the device</dd></dl><dl class="message-properties"><dt>payload.isReachable <span class="property-type">boolean</span></dt><dd>Reachable state</dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd>Host/IP</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.instance_id <span class="property-type">string</span></dt><dd>Instance ID</dd></dl><dl class="message-properties"><dt>payload.postal_code <span class="property-type">string</span></dt><dd><em>(optional) </em>Postal code</dd></dl><dl class="message-properties"><dt>payload.address <span class="property-type">string</span></dt><dd><em>(optional) </em>Address</dd></dl><dl class="message-properties"><dt>payload.city <span class="property-type">string</span></dt><dd><em>(optional) </em>City</dd></dl><dl class="message-properties"><dt>payload.enduser_claimed <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Enduser claimed</dd></dl><dl class="message-properties"><dt>payload.installer_finalized <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Installer finalized</dd></dl><dl class="message-properties"><dt>payload.create_time <span class="property-type">string</span></dt><dd><em>(optional) </em>Create time</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Wiser-getWiserGateways" target="_blank">nomos system API Docs</a> - <strong>getWiserGateways</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getWiserGateways" target="_blank">nomos system API Docs</a> - <strong>getWiserGateways</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Wiser | 0.3.0</em></div>
+    <div style="text-align: right"><em>Wiser</em></div>
 </script>

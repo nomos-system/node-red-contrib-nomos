@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getsecuritybridgeprofiles" type="text/x-red">
     <p>The Service node represents <strong>getSecurityBridgeProfiles</strong> nomos system API Function: <br>
-        Get Security Bridge Profiles
+        Get Security Bridge Profiles<br>(Version 0.3.11 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>List of Profiles available</dd></dl><dl class="message-properties"><dt>payload.object.id <span class="property-type">string</span></dt><dd>Profile ID</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.object.description_de <span class="property-type">string</span></dt><dd>German Description</dd></dl><dl class="message-properties"><dt>payload.object.description_en <span class="property-type">string</span></dt><dd>English Description</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Network-getSecurityBridgeProfiles" target="_blank">nomos system API Docs</a> - <strong>getSecurityBridgeProfiles</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSecurityBridgeProfiles" target="_blank">nomos system API Docs</a> - <strong>getSecurityBridgeProfiles</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Network | 0.3.11</em></div>
+    <div style="text-align: right"><em>Network</em></div>
 </script>

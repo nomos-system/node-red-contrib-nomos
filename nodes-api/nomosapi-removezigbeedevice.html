@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-removezigbeedevice" type="text/x-red">
     <p>The Service node represents <strong>removeZigBeeDevice</strong> nomos system API Function: <br>
-        Remove a ZigBee Device/Node from Controller
+        Remove a ZigBee Device/Node from Controller<br>(Version 0.2.73 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,18 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.ieeeAddr <span class="property-type">string</span></dt><dd>Device Address</dd></dl><dl class="message-properties"><dt>payload.force <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Force remove<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.block <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Block from joining again<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.ieeeAddr <span class="property-type">string</span></dt><dd>Device Address</dd></dl>
+<dl class="message-properties"><dt>payload.force <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Force remove</dd></dl>
+<dl class="message-properties"><dt>payload.block <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Block from joining again</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-ZigBee-removeZigBeeDevice" target="_blank">nomos system API Docs</a> - <strong>removeZigBeeDevice</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-removeZigBeeDevice" target="_blank">nomos system API Docs</a> - <strong>removeZigBeeDevice</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>ZigBee | 0.2.73</em></div>
+    <div style="text-align: right"><em>ZigBee</em></div>
 </script>

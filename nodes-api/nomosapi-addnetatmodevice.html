@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-addnetatmodevice" type="text/x-red">
     <p>The Service node represents <strong>addNetatmoDevice</strong> nomos system API Function: <br>
-        Add a netatmo module as component
+        Add a Netatmo module as component<br>(Version 0.2.71 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,24 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Module id</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Module type (see <a target="_blank" href="https://dev.netatmo.com/dev/resources/technical/reference/weatherstation/getstationsdata">documentation</a>)</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd><em>(optional) </em>Library ID of the module</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd><em>(optional) </em>Profile of the module</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd><em>(optional) </em>Capabilities of the Device</dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Tagging</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional) </em>Additional Meta Informations</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Module id</dd></dl>
+<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Module type (see <a target="_blank" href="https://dev.netatmo.com/dev/resources/technical/reference/weatherstation/getstationsdata">documentation</a>)</dd></dl>
+<dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd><em>(optional)</em> Library ID of the module</dd></dl>
+<dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd><em>(optional)</em> Profile of the module</dd></dl>
+<dl class="message-properties"><dt>payload.capabilities <span class="property-type">array</span></dt><dd><em>(optional)</em> Capabilities of the Device</dd></dl>
+<dl class="message-properties"><dt>payload.tags <span class="property-type">array</span></dt><dd><em>(optional)</em> Tagging</dd></dl>
+<dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional)</em> Additional Meta Informations</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>The new Component ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>New Component ID</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +84,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Netatmo-addNetatmoDevice" target="_blank">nomos system API Docs</a> - <strong>addNetatmoDevice</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-addNetatmoDevice" target="_blank">nomos system API Docs</a> - <strong>addNetatmoDevice</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Netatmo | 0.2.71</em></div>
+    <div style="text-align: right"><em>Netatmo</em></div>
 </script>

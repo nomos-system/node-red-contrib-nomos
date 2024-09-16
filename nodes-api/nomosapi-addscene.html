@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-addscene" type="text/x-red">
     <p>The Service node represents <strong>addScene</strong> nomos system API Function: <br>
-        Add a Scene
+        Add a Scene<br>(Version 0.2.47 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,23 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Scene Name</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Scene enabled/disabled<br>Default value: <code>true</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.hapEnabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Scene HAP enabled/disabled<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.hidden <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Hidden Scene<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.icon <span class="property-type">string</span></dt><dd><em>(optional) </em>Image/Icon</dd></dl><dl class="message-properties"><dt>payload.position <span class="property-type">number</span></dt><dd><em>(optional) </em>Position</dd></dl><dl class="message-properties"><dt>payload.actions <span class="property-type">object[]</span></dt><dd><em>(optional) </em>Actions</dd></dl><dl class="message-properties"><dt>payload.actions.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl><dl class="message-properties"><dt>payload.actions.property <span class="property-type">string</span></dt><dd>Property Name</dd></dl><dl class="message-properties"><dt>payload.actions.value <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Value (or more if multiple commands)</dd></dl><dl class="message-properties"><dt>payload.actions.templateid <span class="property-type">string</span></dt><dd><em>(optional) </em>Template ID</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Scene Name</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Scene enabled/disabled<br>Default value: <code>true</code></dd></dl>
+<dl class="message-properties"><dt>payload.hapEnabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Scene HAP enabled/disabled</dd></dl>
+<dl class="message-properties"><dt>payload.hidden <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hidden Scene</dd></dl>
+<dl class="message-properties"><dt>payload.icon <span class="property-type">string</span></dt><dd><em>(optional)</em> Image/Icon</dd></dl>
+<dl class="message-properties"><dt>payload.position <span class="property-type">number</span></dt><dd><em>(optional)</em> Position</dd></dl>
+<dl class="message-properties"><dt>payload.actions <span class="property-type">array</span></dt><dd><em>(optional)</em> Actions</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Scene ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Scene ID</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +83,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Scenes-addScene" target="_blank">nomos system API Docs</a> - <strong>addScene</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-addScene" target="_blank">nomos system API Docs</a> - <strong>addScene</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Scenes | 0.2.47</em></div>
+    <div style="text-align: right"><em>Scenes</em></div>
 </script>

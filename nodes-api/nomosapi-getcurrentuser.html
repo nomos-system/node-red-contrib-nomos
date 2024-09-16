@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getcurrentuser" type="text/x-red">
     <p>The Service node represents <strong>getCurrentUser</strong> nomos system API Function: <br>
-        Get Current User Data/Informations
+        Get Current User Data/Informations<br>(Version 0.2.64)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,24 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the User</dd></dl><dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd>Login Username</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>User enabled/disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.removable <span class="property-type">boolean</span></dt><dd>User removable<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.email <span class="property-type">string</span></dt><dd>E-Mail Address</dd></dl><dl class="message-properties"><dt>payload.usergroup <span class="property-type">string</span></dt><dd>Usergroup</dd></dl><dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.perms <span class="property-type">object</span></dt><dd>Permissions</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the User</dd></dl>
+<dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd>Login Username</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>User enabled/disabled</dd></dl>
+<dl class="message-properties"><dt>payload.removable <span class="property-type">boolean</span></dt><dd>User removable</dd></dl>
+<dl class="message-properties"><dt>payload.email <span class="property-type">string</span></dt><dd>E-Mail Address</dd></dl>
+<dl class="message-properties"><dt>payload.usergroup <span class="property-type">string</span></dt><dd>Usergroup</dd></dl>
+<dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
+<dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
+<dl class="message-properties"><dt>payload.perms <span class="property-type">object</span></dt><dd>Permissions</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +85,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Users-getCurrentUser" target="_blank">nomos system API Docs</a> - <strong>getCurrentUser</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getCurrentUser" target="_blank">nomos system API Docs</a> - <strong>getCurrentUser</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Users | 0.2.64</em></div>
+    <div style="text-align: right"><em>Users</em></div>
 </script>

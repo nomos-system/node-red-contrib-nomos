@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-gethuegroups" type="text/x-red">
     <p>The Service node represents <strong>getHUEGroups</strong> nomos system API Function: <br>
-        Get (autodetected) HUE Light Groups
+        Get (autodetected) HUE Light Groups<br>(Version 0.2.71 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.available <span class="property-type">object</span></dt><dd>Device available on following Systems</dd></dl><dl class="message-properties"><dt>payload.available.name <span class="property-type">string</span></dt><dd>Name of the Group</dd></dl><dl class="message-properties"><dt>payload.available.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Group ID</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.controller-serial <span class="property-type">string</span></dt><dd>Bridge/Controller Serial Number</dd></dl><dl class="message-properties"><dt>payload.light-ids <span class="property-type">integer[]</span></dt><dd>HUE Light ID's</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd>Capabilities of the Device</dd></dl><dl class="message-properties"><dt>payload.components <span class="property-type">object[]</span></dt><dd>Component(s) (if already added to the underlying system)</dd></dl><dl class="message-properties"><dt>payload.components.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-PhilipsHUE-getHUEGroups" target="_blank">nomos system API Docs</a> - <strong>getHUEGroups</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getHUEGroups" target="_blank">nomos system API Docs</a> - <strong>getHUEGroups</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>PhilipsHUE | 0.2.71</em></div>
+    <div style="text-align: right"><em>PhilipsHUE</em></div>
 </script>

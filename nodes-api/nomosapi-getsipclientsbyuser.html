@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getsipclientsbyuser" type="text/x-red">
     <p>The Service node represents <strong>getSIPClientsByUser</strong> nomos system API Function: <br>
-        Get SIP Client List by User ID
+        Get SIP Client List by User ID<br>(Version 0.2.80 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,18 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl>
+<dl class="message-properties"><dt>payload.sortBy <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>SIP Clients</dd></dl><dl class="message-properties"><dt>payload.object.id <span class="property-type">number</span></dt><dd>Client ID</dd></dl><dl class="message-properties"><dt>payload.object.enabled <span class="property-type">boolean</span></dt><dd>Enabled or not<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.object.server <span class="property-type">string</span></dt><dd>SIP over WebSocket Server URL</dd></dl><dl class="message-properties"><dt>payload.object.aor <span class="property-type">string</span></dt><dd>SIP Address of Record (AOR)</dd></dl><dl class="message-properties"><dt>payload.object.userAgentOptions <span class="property-type">object</span></dt><dd><em>(optional) </em>User Agent Options</dd></dl><dl class="message-properties"><dt>payload.object.cid <span class="property-type">integer[]</span></dt><dd><em>(optional) </em>Linked Component ID's</dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-SIP-getSIPClientsByUser" target="_blank">nomos system API Docs</a> - <strong>getSIPClientsByUser</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSIPClientsByUser" target="_blank">nomos system API Docs</a> - <strong>getSIPClientsByUser</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SIP | 0.2.80</em></div>
+    <div style="text-align: right"><em>SIP</em></div>
 </script>

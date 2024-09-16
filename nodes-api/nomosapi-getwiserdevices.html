@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getwiserdevices" type="text/x-red">
     <p>The Service node represents <strong>getWiserDevices</strong> nomos system API Function: <br>
-        Get available Wiser Devices of a Gateway
+        Get available Wiser Devices of a Gateway<br>(Version 0.3.11 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,18 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Gateway ID</dd></dl><dl class="message-properties"><dt>payload.sortBy <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Gateway ID</dd></dl>
+<dl class="message-properties"><dt>payload.sortBy <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>ID of the device</dd></dl><dl class="message-properties"><dt>payload.channel <span class="property-type">number</span></dt><dd>Channel</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.device <span class="property-type">string</span></dt><dd>Device</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Type</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.unused <span class="property-type">boolean</span></dt><dd>Device unused</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Wiser-getWiserDevices" target="_blank">nomos system API Docs</a> - <strong>getWiserDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getWiserDevices" target="_blank">nomos system API Docs</a> - <strong>getWiserDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Wiser | 0.2.64</em></div>
+    <div style="text-align: right"><em>Wiser</em></div>
 </script>

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getusers" type="text/x-red">
     <p>The Service node represents <strong>getUsers</strong> nomos system API Function: <br>
-        Get all Users
+        Get all Users<br>(Version 0.1.8 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,16 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>User Objects</dd></dl><dl class="message-properties"><dt>payload.object.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>The Name of the User</dd></dl><dl class="message-properties"><dt>payload.object.username <span class="property-type">string</span></dt><dd>Login Username</dd></dl><dl class="message-properties"><dt>payload.object.enabled <span class="property-type">boolean</span></dt><dd>User enabled/disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.object.removable <span class="property-type">boolean</span></dt><dd>User removable<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.object.email <span class="property-type">string</span></dt><dd>E-Mail Address</dd></dl><dl class="message-properties"><dt>payload.object.usergroup <span class="property-type">string</span></dt><dd>Usergroup</dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Users-getUsers" target="_blank">nomos system API Docs</a> - <strong>getUsers</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getUsers" target="_blank">nomos system API Docs</a> - <strong>getUsers</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Users | 0.1.8</em></div>
+    <div style="text-align: right"><em>Users</em></div>
 </script>

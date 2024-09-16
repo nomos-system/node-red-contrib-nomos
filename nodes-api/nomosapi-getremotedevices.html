@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getremotedevices" type="text/x-red">
     <p>The Service node represents <strong>getRemoteDevices</strong> nomos system API Function: <br>
-        Get (autodetected) "remote" Apple iTunes/Music/AppleTV Devices/Components
+        Get (autodetected) "remote" Apple iTunes/Music/AppleTV Devices/Components<br>(Version 0.2.71 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,17 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional) </em>Model/Type of Device<br>Allowed values: <code>iTunes</code> <code>Music</code> <code>AppleTV</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional)</em> Model/Type of Device<br>Allowed values: <code>iTunes</code> <code>Music</code> <code>AppleTV</code> </dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.available <span class="property-type">object</span></dt><dd>Device available on following Systems</dd></dl><dl class="message-properties"><dt>payload.available.host <span class="property-type">string</span></dt><dd>Host of Apple Device</dd></dl><dl class="message-properties"><dt>payload.available.name <span class="property-type">string</span></dt><dd>Name of Apple Device</dd></dl><dl class="message-properties"><dt>payload.available.uuid <span class="property-type">string</span></dt><dd><em>(optional) </em>UUID of Apple Device</dd></dl><dl class="message-properties"><dt>payload.available.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.available.paired <span class="property-type">boolean</span></dt><dd>Pairing done<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model/Type of Device</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd>Capabilities of the Device</dd></dl><dl class="message-properties"><dt>payload.components <span class="property-type">object[]</span></dt><dd>Component(s) (if already added to the underlying system)</dd></dl><dl class="message-properties"><dt>payload.components.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Apple-Remote-getRemoteDevices" target="_blank">nomos system API Docs</a> - <strong>getRemoteDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getRemoteDevices" target="_blank">nomos system API Docs</a> - <strong>getRemoteDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Apple-Remote | 0.2.71</em></div>
+    <div style="text-align: right"><em>Apple-Remote</em></div>
 </script>

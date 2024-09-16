@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getcountries" type="text/x-red">
     <p>The Service node represents <strong>getCountries</strong> nomos system API Function: <br>
-        Get Countries
+        Get Countries<br>(Version 0.2.3)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Object Array with Countries</dd></dl><dl class="message-properties"><dt>payload.object.code <span class="property-type">string</span></dt><dd>Country Code</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Country Name</dd></dl><dl class="message-properties"><dt>payload.object.lat <span class="property-type">number</span></dt><dd>Country average Latitude Coordinate</dd></dl><dl class="message-properties"><dt>payload.object.lng <span class="property-type">number</span></dt><dd>Country average Longitude Coordinate</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getCountries" target="_blank">nomos system API Docs</a> - <strong>getCountries</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getCountries" target="_blank">nomos system API Docs</a> - <strong>getCountries</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.3</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

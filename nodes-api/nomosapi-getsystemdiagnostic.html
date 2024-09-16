@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getsystemdiagnostic" type="text/x-red">
     <p>The Service node represents <strong>getSystemDiagnostic</strong> nomos system API Function: <br>
-        Get system diagnostic settings
+        Get system diagnostic settings<br>(Version 0.2.49)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,16 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.usage <span class="property-type">boolean</span></dt><dd>Allow usage data collection<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.crashReports <span class="property-type">boolean</span></dt><dd>Allow crash reporting<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.usage <span class="property-type">boolean</span></dt><dd>Allow usage data collection</dd></dl>
+<dl class="message-properties"><dt>payload.crashReports <span class="property-type">boolean</span></dt><dd>Allow crash reporting</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getSystemDiagnostic" target="_blank">nomos system API Docs</a> - <strong>getSystemDiagnostic</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSystemDiagnostic" target="_blank">nomos system API Docs</a> - <strong>getSystemDiagnostic</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.49</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

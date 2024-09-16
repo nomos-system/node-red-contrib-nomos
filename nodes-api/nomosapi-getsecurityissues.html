@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getsecurityissues" type="text/x-red">
     <p>The Service node represents <strong>getSecurityIssues</strong> nomos system API Function: <br>
-        Get System Security Issues
+        Get System Security Issues<br>(Version 0.3.10 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,17 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.score <span class="property-type">number</span></dt><dd>Security Score</dd></dl><dl class="message-properties"><dt>payload.issues <span class="property-type">object[]</span></dt><dd>Array with Issues</dd></dl><dl class="message-properties"><dt>payload.issue <span class="property-type">object</span></dt><dd>Issue Object</dd></dl><dl class="message-properties"><dt>payload.issue.id <span class="property-type">string</span></dt><dd>ID</dd></dl><dl class="message-properties"><dt>payload.issue.severity <span class="property-type">number</span></dt><dd>Severity</dd></dl><dl class="message-properties"><dt>payload.issue.description <span class="property-type">string</span></dt><dd>Description</dd></dl><dl class="message-properties"><dt>payload.issue.solution <span class="property-type">string</span></dt><dd><em>(optional) </em>Solution Link</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.score <span class="property-type">number</span></dt><dd>Security Score</dd></dl>
+<dl class="message-properties"><dt>payload.issues <span class="property-type">array</span></dt><dd>Array with Issues</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Security-getSecurityIssues" target="_blank">nomos system API Docs</a> - <strong>getSecurityIssues</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSecurityIssues" target="_blank">nomos system API Docs</a> - <strong>getSecurityIssues</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Security | 0.3.10</em></div>
+    <div style="text-align: right"><em>Security</em></div>
 </script>

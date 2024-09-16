@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getnetatmodevices" type="text/x-red">
     <p>The Service node represents <strong>getNetatmoDevices</strong> nomos system API Function: <br>
-        Get netatmo devices that are reported by the cloud
+        Get Netatmo devices<br>(Version 0.2.4 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the setup</dd></dl><dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">number</span></dt><dd>Timestamp when the data has been captured</dd></dl><dl class="message-properties"><dt>payload.modules <span class="property-type">object[]</span></dt><dd>Array with all the modules(s)</dd></dl><dl class="message-properties"><dt>payload.modules.id <span class="property-type">string</span></dt><dd>ID of the module</dd></dl><dl class="message-properties"><dt>payload.modules.name <span class="property-type">string</span></dt><dd>Name of the module</dd></dl><dl class="message-properties"><dt>payload.modules.type <span class="property-type">string</span></dt><dd>Type of the module (see <a target="_blank" href="https://dev.netatmo.com/dev/resources/technical/reference/weatherstation/getstationsdata">documentation</a>)</dd></dl><dl class="message-properties"><dt>payload.modules.properties <span class="property-type">object[]</span></dt><dd>Properties of the modules as defined in the profile</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Netatmo-getNetatmoDevices" target="_blank">nomos system API Docs</a> - <strong>getNetatmoDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getNetatmoDevices" target="_blank">nomos system API Docs</a> - <strong>getNetatmoDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Netatmo | 0.2.4</em></div>
+    <div style="text-align: right"><em>Netatmo</em></div>
 </script>

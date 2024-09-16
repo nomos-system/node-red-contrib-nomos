@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getoperatingsysteminfos" type="text/x-red">
     <p>The Service node represents <strong>getOperatingSystemInfos</strong> nomos system API Function: <br>
-        Get Operating System Informations
+        Get Operating System Informations<br>(Version 0.1.8)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,20 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.endianness <span class="property-type">string</span></dt><dd>The endianness of the CPU</dd></dl><dl class="message-properties"><dt>payload.cpus <span class="property-type">object[]</span></dt><dd>An array of objects containing information about each CPU/core installed</dd></dl><dl class="message-properties"><dt>payload.platform <span class="property-type">string</span></dt><dd>The operating system platform</dd></dl><dl class="message-properties"><dt>payload.arch <span class="property-type">string</span></dt><dd>The operating system CPU architecture</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>The operating system name.</dd></dl><dl class="message-properties"><dt>payload.release <span class="property-type">string</span></dt><dd>The operating system release.</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.endianness <span class="property-type">string</span></dt><dd>The endianness of the CPU</dd></dl>
+<dl class="message-properties"><dt>payload.cpus <span class="property-type">array</span></dt><dd>An array of objects containing information about each CPU/core installed</dd></dl>
+<dl class="message-properties"><dt>payload.platform <span class="property-type">string</span></dt><dd>The operating system platform</dd></dl>
+<dl class="message-properties"><dt>payload.arch <span class="property-type">string</span></dt><dd>The operating system CPU architecture</dd></dl>
+<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>The operating system name.</dd></dl>
+<dl class="message-properties"><dt>payload.release <span class="property-type">string</span></dt><dd>The operating system release.</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +81,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getOperatingSystemInfos" target="_blank">nomos system API Docs</a> - <strong>getOperatingSystemInfos</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getOperatingSystemInfos" target="_blank">nomos system API Docs</a> - <strong>getOperatingSystemInfos</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.1.8</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getroomimage" type="text/x-red">
     <p>The Service node represents <strong>getRoomImage</strong> nomos system API Function: <br>
-        Get Room Image
+        Get Room Image<br>(Version 0.3.8)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,19 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Room ID to get image from</dd></dl><dl class="message-properties"><dt>payload.subid <span class="property-type">string</span></dt><dd><em>(optional) </em>Sub ID to get image from<br>Default value: <code>default</code></dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Room ID to get image from</dd></dl>
+<dl class="message-properties"><dt>payload.subid <span class="property-type">string</span></dt><dd><em>(optional)</em> Sub ID to get image from<br>Default value: <code>default</code></dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Image Name</dd></dl><dl class="message-properties"><dt>payload.content <span class="property-type">string</span></dt><dd>Image Base64</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Image Name</dd></dl>
+<dl class="message-properties"><dt>payload.content <span class="property-type">string</span></dt><dd>Image Base64</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +79,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Rooms-getRoomImage" target="_blank">nomos system API Docs</a> - <strong>getRoomImage</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getRoomImage" target="_blank">nomos system API Docs</a> - <strong>getRoomImage</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Rooms | 0.3.8</em></div>
+    <div style="text-align: right"><em>Rooms</em></div>
 </script>

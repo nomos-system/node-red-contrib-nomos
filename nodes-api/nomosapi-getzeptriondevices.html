@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getzeptriondevices" type="text/x-red">
     <p>The Service node represents <strong>getZeptrionDevices</strong> nomos system API Function: <br>
-        Get/find all Zeptrion Devices in local network
+        Get/find all Zeptrion Devices in local network<br>(Version 0.2.50 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,24 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Channel Description</dd></dl><dl class="message-properties"><dt>payload.chdes.name <span class="property-type">string</span></dt><dd>Channel Name</dd></dl><dl class="message-properties"><dt>payload.chdes.cat <span class="property-type">string</span></dt><dd>Channel Category</dd></dl><dl class="message-properties"><dt>payload.chdes.group <span class="property-type">string</span></dt><dd>Channel Group Name</dd></dl><dl class="message-properties"><dt>payload.chdes.icon <span class="property-type">string</span></dt><dd>Channel Icon ID</dd></dl><dl class="message-properties"><dt>payload.chdes.type <span class="property-type">string</span></dt><dd>Channel Type ID</dd></dl><dl class="message-properties"><dt>payload.chdes.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.chdes.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.chdes.capabilities <span class="property-type">string[]</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.date <span class="property-type">object</span></dt><dd>Date/Time</dd></dl><dl class="message-properties"><dt>payload.date.dst <span class="property-type">string</span></dt><dd></dd></dl><dl class="message-properties"><dt>payload.date.rfc1123 <span class="property-type">string</span></dt><dd>Current Date/Time</dd></dl><dl class="message-properties"><dt>payload.date.tz <span class="property-type">string</span></dt><dd>Timezone</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Device Name</dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd>Hostname</dd></dl><dl class="message-properties"><dt>payload.ip <span class="property-type">string</span></dt><dd>Current IP Address</dd></dl><dl class="message-properties"><dt>payload.port <span class="property-type">number</span></dt><dd>Port</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">object</span></dt><dd>ID</dd></dl><dl class="message-properties"><dt>payload.id.btfu <span class="property-type">string</span></dt><dd>Smartfront Buttons</dd></dl><dl class="message-properties"><dt>payload.id.hw <span class="property-type">string</span></dt><dd>Hardware Version</dd></dl><dl class="message-properties"><dt>payload.id.sid <span class="property-type">string</span></dt><dd></dd></dl><dl class="message-properties"><dt>payload.id.sw <span class="property-type">string</span></dt><dd>Software Version</dd></dl><dl class="message-properties"><dt>payload.id.sys <span class="property-type">string</span></dt><dd>System ID</dd></dl><dl class="message-properties"><dt>payload.id.type <span class="property-type">string</span></dt><dd>Typ</dd></dl><dl class="message-properties"><dt>payload.net <span class="property-type">object</span></dt><dd>Network Settings</dd></dl><dl class="message-properties"><dt>payload.net.bssid <span class="property-type">string</span></dt><dd>BSSID</dd></dl><dl class="message-properties"><dt>payload.net.enc <span class="property-type">string</span></dt><dd></dd></dl><dl class="message-properties"><dt>payload.net.gw <span class="property-type">string</span></dt><dd>Gateway</dd></dl><dl class="message-properties"><dt>payload.net.ip <span class="property-type">string</span></dt><dd>Current IP Address</dd></dl><dl class="message-properties"><dt>payload.net.mac <span class="property-type">string</span></dt><dd>Mac Address</dd></dl><dl class="message-properties"><dt>payload.net.mask <span class="property-type">string</span></dt><dd>Network Mask</dd></dl><dl class="message-properties"><dt>payload.net.mode <span class="property-type">string</span></dt><dd>Mode</dd></dl><dl class="message-properties"><dt>payload.net.pw <span class="property-type">string</span></dt><dd>Password</dd></dl><dl class="message-properties"><dt>payload.net.ssid <span class="property-type">string</span></dt><dd>WLAN SSID</dd></dl><dl class="message-properties"><dt>payload.rssi <span class="property-type">object</span></dt><dd>RSSI</dd></dl><dl class="message-properties"><dt>payload.rssi.dbm <span class="property-type">string</span></dt><dd>DBM</dd></dl><dl class="message-properties"><dt>payload.txt <span class="property-type">object</span></dt><dd>Additional Informations</dd></dl><dl class="message-properties"><dt>payload.txt.path <span class="property-type">string</span></dt><dd></dd></dl><dl class="message-properties"><dt>payload.txt.type <span class="property-type">string</span></dt><dd>Type</dd></dl><dl class="message-properties"><dt>payload.txt.sw <span class="property-type">string</span></dt><dd>Software Version</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd>Channel Description</dd></dl>
+<dl class="message-properties"><dt>payload.date <span class="property-type">object</span></dt><dd>Date/Time</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Device Name</dd></dl>
+<dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd>Hostname</dd></dl>
+<dl class="message-properties"><dt>payload.ip <span class="property-type">string</span></dt><dd>Current IP Address</dd></dl>
+<dl class="message-properties"><dt>payload.port <span class="property-type">number</span></dt><dd>Port</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">object</span></dt><dd>ID</dd></dl>
+<dl class="message-properties"><dt>payload.net <span class="property-type">object</span></dt><dd>Network Settings</dd></dl>
+<dl class="message-properties"><dt>payload.rssi <span class="property-type">object</span></dt><dd>RSSI</dd></dl>
+<dl class="message-properties"><dt>payload.txt <span class="property-type">object</span></dt><dd>Additional Informations</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +84,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Zeptrion-getZeptrionDevices" target="_blank">nomos system API Docs</a> - <strong>getZeptrionDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getZeptrionDevices" target="_blank">nomos system API Docs</a> - <strong>getZeptrionDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Zeptrion | 0.2.50</em></div>
+    <div style="text-align: right"><em>Zeptrion</em></div>
 </script>

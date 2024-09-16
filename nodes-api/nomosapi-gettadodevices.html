@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-gettadodevices" type="text/x-red">
     <p>The Service node represents <strong>getTadoDevices</strong> nomos system API Function: <br>
-        Get tado° devices that are reported by the cloud
+        Get tado° devices<br>(Version 0.2.47 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>ID of the home</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the home</dd></dl><dl class="message-properties"><dt>payload.zones <span class="property-type">object[]</span></dt><dd>Array with all the zones</dd></dl><dl class="message-properties"><dt>payload.zones.id <span class="property-type">number</span></dt><dd>ID of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.name <span class="property-type">string</span></dt><dd>Name of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.type <span class="property-type">string</span></dt><dd>Type of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.profile <span class="property-type">string</span></dt><dd>Profile of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.lid <span class="property-type">string</span></dt><dd>Library ID of the zone</dd></dl><dl class="message-properties"><dt>payload.zones.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.zones.propertiesOverrides <span class="property-type">object</span></dt><dd>Override Properties Settings</dd></dl><dl class="message-properties"><dt>payload.zones.mappingsOverrides <span class="property-type">object</span></dt><dd>Override Mappings Settings</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Tado-getTadoDevices" target="_blank">nomos system API Docs</a> - <strong>getTadoDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getTadoDevices" target="_blank">nomos system API Docs</a> - <strong>getTadoDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Tado | 0.2.47</em></div>
+    <div style="text-align: right"><em>Tado</em></div>
 </script>

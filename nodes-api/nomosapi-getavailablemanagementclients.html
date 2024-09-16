@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getavailablemanagementclients" type="text/x-red">
     <p>The Service node represents <strong>getAvailableManagementClients</strong> nomos system API Function: <br>
-        Get all available Management Clients
+        Get all available Management Clients<br>(Version 0.2.71 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Product Profile Id</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd>Host</dd></dl><dl class="message-properties"><dt>payload.httpport <span class="property-type">number</span></dt><dd>HTTP Port</dd></dl><dl class="message-properties"><dt>payload.httpsport <span class="property-type">number</span></dt><dd>HTTPS Port</dd></dl><dl class="message-properties"><dt>payload.serial <span class="property-type">string</span></dt><dd>Serial Number</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Hardware Model</dd></dl><dl class="message-properties"><dt>payload.product <span class="property-type">string</span></dt><dd>Product Name</dd></dl><dl class="message-properties"><dt>payload.version <span class="property-type">string</span></dt><dd>Version</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-ManagementMaster-getAvailableManagementClients" target="_blank">nomos system API Docs</a> - <strong>getAvailableManagementClients</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getAvailableManagementClients" target="_blank">nomos system API Docs</a> - <strong>getAvailableManagementClients</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>ManagementMaster | 0.2.71</em></div>
+    <div style="text-align: right"><em>ManagementMaster</em></div>
 </script>

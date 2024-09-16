@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-adduser" type="text/x-red">
     <p>The Service node represents <strong>addUser</strong> nomos system API Function: <br>
-        Add a User
+        Add a User<br>(Version 0.2.10 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,22 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the User</dd></dl><dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd>Login Username</dd></dl><dl class="message-properties"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional) </em>Login Password</dd></dl><dl class="message-properties"><dt>payload.email <span class="property-type">string</span></dt><dd><em>(optional) </em>E-Mail Address</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>User enabled/disabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.usergroup <span class="property-type">string</span></dt><dd>Usergroup to assign</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the User</dd></dl>
+<dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd>Login Username</dd></dl>
+<dl class="message-properties"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional)</em> Login Password</dd></dl>
+<dl class="message-properties"><dt>payload.email <span class="property-type">string</span></dt><dd><em>(optional)</em> E-Mail Address</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> User enabled/disabled</dd></dl>
+<dl class="message-properties"><dt>payload.usergroup <span class="property-type">string</span></dt><dd>Usergroup to assign</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +82,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Users-addUser" target="_blank">nomos system API Docs</a> - <strong>addUser</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-addUser" target="_blank">nomos system API Docs</a> - <strong>addUser</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Users | 0.2.10</em></div>
+    <div style="text-align: right"><em>Users</em></div>
 </script>

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-softwareupdatecheck" type="text/x-red">
     <p>The Service node represents <strong>softwareUpdateCheck</strong> nomos system API Function: <br>
-        Check for Software Updates
+        Check for Software Updates<br>(Version 0.2.42)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,27 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.force <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Force check<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.force <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Force check</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.OEM <span class="property-type">string</span></dt><dd>OEM Name/ID</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Product ID</dd></dl><dl class="message-properties"><dt>payload.title <span class="property-type">string</span></dt><dd>Product Title</dd></dl><dl class="message-properties"><dt>payload.channel <span class="property-type">string</span></dt><dd>Update Channel</dd></dl><dl class="message-properties"><dt>payload.versionInstalled <span class="property-type">string</span></dt><dd>Version currently installed</dd></dl><dl class="message-properties"><dt>payload.versionAvailable <span class="property-type">string</span></dt><dd>Version available</dd></dl><dl class="message-properties"><dt>payload.updateAvailable <span class="property-type">boolean</span></dt><dd>Update available<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.changeLogUrl <span class="property-type">string</span></dt><dd>Changelog URL</dd></dl><dl class="message-properties"><dt>payload.diskSpaceNeeded <span class="property-type">number</span></dt><dd>Needed available Disk Space for this Update (in Megabytes)</dd></dl><dl class="message-properties"><dt>payload.sufficientDiskSpace <span class="property-type">boolean</span></dt><dd>Sufficient Disk Space for Update available<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.packages <span class="property-type">object[]</span></dt><dd>Packages Details by ID</dd></dl><dl class="message-properties"><dt>payload.packages.name <span class="property-type">string</span></dt><dd>Package Name</dd></dl><dl class="message-properties"><dt>payload.packages.versionInstalled <span class="property-type">string</span></dt><dd>Version currently installed</dd></dl><dl class="message-properties"><dt>payload.packages.versionAvailable <span class="property-type">string</span></dt><dd>Version available</dd></dl><dl class="message-properties"><dt>payload.packages.updateAvailable <span class="property-type">boolean</span></dt><dd>Update available<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.OEM <span class="property-type">string</span></dt><dd>OEM Name/ID</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Product ID</dd></dl>
+<dl class="message-properties"><dt>payload.title <span class="property-type">string</span></dt><dd>Product Title</dd></dl>
+<dl class="message-properties"><dt>payload.channel <span class="property-type">string</span></dt><dd>Update Channel</dd></dl>
+<dl class="message-properties"><dt>payload.versionInstalled <span class="property-type">string</span></dt><dd>Version currently installed</dd></dl>
+<dl class="message-properties"><dt>payload.versionAvailable <span class="property-type">string</span></dt><dd>Version available</dd></dl>
+<dl class="message-properties"><dt>payload.updateAvailable <span class="property-type">boolean</span></dt><dd>Update available</dd></dl>
+<dl class="message-properties"><dt>payload.changeLogUrl <span class="property-type">string</span></dt><dd>Changelog URL</dd></dl>
+<dl class="message-properties"><dt>payload.diskSpaceNeeded <span class="property-type">number</span></dt><dd>Needed available Disk Space for this Update (in Megabytes)</dd></dl>
+<dl class="message-properties"><dt>payload.sufficientDiskSpace <span class="property-type">boolean</span></dt><dd>Sufficient Disk Space for Update available</dd></dl>
+<dl class="message-properties"><dt>payload.packages <span class="property-type">array</span></dt><dd>Packages Details by ID</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +87,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-softwareUpdateCheck" target="_blank">nomos system API Docs</a> - <strong>softwareUpdateCheck</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-softwareUpdateCheck" target="_blank">nomos system API Docs</a> - <strong>softwareUpdateCheck</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.42</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

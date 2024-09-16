@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getaddonprofiles" type="text/x-red">
     <p>The Service node represents <strong>getAddonProfiles</strong> nomos system API Function: <br>
-        Get imported/added Addon Profiles
+        Get imported/added Addon Profiles<br>(Version 0.2.40 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,16 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Addon/Profile Object</dd></dl><dl class="message-properties"><dt>payload.object.id <span class="property-type">number</span></dt><dd>Addon ID</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Addon Name</dd></dl><dl class="message-properties"><dt>payload.object.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.object.version <span class="property-type">string</span></dt><dd>Profile Version</dd></dl><dl class="message-properties"><dt>payload.object.author <span class="property-type">string</span></dt><dd>Author</dd></dl><dl class="message-properties"><dt>payload.object.description <span class="property-type">string</span></dt><dd>Description</dd></dl><dl class="message-properties"><dt>payload.object.generator <span class="property-type">string</span></dt><dd>Generator</dd></dl><dl class="message-properties"><dt>payload.object.supportUrl <span class="property-type">string</span></dt><dd><em>(optional) </em>Support/Help Url</dd></dl><dl class="message-properties"><dt>payload.object.platform <span class="property-type">string</span></dt><dd>Platform</dd></dl><dl class="message-properties"><dt>payload.object.className <span class="property-type">string</span></dt><dd>Class Name</dd></dl><dl class="message-properties"><dt>payload.object.engineType <span class="property-type">string</span></dt><dd>Engine Type</dd></dl><dl class="message-properties"><dt>payload.object.manufacturer <span class="property-type">string</span></dt><dd>Manufacturer</dd></dl><dl class="message-properties"><dt>payload.object.model <span class="property-type">string</span></dt><dd>Model</dd></dl><dl class="message-properties"><dt>payload.object.type <span class="property-type">string</span></dt><dd>Type</dd></dl><dl class="message-properties"><dt>payload.object.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Addons-getAddonProfiles" target="_blank">nomos system API Docs</a> - <strong>getAddonProfiles</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getAddonProfiles" target="_blank">nomos system API Docs</a> - <strong>getAddonProfiles</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Addons | 0.2.40</em></div>
+    <div style="text-align: right"><em>Addons</em></div>
 </script>

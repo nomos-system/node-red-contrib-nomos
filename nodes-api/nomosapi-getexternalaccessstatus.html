@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getexternalaccessstatus" type="text/x-red">
     <p>The Service node represents <strong>getExternalAccessStatus</strong> nomos system API Function: <br>
-        Get Remote Access Status Informations
+        Get Remote Access Status Informations<br>(Version 0.2.33)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,19 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Remote Access enabled or not.<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Connection status as text</dd></dl><dl class="message-properties"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Connection connected status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>DNS Name</dd></dl><dl class="message-properties"><dt>payload.issued <span class="property-type">string</span></dt><dd>Issued date</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Remote Access enabled state</dd></dl>
+<dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Connection status as text</dd></dl>
+<dl class="message-properties"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Connection connected status</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>DNS Name</dd></dl>
+<dl class="message-properties"><dt>payload.issued <span class="property-type">string</span></dt><dd>Issued date</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +80,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-ExternalAccess-getExternalAccessStatus" target="_blank">nomos system API Docs</a> - <strong>getExternalAccessStatus</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getExternalAccessStatus" target="_blank">nomos system API Docs</a> - <strong>getExternalAccessStatus</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>ExternalAccess | 0.2.33</em></div>
+    <div style="text-align: right"><em>ExternalAccess</em></div>
 </script>

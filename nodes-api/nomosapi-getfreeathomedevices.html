@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getfreeathomedevices" type="text/x-red">
     <p>The Service node represents <strong>getFreeAtHomeDevices</strong> nomos system API Function: <br>
-        Get available free@home devices
+        Get available free@home devices<br>(Version 0.2.54 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,18 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.mac <span class="property-type">string</span></dt><dd>Mac Address</dd></dl><dl class="message-properties"><dt>payload.sortBy <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.mac <span class="property-type">string</span></dt><dd>Mac Address</dd></dl>
+<dl class="message-properties"><dt>payload.sortBy <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>ID of the device</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Type</dd></dl><dl class="message-properties"><dt>payload.room <span class="property-type">string</span></dt><dd>Assigned Room</dd></dl><dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl><dl class="message-properties"><dt>payload.propertiesOverrides <span class="property-type">object</span></dt><dd>Override Properties Settings</dd></dl><dl class="message-properties"><dt>payload.mappingsOverrides <span class="property-type">object</span></dt><dd>Override Mappings Settings</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-FreeAtHome-getFreeAtHomeDevices" target="_blank">nomos system API Docs</a> - <strong>getFreeAtHomeDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getFreeAtHomeDevices" target="_blank">nomos system API Docs</a> - <strong>getFreeAtHomeDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>FreeAtHome | 0.2.54</em></div>
+    <div style="text-align: right"><em>FreeAtHome</em></div>
 </script>

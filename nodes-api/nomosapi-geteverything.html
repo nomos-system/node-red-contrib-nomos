@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-geteverything" type="text/x-red">
     <p>The Service node represents <strong>getEverything</strong> nomos system API Function: <br>
-        Get Components, Floors, Rooms, Cameras, SIP Clients and Scenes
+        Get Components, Floors, Rooms, Cameras, SIP Clients and Scenes<br>(Version 0.2.80)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,28 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.components <span class="property-type">object</span></dt><dd>Get Components Parameters (see <a href="http://docs.nomos-system.com/api/#api-Components-getAllComponents">getAllComponents</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.floors <span class="property-type">object</span></dt><dd>Get Floors Parameters (see <a href="http://docs.nomos-system.com/api/#api-Floors-getFloors">getFloors</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.rooms <span class="property-type">object</span></dt><dd>Get Rooms Parameters (see <a href="http://docs.nomos-system.com/api/#api-Rooms-getRooms">getRooms</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.cameras <span class="property-type">object</span></dt><dd>Get Cameras Parameters (see <a href="http://docs.nomos-system.com/api/#api-Cameras-getCameras">getCameras</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.scenes <span class="property-type">object</span></dt><dd>Get Scenes Parameters (see <a href="http://docs.nomos-system.com/api/#api-Scenes-getScenes">getScenes</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.links <span class="property-type">object</span></dt><dd>Get Links Parameters (see <a href="http://docs.nomos-system.com/api/#api-Links-getLinks">getLinks</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.sips <span class="property-type">object</span></dt><dd>Get SIP Clients Parameters (see <a href="http://docs.nomos-system.com/api/#api-SIP-getSIPClients">getSIPClients</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.components <span class="property-type">object</span></dt><dd><em>(optional)</em> Get Components Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getAllComponents">getAllComponents</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.floors <span class="property-type">object</span></dt><dd><em>(optional)</em> Get Floors Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getFloors">getFloors</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.rooms <span class="property-type">object</span></dt><dd><em>(optional)</em> Get Rooms Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getRooms">getRooms</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.cameras <span class="property-type">object</span></dt><dd><em>(optional)</em> Get Cameras Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getCameras">getCameras</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.scenes <span class="property-type">object</span></dt><dd><em>(optional)</em> Get Scenes Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getScenes">getScenes</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.links <span class="property-type">object</span></dt><dd><em>(optional)</em> Get Links Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getLinks">getLinks</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.sips <span class="property-type">object</span></dt><dd><em>(optional)</em> Get SIP Clients Parameters (see <a href="https://apidocs.nomos-system.com/#operation-request-getSIPClients">getSIPClients</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+<dl class="message-properties"><dt>payload.floors <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+<dl class="message-properties"><dt>payload.rooms <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+<dl class="message-properties"><dt>payload.cameras <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+<dl class="message-properties"><dt>payload.scenes <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+<dl class="message-properties"><dt>payload.links <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+<dl class="message-properties"><dt>payload.sips <span class="property-type">array</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +88,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Components-getEverything" target="_blank">nomos system API Docs</a> - <strong>getEverything</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getEverything" target="_blank">nomos system API Docs</a> - <strong>getEverything</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Components | 0.2.80</em></div>
+    <div style="text-align: right"><em>Components</em></div>
 </script>

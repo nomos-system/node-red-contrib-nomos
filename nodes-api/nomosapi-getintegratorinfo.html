@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getintegratorinfo" type="text/x-red">
     <p>The Service node represents <strong>getIntegratorInfo</strong> nomos system API Function: <br>
-        Get Integrator Contact Information
+        Get Integrator Contact Information<br>(Version 0.2.68)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,17 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd>Object with data</dd></dl><dl class="message-properties"><dt>payload.object.contact <span class="property-type">string</span></dt><dd>Contact Name/Address</dd></dl><dl class="message-properties"><dt>payload.object.email <span class="property-type">string</span></dt><dd>E-Mail Address</dd></dl><dl class="message-properties"><dt>payload.object.phone <span class="property-type">string</span></dt><dd>Phone Number</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.contact <span class="property-type">string</span></dt><dd>Contact Name/Address</dd></dl>
+<dl class="message-properties"><dt>payload.email <span class="property-type">string</span></dt><dd>E-Mail Address</dd></dl>
+<dl class="message-properties"><dt>payload.phone <span class="property-type">string</span></dt><dd>Phone Number</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getIntegratorInfo" target="_blank">nomos system API Docs</a> - <strong>getIntegratorInfo</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getIntegratorInfo" target="_blank">nomos system API Docs</a> - <strong>getIntegratorInfo</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.68</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

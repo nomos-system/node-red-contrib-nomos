@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getssids" type="text/x-red">
     <p>The Service node represents <strong>getSSIDs</strong> nomos system API Function: <br>
-        Get SSID's List
+        Get SSID's List<br>(Version 0.1.8 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,17 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.interface <span class="property-type">string</span></dt><dd>Network interface name</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.interface <span class="property-type">string</span></dt><dd>Network interface name</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>List of SSID's available</dd></dl><dl class="message-properties"><dt>payload.object.address <span class="property-type">string</span></dt><dd>Mac Address</dd></dl><dl class="message-properties"><dt>payload.object.channel <span class="property-type">number</span></dt><dd>Channel Number</dd></dl><dl class="message-properties"><dt>payload.object.frequency <span class="property-type">number</span></dt><dd>Frequency</dd></dl><dl class="message-properties"><dt>payload.object.mode <span class="property-type">string</span></dt><dd>Network Mode</dd></dl><dl class="message-properties"><dt>payload.object.quality <span class="property-type">number</span></dt><dd>Network Quality</dd></dl><dl class="message-properties"><dt>payload.object.signal <span class="property-type">number</span></dt><dd>Signal Strength</dd></dl><dl class="message-properties"><dt>payload.object.ssid <span class="property-type">string</span></dt><dd>SSID Name</dd></dl><dl class="message-properties"><dt>payload.object.security <span class="property-type">string</span></dt><dd>Security</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Network-getSSIDs" target="_blank">nomos system API Docs</a> - <strong>getSSIDs</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSSIDs" target="_blank">nomos system API Docs</a> - <strong>getSSIDs</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Network | 0.1.8</em></div>
+    <div style="text-align: right"><em>Network</em></div>
 </script>

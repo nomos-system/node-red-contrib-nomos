@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getzwavedevices" type="text/x-red">
     <p>The Service node represents <strong>getZwaveDevices</strong> nomos system API Function: <br>
-        Get (autodetected) Zwave Devices/Components
+        Get (autodetected) Zwave Devices/Components<br>(Version 0.2.74 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.available <span class="property-type">object</span></dt><dd>Device available on following Systems</dd></dl><dl class="message-properties"><dt>payload.available.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl><dl class="message-properties"><dt>payload.available.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl><dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl><dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Device Type</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Device category</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Zwave Node ID</dd></dl><dl class="message-properties"><dt>payload.file <span class="property-type">string</span></dt><dd>Node xml File of the Device</dd></dl><dl class="message-properties"><dt>payload.capabilities <span class="property-type">string[]</span></dt><dd>Capabilities of the Device</dd></dl><dl class="message-properties"><dt>payload.detectedBy <span class="property-type">string</span></dt><dd>Detected by Type<br>Allowed values: <code>xmlFile</code> <code>dedicatedJson</code> </dd></dl><dl class="message-properties"><dt>payload.compatibility <span class="property-type">number</span></dt><dd><em>(optional) </em>Compatibility in %</dd></dl><dl class="message-properties"><dt>payload.nomosCertified <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Device is nomos certified<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.components <span class="property-type">object[]</span></dt><dd>Component(s) (if already added to the underlying system)</dd></dl><dl class="message-properties"><dt>payload.components.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd><em>(optional)</em> </dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Zwave-getZwaveDevices" target="_blank">nomos system API Docs</a> - <strong>getZwaveDevices</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getZwaveDevices" target="_blank">nomos system API Docs</a> - <strong>getZwaveDevices</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Zwave | 0.2.74</em></div>
+    <div style="text-align: right"><em>Zwave</em></div>
 </script>

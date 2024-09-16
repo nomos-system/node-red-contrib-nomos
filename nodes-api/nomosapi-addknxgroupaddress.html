@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-addknxgroupaddress" type="text/x-red">
     <p>The Service node represents <strong>addKNXGroupAddress</strong> nomos system API Function: <br>
-        Add a user-defined KNX Group Address
+        Add a user-defined KNX Group Address<br>(Version 0.2.8 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,20 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.addr <span class="property-type">string</span></dt><dd>KNX Address</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Address Type (see <a href="http://docs.nomos-system.com/api/#api-KNX-getKNXDataPointTypes">getKNXDataPointTypes</a> for more Informations)</dd></dl><dl class="message-properties"><dt>payload.description <span class="property-type">string</span></dt><dd><em>(optional) </em>Description</dd></dl><dl class="message-properties"><dt>payload.readOnInit <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Read on Initialization Flag<br>Default value: <code>false</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.addr <span class="property-type">string</span></dt><dd>KNX Address</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl>
+<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Address Type (see <a href="https://apidocs.nomos-system.com/#operation-request-getKNXDataPointTypes">getKNXDataPointTypes</a> for more Informations)</dd></dl>
+<dl class="message-properties"><dt>payload.description <span class="property-type">string</span></dt><dd><em>(optional)</em> Description</dd></dl>
+<dl class="message-properties"><dt>payload.readOnInit <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Read on Initialization Flag</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +80,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-KNX-addKNXGroupAddress" target="_blank">nomos system API Docs</a> - <strong>addKNXGroupAddress</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-addKNXGroupAddress" target="_blank">nomos system API Docs</a> - <strong>addKNXGroupAddress</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>KNX | 0.2.8</em></div>
+    <div style="text-align: right"><em>KNX</em></div>
 </script>

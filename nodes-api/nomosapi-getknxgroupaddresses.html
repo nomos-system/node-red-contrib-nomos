@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getknxgroupaddresses" type="text/x-red">
     <p>The Service node represents <strong>getKNXGroupAddresses</strong> nomos system API Function: <br>
-        Get KNX Project Group Addresses
+        Get KNX Project Group Addresses<br>(Version 0.2.13 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,17 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional) </em>Project Name/ID or leave empty if you want to fetch the user-defined KNX Addresses</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional)</em> Project Name/ID or leave empty if you want to fetch the user-defined KNX Addresses</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>with Objects</dd></dl><dl class="message-properties"><dt>payload.Array.Object <span class="property-type">object</span></dt><dd>Group Address Object</dd></dl><dl class="message-properties"><dt>payload.Array.Object.addr <span class="property-type">string</span></dt><dd>KNX Group Address</dd></dl><dl class="message-properties"><dt>payload.Array.Object.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.Array.Object.type <span class="property-type">string</span></dt><dd>DPT Type</dd></dl><dl class="message-properties"><dt>payload.Array.Object.description <span class="property-type">string</span></dt><dd>Description</dd></dl><dl class="message-properties"><dt>payload.Array.Object.readOnInit <span class="property-type">boolean</span></dt><dd>Read on Initialization Flag<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.Array.Object.dependencies <span class="property-type">object[]/boolean</span></dt><dd>Scene, Event and Device Dependencies or <code>false</code> when no Dependencies at all</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-KNX-getKNXGroupAddresses" target="_blank">nomos system API Docs</a> - <strong>getKNXGroupAddresses</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getKNXGroupAddresses" target="_blank">nomos system API Docs</a> - <strong>getKNXGroupAddresses</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>KNX | 0.2.13</em></div>
+    <div style="text-align: right"><em>KNX</em></div>
 </script>

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getlinks" type="text/x-red">
     <p>The Service node represents <strong>getLinks</strong> nomos system API Function: <br>
-        Get Links
+        Get Links<br>(Version 0.2.56 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,16 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">string/string[]</span></dt><dd><em>(optional) </em>Sorting Options (see <a href="http://docs.nomos-system.com/api/#SORTING">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Link Objects</dd></dl><dl class="message-properties"><dt>payload.object.id <span class="property-type">number</span></dt><dd>Link ID</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Link Name</dd></dl><dl class="message-properties"><dt>payload.object.url <span class="property-type">string</span></dt><dd>Link URL</dd></dl><dl class="message-properties"><dt>payload.object.icon <span class="property-type">string</span></dt><dd>Icon</dd></dl><dl class="message-properties"><dt>payload.object.forceFullscreen <span class="property-type">boolean</span></dt><dd>Force Fullscreen<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Links-getLinks" target="_blank">nomos system API Docs</a> - <strong>getLinks</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLinks" target="_blank">nomos system API Docs</a> - <strong>getLinks</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Links | 0.2.56</em></div>
+    <div style="text-align: right"><em>Links</em></div>
 </script>

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getzwaveconfigxmls" type="text/x-red">
     <p>The Service node represents <strong>getZwaveConfigXMLs</strong> nomos system API Function: <br>
-        Get a index/list of all available Config XML files
+        Get a index/list of all available Config XML files<br>(Version 0.2.2 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object[]</span></dt><dd>Device Objects</dd></dl><dl class="message-properties"><dt>payload.object.manufacturerId <span class="property-type">number</span></dt><dd>Manufacturer ID</dd></dl><dl class="message-properties"><dt>payload.object.productType <span class="property-type">number</span></dt><dd>Product Type</dd></dl><dl class="message-properties"><dt>payload.object.productId <span class="property-type">number</span></dt><dd>Product ID</dd></dl><dl class="message-properties"><dt>payload.object.basicClass <span class="property-type">number</span></dt><dd>Basic Class ID</dd></dl><dl class="message-properties"><dt>payload.object.genericClass <span class="property-type">number</span></dt><dd>Generic Class ID</dd></dl><dl class="message-properties"><dt>payload.object.specificClass <span class="property-type">number</span></dt><dd>Specific Class ID</dd></dl><dl class="message-properties"><dt>payload.object.appVersion <span class="property-type">number</span></dt><dd>App Version</dd></dl><dl class="message-properties"><dt>payload.object.appSubVersion <span class="property-type">number</span></dt><dd>App Sub Version</dd></dl><dl class="message-properties"><dt>payload.object.protoVersion <span class="property-type">number</span></dt><dd>Protocol Version</dd></dl><dl class="message-properties"><dt>payload.object.protoSubVersion <span class="property-type">number</span></dt><dd>Protocol Sub Version</dd></dl><dl class="message-properties"><dt>payload.object.brandName <span class="property-type">string</span></dt><dd>Brand Name</dd></dl><dl class="message-properties"><dt>payload.object.productName <span class="property-type">string</span></dt><dd>Product Name</dd></dl><dl class="message-properties"><dt>payload.object.deviceImageURL <span class="property-type">string</span></dt><dd>Device Image URL</dd></dl><dl class="message-properties"><dt>payload.object.filePath <span class="property-type">string</span></dt><dd>XML File Name</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Zwave-getZwaveConfigXMLs" target="_blank">nomos system API Docs</a> - <strong>getZwaveConfigXMLs</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getZwaveConfigXMLs" target="_blank">nomos system API Docs</a> - <strong>getZwaveConfigXMLs</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Zwave | 0.2.2</em></div>
+    <div style="text-align: right"><em>Zwave</em></div>
 </script>

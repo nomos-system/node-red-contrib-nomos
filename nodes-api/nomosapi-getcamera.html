@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getcamera" type="text/x-red">
     <p>The Service node represents <strong>getCamera</strong> nomos system API Function: <br>
-        Get Camera by ID
+        Get Camera by ID<br>(Version 0.3.3 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,25 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Camera ID</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.object.cid <span class="property-type">string</span></dt><dd>Component ID attached to</dd></dl><dl class="message-properties"><dt>payload.object.name <span class="property-type">string</span></dt><dd>Camera Name</dd></dl><dl class="message-properties"><dt>payload.object.rooms <span class="property-type">integer[]</span></dt><dd>Rooms Assignment</dd></dl><dl class="message-properties"><dt>payload.object.url <span class="property-type">string</span></dt><dd>Camera Url</dd></dl><dl class="message-properties"><dt>payload.object.type <span class="property-type">string</span></dt><dd>Type of Url<br>Allowed values: <code>rtsp</code> <code>snapshot</code> <code>mjpeg</code> <code>otherhttp</code> </dd></dl><dl class="message-properties"><dt>payload.object.refreshRate <span class="property-type">number</span></dt><dd><em>(optional) </em>Refresh Rate for Snapshot Type (in ms)</dd></dl><dl class="message-properties"><dt>payload.object.clipLength <span class="property-type">number</span></dt><dd><em>(optional) </em>(Notifications) Clip Length (in s)</dd></dl><dl class="message-properties"><dt>payload.object.created <span class="property-type">string</span></dt><dd>Timestamp Created</dd></dl><dl class="message-properties"><dt>payload.object.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp Last Update</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID attached to</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Camera Name</dd></dl>
+<dl class="message-properties"><dt>payload.rooms <span class="property-type">array</span></dt><dd>Rooms Assignment</dd></dl>
+<dl class="message-properties"><dt>payload.url <span class="property-type">string</span></dt><dd>Camera Url</dd></dl>
+<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Type of Url<br>Allowed values: <code>rtsp</code> <code>snapshot</code> <code>mjpeg</code> <code>otherhttp</code> </dd></dl>
+<dl class="message-properties"><dt>payload.refreshRate <span class="property-type">number</span></dt><dd><em>(optional)</em> Refresh Rate for Snapshot Type (in ms)</dd></dl>
+<dl class="message-properties"><dt>payload.clipLength <span class="property-type">number</span></dt><dd><em>(optional)</em> (Notifications) Clip Length (in s)</dd></dl>
+<dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
+<dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +85,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Cameras-getCamera" target="_blank">nomos system API Docs</a> - <strong>getCamera</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getCamera" target="_blank">nomos system API Docs</a> - <strong>getCamera</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Cameras | 0.3.3</em></div>
+    <div style="text-align: right"><em>Cameras</em></div>
 </script>

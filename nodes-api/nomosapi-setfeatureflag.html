@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-setfeatureflag" type="text/x-red">
     <p>The Service node represents <strong>setFeatureFlag</strong> nomos system API Function: <br>
-        Set/Update a System Feature Flag
+        Set/Update a System Feature Flag<br>(Version 0.2.19 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,17 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Feature Flag Name</dd></dl><dl class="message-properties"><dt>payload.state <span class="property-type">boolean</span></dt><dd>Feature Flag State<br>Allowed values: <code>true</code> <code>false</code> </dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Feature Flag Name</dd></dl>
+<dl class="message-properties"><dt>payload.state <span class="property-type">boolean</span></dt><dd>Feature Flag State</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-setFeatureFlag" target="_blank">nomos system API Docs</a> - <strong>setFeatureFlag</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setFeatureFlag" target="_blank">nomos system API Docs</a> - <strong>setFeatureFlag</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.19</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

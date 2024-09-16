@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-addsipclient" type="text/x-red">
     <p>The Service node represents <strong>addSIPClient</strong> nomos system API Function: <br>
-        Add a SIP Client
+        Add a SIP Client<br>(Version 0.2.80 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,23 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd><em>(optional) </em>User ID to assign (-2 = for everyone available)<br>Default value: <code>-2</code></dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional) </em>Enabled or not<br>Default value: <code>true</code><br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the SIP Client</dd></dl><dl class="message-properties"><dt>payload.server <span class="property-type">string</span></dt><dd>SIP over WebSocket Server URL</dd></dl><dl class="message-properties"><dt>payload.aor <span class="property-type">string</span></dt><dd>SIP Address of Record (AOR)</dd></dl><dl class="message-properties"><dt>payload.userAgentOptions <span class="property-type">object</span></dt><dd><em>(optional) </em>User Agent Options</dd></dl><dl class="message-properties"><dt>payload.object.cid <span class="property-type">integer[]</span></dt><dd><em>(optional) </em>Linked Component ID's</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.uid <span class="property-type">number</span></dt><dd><em>(optional)</em> User ID to assign (`-2` = for everyone available)<br>Default value: <code>-2</code></dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Enabled state<br>Default value: <code>true</code></dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the SIP Client</dd></dl>
+<dl class="message-properties"><dt>payload.server <span class="property-type">string</span></dt><dd>SIP over WebSocket Server URL</dd></dl>
+<dl class="message-properties"><dt>payload.aor <span class="property-type">string</span></dt><dd>SIP Address of Record (AOR)</dd></dl>
+<dl class="message-properties"><dt>payload.userAgentOptions <span class="property-type">object</span></dt><dd><em>(optional)</em> User Agent Options</dd></dl>
+<dl class="message-properties"><dt>payload.cid <span class="property-type">array</span></dt><dd><em>(optional)</em> Linked Component ID's</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Client ID</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">number</span></dt><dd>Client ID</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +83,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-SIP-addSIPClient" target="_blank">nomos system API Docs</a> - <strong>addSIPClient</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSIPClient" target="_blank">nomos system API Docs</a> - <strong>addSIPClient</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SIP | 0.2.80</em></div>
+    <div style="text-align: right"><em>SIP</em></div>
 </script>

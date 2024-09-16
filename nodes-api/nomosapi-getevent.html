@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getevent" type="text/x-red">
     <p>The Service node represents <strong>getEvent</strong> nomos system API Function: <br>
-        Get Event
+        Get Event<br>(Version 0.2.45 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,29 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.eid <span class="property-type">string</span></dt><dd>Event ID</dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.eid <span class="property-type">string</span></dt><dd>Event ID</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Event Name</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.locked <span class="property-type">boolean</span></dt><dd>Locked State<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.onChange <span class="property-type">boolean</span></dt><dd>Fire Event always or just on change<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.triggers <span class="property-type">object[]</span></dt><dd>Triggers</dd></dl><dl class="message-properties"><dt>payload.conditions <span class="property-type">object[]</span></dt><dd>Conditions</dd></dl><dl class="message-properties"><dt>payload.positiveActions <span class="property-type">object[]</span></dt><dd>Positive Actions</dd></dl><dl class="message-properties"><dt>payload.negativeActions <span class="property-type">object[]</span></dt><dd>Negative Actions</dd></dl><dl class="message-properties"><dt>payload.tags <span class="property-type">string[]</span></dt><dd>Tags</dd></dl><dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd>Additional Meta Informations</dd></dl><dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl><dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl><dl class="message-properties"><dt>payload.stats <span class="property-type">object</span></dt><dd>Statistics</dd></dl><dl class="message-properties"><dt>payload.stats.positive <span class="property-type">object</span></dt><dd>Positive triggered</dd></dl><dl class="message-properties"><dt>payload.stats.positive.minute <span class="property-type">object</span></dt><dd>Usage count last minute</dd></dl><dl class="message-properties"><dt>payload.stats.positive.hour <span class="property-type">object</span></dt><dd>Usage count last hour</dd></dl><dl class="message-properties"><dt>payload.stats.positive.day <span class="property-type">object</span></dt><dd>Usage count last day</dd></dl><dl class="message-properties"><dt>payload.stats.positive.week <span class="property-type">object</span></dt><dd>Usage count last week</dd></dl><dl class="message-properties"><dt>payload.stats.positive.month <span class="property-type">object</span></dt><dd>Usage count last month</dd></dl><dl class="message-properties"><dt>payload.stats.positive.year <span class="property-type">object</span></dt><dd>Usage count last year</dd></dl><dl class="message-properties"><dt>payload.stats.negative <span class="property-type">object</span></dt><dd>Negative triggered</dd></dl><dl class="message-properties"><dt>payload.stats.negative.minute <span class="property-type">object</span></dt><dd>Usage count last minute</dd></dl><dl class="message-properties"><dt>payload.stats.negative.hour <span class="property-type">object</span></dt><dd>Usage count last hour</dd></dl><dl class="message-properties"><dt>payload.stats.negative.day <span class="property-type">object</span></dt><dd>Usage count last day</dd></dl><dl class="message-properties"><dt>payload.stats.negative.week <span class="property-type">object</span></dt><dd>Usage count last week</dd></dl><dl class="message-properties"><dt>payload.stats.negative.month <span class="property-type">object</span></dt><dd>Usage count last month</dd></dl><dl class="message-properties"><dt>payload.stats.negative.year <span class="property-type">object</span></dt><dd>Usage count last year</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Event Name</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled</dd></dl>
+<dl class="message-properties"><dt>payload.locked <span class="property-type">boolean</span></dt><dd>Locked State</dd></dl>
+<dl class="message-properties"><dt>payload.onChange <span class="property-type">boolean</span></dt><dd>Fire Event always or just on change</dd></dl>
+<dl class="message-properties"><dt>payload.triggers <span class="property-type">array</span></dt><dd>Triggers</dd></dl>
+<dl class="message-properties"><dt>payload.conditions <span class="property-type">array</span></dt><dd>Conditions</dd></dl>
+<dl class="message-properties"><dt>payload.positiveActions <span class="property-type">array</span></dt><dd>Positive Actions</dd></dl>
+<dl class="message-properties"><dt>payload.negativeActions <span class="property-type">array</span></dt><dd>Negative Actions</dd></dl>
+<dl class="message-properties"><dt>payload.tags <span class="property-type">array</span></dt><dd>Tags</dd></dl>
+<dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd>Additional Meta Informations</dd></dl>
+<dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
+<dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
+<dl class="message-properties"><dt>payload.stats <span class="property-type">object</span></dt><dd>Statistics</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +89,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Events-getEvent" target="_blank">nomos system API Docs</a> - <strong>getEvent</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getEvent" target="_blank">nomos system API Docs</a> - <strong>getEvent</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Events | 0.2.45</em></div>
+    <div style="text-align: right"><em>Events</em></div>
 </script>

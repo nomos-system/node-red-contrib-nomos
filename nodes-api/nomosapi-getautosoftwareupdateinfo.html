@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getautosoftwareupdateinfo" type="text/x-red">
     <p>The Service node represents <strong>getAutoSoftwareUpdateInfo</strong> nomos system API Function: <br>
-        Get Automatic Software Updates Info/Status
+        Get Automatic Software Updates Info/Status<br>(Version 0.2.59 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -51,12 +51,18 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled status<br>Allowed values: <code>true</code> <code>false</code> </dd></dl><dl class="message-properties"><dt>payload.weekday <span class="property-type">number</span></dt><dd>Weekday<br>Allowed values: <code>1</code> </dd></dl><dl class="message-properties"><dt>payload.start <span class="property-type">string</span></dt><dd>Time Range Start<br>Allowed values: <code>2:00</code> </dd></dl><dl class="message-properties"><dt>payload.end <span class="property-type">string</span></dt><dd>Time Range End<br>Allowed values: <code>4:00</code> </dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled status</dd></dl>
+<dl class="message-properties"><dt>payload.weekday <span class="property-type">number</span></dt><dd>Weekday<br>Allowed values: <code>(0) Sunday</code> <code>(1) Monday</code> <code>(2) Tuesday</code> <code>(3) Wednesday</code> <code>(4) Thursday</code> <code>(5) Friday</code> <code>(6) Saturday</code> </dd></dl>
+<dl class="message-properties"><dt>payload.start <span class="property-type">string</span></dt><dd>Time Range Start</dd></dl>
+<dl class="message-properties"><dt>payload.end <span class="property-type">string</span></dt><dd>Time Range End</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +79,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-System-getAutoSoftwareUpdateInfo" target="_blank">nomos system API Docs</a> - <strong>getAutoSoftwareUpdateInfo</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getAutoSoftwareUpdateInfo" target="_blank">nomos system API Docs</a> - <strong>getAutoSoftwareUpdateInfo</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System | 0.2.59</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

@@ -34,7 +34,7 @@
 </script>
 <script data-help-name="nomosapi-onsystemvariableadded" type="text/x-red">
     <p>The Service node represents <strong>onSystemVariableAdded</strong> nomos system API Event: <br>
-        Update Event when a new System Variable has been added
+        Event Update when a new System Variable has been added<br>(Version 0.2.84 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -45,15 +45,16 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>Data
-            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Variable ID</dd></dl><dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl><dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Category</dd></dl><dl class="message-properties"><dt>payload.editable <span class="property-type">boolean</span></dt><dd>Editable</dd></dl><dl class="message-properties"><dt>payload.defaultValue <span class="property-type">string/integer/float/boolean</span></dt><dd>Default Value</dd></dl><dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Datatype<br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> </dd></dl>
+            <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+
          </li>
     </ol>
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-SystemVariables-onSystemVariableAdded" target="_blank">nomos system API Docs</a> - <strong>onSystemVariableAdded</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-onSystemVariableAdded" target="_blank">nomos system API Docs</a> - <strong>onSystemVariableAdded</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables | 0.2.84</em></div>
+    <div style="text-align: right"><em>SystemVariables</em></div>
 </script>

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-softresetmanagementclient" type="text/x-red">
     <p>The Service node represents <strong>softResetManagementClient</strong> nomos system API Function: <br>
-        Soft Reset Management Client System
+        Soft Reset Management Client System<br>(Version 0.2.75 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
@@ -50,13 +50,20 @@
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Management Client ID</dd></dl><dl class="message-properties"><dt>payload.adminPassword <span class="property-type">string</span></dt><dd>New 'admin' Administrator Password</dd></dl><dl class="message-properties"><dt>payload.numberOfUsers <span class="property-type">number</span></dt><dd><em>(optional) </em>Number of new Users to create<br>Default value: <code>2</code></dd></dl><dl class="message-properties"><dt>payload.numberOfAdmins <span class="property-type">number</span></dt><dd><em>(optional) </em>Number of new Admin Users to create<br>Default value: <code>1</code></dd></dl>
+        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Management Client ID</dd></dl>
+<dl class="message-properties"><dt>payload.adminPassword <span class="property-type">string</span></dt><dd>New 'admin' Administrator Password</dd></dl>
+<dl class="message-properties"><dt>payload.numberOfUsers <span class="property-type">number</span></dt><dd><em>(optional)</em> Number of new Users to create<br>Default value: <code>2</code><br>Maximum: <code>10</code></dd></dl>
+<dl class="message-properties"><dt>payload.numberOfAdmins <span class="property-type">number</span></dt><dd><em>(optional)</em> Number of new Admin Users to create<br>Default value: <code>1</code><br>Maximum: <code>5</code></dd></dl>
+
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl><dl class="message-properties"><dt>payload.url <span class="property-type">string</span></dt><dd>PDF Document Download Url (Expires after 15 secs)</dd></dl>
+             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties"><dt>payload.url <span class="property-type">string</span></dt><dd>PDF Document Download Url (Expires after 15 secs)</dd></dl>
+
          </li>
          <li>API error
              <dl class="message-properties">
@@ -73,9 +80,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-ManagementMaster-softResetManagementClient" target="_blank">nomos system API Docs</a> - <strong>softResetManagementClient</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-softResetManagementClient" target="_blank">nomos system API Docs</a> - <strong>softResetManagementClient</strong> API Documentation</li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>ManagementMaster | 0.2.75</em></div>
+    <div style="text-align: right"><em>ManagementMaster</em></div>
 </script>
