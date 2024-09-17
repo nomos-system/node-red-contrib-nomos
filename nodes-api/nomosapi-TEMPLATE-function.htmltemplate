@@ -38,12 +38,12 @@
     </div>
 </script>
 <script data-help-name="%FILENAME%" type="text/x-red">
-    <p>The Service node represents <strong>%NAME%</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>%NAME%</strong> nomos system API Function: <br>
         %DESCRIPTION%
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
@@ -73,7 +73,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-%NAME%" target="_blank">nomos system API Docs</a> - <strong>%NAME%</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-%NAME%" target="_blank">%NAME% nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
