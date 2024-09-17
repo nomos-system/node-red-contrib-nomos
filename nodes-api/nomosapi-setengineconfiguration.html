@@ -38,32 +38,32 @@
     </div>
 </script>
 <script data-help-name="nomosapi-setengineconfiguration" type="text/x-red">
-    <p>The Service node represents <strong>setEngineConfiguration</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>setEngineConfiguration</strong> nomos system API Function: <br>
         Set/Replace Engine Configuration Parameters, a "null" value would delete a configuration parameter<br>(Version 0.3.4 | <em>admin</em> User Permission needed)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.TCP_PORT <span class="property-type">number</span></dt><dd><em>(optional)</em> TCP Port</dd></dl>
-<dl class="message-properties"><dt>payload.UDP_PORT <span class="property-type">number</span></dt><dd><em>(optional)</em> UDP Port</dd></dl>
-<dl class="message-properties"><dt>payload.UDP_PORT_ADD <span class="property-type">string</span></dt><dd><em>(optional)</em> Additional UDP Port</dd></dl>
-<dl class="message-properties"><dt>payload.STATUS_PORT <span class="property-type">number</span></dt><dd><em>(optional)</em> Status Port</dd></dl>
-<dl class="message-properties"><dt>payload.STATUS_IP <span class="property-type">string</span></dt><dd><em>(optional)</em> Status IP</dd></dl>
-<dl class="message-properties"><dt>payload.PROJECT <span class="property-type">string</span></dt><dd><em>(optional)</em> Active Project</dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.TCP_PORT <span class="property-type">number</span></dt><dd><em>(optional)</em> TCP Port</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.UDP_PORT <span class="property-type">number</span></dt><dd><em>(optional)</em> UDP Port</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.UDP_PORT_ADD <span class="property-type">string</span></dt><dd><em>(optional)</em> Additional UDP Port</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.STATUS_PORT <span class="property-type">number</span></dt><dd><em>(optional)</em> Status Port</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.STATUS_IP <span class="property-type">string</span></dt><dd><em>(optional)</em> Status IP</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.PROJECT <span class="property-type">string</span></dt><dd><em>(optional)</em> Active Project</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -81,7 +81,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-setEngineConfiguration" target="_blank">nomos system API Docs</a> - <strong>setEngineConfiguration</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setEngineConfiguration" target="_blank">setEngineConfiguration nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 

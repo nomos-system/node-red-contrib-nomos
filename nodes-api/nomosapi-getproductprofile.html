@@ -38,44 +38,44 @@
     </div>
 </script>
 <script data-help-name="nomosapi-getproductprofile" type="text/x-red">
-    <p>The Service node represents <strong>getProductProfile</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>getProductProfile</strong> nomos system API Function: <br>
         Get Product Profile of the System<br>(Version 0.3.11)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.serial <span class="property-type">string</span></dt><dd>System Serial Number</dd></dl>
-<dl class="message-properties"><dt>payload.title <span class="property-type">string</span></dt><dd>Product Title</dd></dl>
-<dl class="message-properties"><dt>payload.id <span class="property-type">string</span></dt><dd>Product Profile ID</dd></dl>
-<dl class="message-properties"><dt>payload.version <span class="property-type">string</span></dt><dd>Product Version</dd></dl>
-<dl class="message-properties"><dt>payload.versionName <span class="property-type">string</span></dt><dd><em>(optional)</em> Version Name</dd></dl>
-<dl class="message-properties"><dt>payload.OEM <span class="property-type">string</span></dt><dd>OEM name</dd></dl>
-<dl class="message-properties"><dt>payload.companyUrl <span class="property-type">string</span></dt><dd>Company Website/URL</dd></dl>
-<dl class="message-properties"><dt>payload.companyName <span class="property-type">string</span></dt><dd>Company Name</dd></dl>
-<dl class="message-properties"><dt>payload.channel <span class="property-type">string</span></dt><dd>Update Channel</dd></dl>
-<dl class="message-properties"><dt>payload.appUrlAndroid <span class="property-type">string</span></dt><dd>Android App Url</dd></dl>
-<dl class="message-properties"><dt>payload.appUrliOS <span class="property-type">string</span></dt><dd>Android App Url</dd></dl>
-<dl class="message-properties"><dt>payload.bonjourName <span class="property-type">string</span></dt><dd>Bonjour Id/Name</dd></dl>
-<dl class="message-properties"><dt>payload.cloudUrl <span class="property-type">string</span></dt><dd>Cloud URL</dd></dl>
-<dl class="message-properties"><dt>payload.termsUrl <span class="property-type">string</span></dt><dd>Terms and Conditions URL</dd></dl>
-<dl class="message-properties"><dt>payload.apidocUrl <span class="property-type">string</span></dt><dd>API Documentation URL</dd></dl>
-<dl class="message-properties"><dt>payload.iftttChannel <span class="property-type">string</span></dt><dd>IFTTT Channel Name</dd></dl>
-<dl class="message-properties"><dt>payload.modules <span class="property-type">object</span></dt><dd>Enabled Product Modules</dd></dl>
-<dl class="message-properties"><dt>payload.panelModules <span class="property-type">object</span></dt><dd>Enabled Product Panel Modules</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.serial <span class="property-type">string</span></dt><dd>System Serial Number</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.title <span class="property-type">string</span></dt><dd>Product Title</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>Product Profile ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.version <span class="property-type">string</span></dt><dd>Product Version</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.versionName <span class="property-type">string</span></dt><dd><em>(optional)</em> Version Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.OEM <span class="property-type">string</span></dt><dd>OEM name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.companyUrl <span class="property-type">string</span></dt><dd>Company Website/URL</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.companyName <span class="property-type">string</span></dt><dd>Company Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.channel <span class="property-type">string</span></dt><dd>Update Channel</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.appUrlAndroid <span class="property-type">string</span></dt><dd>Android App Url</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.appUrliOS <span class="property-type">string</span></dt><dd>Android App Url</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.bonjourName <span class="property-type">string</span></dt><dd>Bonjour Id/Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.cloudUrl <span class="property-type">string</span></dt><dd>Cloud URL</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.termsUrl <span class="property-type">string</span></dt><dd>Terms and Conditions URL</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.apidocUrl <span class="property-type">string</span></dt><dd>API Documentation URL</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.iftttChannel <span class="property-type">string</span></dt><dd>IFTTT Channel Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.modules <span class="property-type">object</span></dt><dd>Enabled Product Modules</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.panelModules <span class="property-type">object</span></dt><dd>Enabled Product Panel Modules</dd></dl>
 
          </li>
          <li>API error
@@ -93,7 +93,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getProductProfile" target="_blank">nomos system API Docs</a> - <strong>getProductProfile</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getProductProfile" target="_blank">getProductProfile nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 

@@ -38,38 +38,38 @@
     </div>
 </script>
 <script data-help-name="nomosapi-getcloudstatus" type="text/x-red">
-    <p>The Service node represents <strong>getCloudStatus</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>getCloudStatus</strong> nomos system API Function: <br>
         Get Cloud Status Information/Configuration<br>(Version 0.3.7)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.status <span class="property-type">string</span></dt><dd>Cloud Connection status as text</dd></dl>
-<dl class="message-properties"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Cloud Connection connected status</dd></dl>
-<dl class="message-properties"><dt>payload.connecting <span class="property-type">boolean</span></dt><dd>Cloud Connection connecting status</dd></dl>
-<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Cloud Connection enabled status</dd></dl>
-<dl class="message-properties"><dt>payload.registered <span class="property-type">boolean</span></dt><dd>System is registered in Cloud</dd></dl>
-<dl class="message-properties"><dt>payload.syncEnabled <span class="property-type">boolean</span></dt><dd>Sync Enabled State</dd></dl>
-<dl class="message-properties"><dt>payload.userId <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud User ID</dd></dl>
-<dl class="message-properties"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud Username</dd></dl>
-<dl class="message-properties"><dt>payload.email <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud E-Mail</dd></dl>
-<dl class="message-properties"><dt>payload.fullname <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud Full Name</dd></dl>
-<dl class="message-properties"><dt>payload.controllers <span class="property-type">array</span></dt><dd><em>(optional)</em> Registered controllers for this user</dd></dl>
-<dl class="message-properties"><dt>payload.subscription <span class="property-type">object</span></dt><dd><em>(optional)</em> Subscription details</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.status <span class="property-type">string</span></dt><dd>Cloud Connection status as text</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.connected <span class="property-type">boolean</span></dt><dd>Cloud Connection connected status</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.connecting <span class="property-type">boolean</span></dt><dd>Cloud Connection connecting status</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Cloud Connection enabled status</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.registered <span class="property-type">boolean</span></dt><dd>System is registered in Cloud</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.syncEnabled <span class="property-type">boolean</span></dt><dd>Sync Enabled State</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.userId <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud User ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud Username</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.email <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud E-Mail</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.fullname <span class="property-type">string</span></dt><dd><em>(optional)</em> Cloud Full Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.controllers <span class="property-type">array</span></dt><dd><em>(optional)</em> Registered controllers for this user</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.subscription <span class="property-type">object</span></dt><dd><em>(optional)</em> Subscription details</dd></dl>
 
          </li>
          <li>API error
@@ -87,7 +87,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getCloudStatus" target="_blank">nomos system API Docs</a> - <strong>getCloudStatus</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getCloudStatus" target="_blank">getCloudStatus nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 

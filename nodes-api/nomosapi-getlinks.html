@@ -38,27 +38,27 @@
     </div>
 </script>
 <script data-help-name="nomosapi-getlinks" type="text/x-red">
-    <p>The Service node represents <strong>getLinks</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>getLinks</strong> nomos system API Function: <br>
         Get Links<br>(Version 0.2.56 | <em>admin</em> User Permission needed)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.sortBy <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Informations)</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.object <span class="property-type">object</span></dt><dd></dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd>Link Objects</dd></dl>
 
          </li>
          <li>API error
@@ -76,7 +76,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLinks" target="_blank">nomos system API Docs</a> - <strong>getLinks</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLinks" target="_blank">getLinks nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 

@@ -38,40 +38,40 @@
     </div>
 </script>
 <script data-help-name="nomosapi-getevent" type="text/x-red">
-    <p>The Service node represents <strong>getEvent</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>getEvent</strong> nomos system API Function: <br>
         Get Event<br>(Version 0.2.45 | <em>admin</em> User Permission needed)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.eid <span class="property-type">string</span></dt><dd>Event ID</dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.eid <span class="property-type">string</span></dt><dd>Event ID</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Event Name</dd></dl>
-<dl class="message-properties"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled</dd></dl>
-<dl class="message-properties"><dt>payload.locked <span class="property-type">boolean</span></dt><dd>Locked State</dd></dl>
-<dl class="message-properties"><dt>payload.onChange <span class="property-type">boolean</span></dt><dd>Fire Event always or just on change</dd></dl>
-<dl class="message-properties"><dt>payload.triggers <span class="property-type">array</span></dt><dd>Triggers</dd></dl>
-<dl class="message-properties"><dt>payload.conditions <span class="property-type">array</span></dt><dd>Conditions</dd></dl>
-<dl class="message-properties"><dt>payload.positiveActions <span class="property-type">array</span></dt><dd>Positive Actions</dd></dl>
-<dl class="message-properties"><dt>payload.negativeActions <span class="property-type">array</span></dt><dd>Negative Actions</dd></dl>
-<dl class="message-properties"><dt>payload.tags <span class="property-type">array</span></dt><dd>Tags</dd></dl>
-<dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd>Additional Meta Informations</dd></dl>
-<dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
-<dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
-<dl class="message-properties"><dt>payload.stats <span class="property-type">object</span></dt><dd>Statistics</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Event Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.locked <span class="property-type">boolean</span></dt><dd>Locked State</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.onChange <span class="property-type">boolean</span></dt><dd>Fire Event always or just on change</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.triggers <span class="property-type">array</span></dt><dd>Triggers</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.conditions <span class="property-type">array</span></dt><dd>Conditions</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.positiveActions <span class="property-type">array</span></dt><dd>Positive Actions</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.negativeActions <span class="property-type">array</span></dt><dd>Negative Actions</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.tags <span class="property-type">array</span></dt><dd>Tags</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.meta <span class="property-type">object</span></dt><dd>Additional Meta Informations</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.stats <span class="property-type">object</span></dt><dd>Statistics</dd></dl>
 
          </li>
          <li>API error
@@ -89,7 +89,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getEvent" target="_blank">nomos system API Docs</a> - <strong>getEvent</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getEvent" target="_blank">getEvent nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 

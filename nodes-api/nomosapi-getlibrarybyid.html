@@ -38,45 +38,45 @@
     </div>
 </script>
 <script data-help-name="nomosapi-getlibrarybyid" type="text/x-red">
-    <p>The Service node represents <strong>getLibraryByID</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>getLibraryByID</strong> nomos system API Function: <br>
         Get Profile Data/Informations out of the Library<br>(Version 0.2.19 | <em>admin</em> User Permission needed)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.version <span class="property-type">string</span></dt><dd>Library Version</dd></dl>
-<dl class="message-properties"><dt>payload.description <span class="property-type">string</span></dt><dd>Description</dd></dl>
-<dl class="message-properties"><dt>payload.author <span class="property-type">string</span></dt><dd>Author</dd></dl>
-<dl class="message-properties"><dt>payload.className <span class="property-type">string</span></dt><dd>Class Name</dd></dl>
-<dl class="message-properties"><dt>payload.engineType <span class="property-type">string</span></dt><dd>Engine Type</dd></dl>
-<dl class="message-properties"><dt>payload.platform <span class="property-type">string</span></dt><dd>Platform</dd></dl>
-<dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl>
-<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Device Type</dd></dl>
-<dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Device Category</dd></dl>
-<dl class="message-properties"><dt>payload.header <span class="property-type">object</span></dt><dd>Header Informations</dd></dl>
-<dl class="message-properties"><dt>payload.properties <span class="property-type">object</span></dt><dd>Properties/Actions</dd></dl>
-<dl class="message-properties"><dt>payload.propertiesMeta <span class="property-type">object</span></dt><dd>Properties/Actions Meta Data</dd></dl>
-<dl class="message-properties"><dt>payload.mappings <span class="property-type">object</span></dt><dd>Mappings/Feedbacks</dd></dl>
-<dl class="message-properties"><dt>payload.mappingsMeta <span class="property-type">object</span></dt><dd>Mappings/Feedbacks Meta Data</dd></dl>
-<dl class="message-properties"><dt>payload.hideMappings <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hide Mappings</dd></dl>
-<dl class="message-properties"><dt>payload.hideProperties <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hide Properties</dd></dl>
-<dl class="message-properties"><dt>payload.triggerTemplates <span class="property-type">object</span></dt><dd><em>(optional)</em> Predefined Trigger/Mapping Templates</dd></dl>
-<dl class="message-properties"><dt>payload.actionTemplates <span class="property-type">object</span></dt><dd><em>(optional)</em> Predefined Property/Action Templates</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.version <span class="property-type">string</span></dt><dd>Library Version</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.description <span class="property-type">string</span></dt><dd>Description</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.author <span class="property-type">string</span></dt><dd>Author</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.className <span class="property-type">string</span></dt><dd>Class Name</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.engineType <span class="property-type">string</span></dt><dd>Engine Type</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.platform <span class="property-type">string</span></dt><dd>Platform</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd>Device Type</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.category <span class="property-type">string</span></dt><dd>Device Category</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.header <span class="property-type">object</span></dt><dd>Header Informations</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.properties <span class="property-type">object</span></dt><dd>Properties/Actions</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.propertiesMeta <span class="property-type">object</span></dt><dd>Properties/Actions Meta Data</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.mappings <span class="property-type">object</span></dt><dd>Mappings/Feedbacks</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.mappingsMeta <span class="property-type">object</span></dt><dd>Mappings/Feedbacks Meta Data</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.hideMappings <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hide Mappings</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.hideProperties <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hide Properties</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.triggerTemplates <span class="property-type">object</span></dt><dd><em>(optional)</em> Predefined Trigger/Mapping Templates</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.actionTemplates <span class="property-type">object</span></dt><dd><em>(optional)</em> Predefined Property/Action Templates</dd></dl>
 
          </li>
          <li>API error
@@ -94,7 +94,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLibraryByID" target="_blank">nomos system API Docs</a> - <strong>getLibraryByID</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getLibraryByID" target="_blank">getLibraryByID nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 

@@ -38,63 +38,31 @@
     </div>
 </script>
 <script data-help-name="nomosapi-getcomponentsbyid" type="text/x-red">
-    <p>The Service node represents <strong>getComponentsById</strong> nomos system API Function: <br>
+    <p>The service node represents <strong>getComponentsById</strong> nomos system API Function: <br>
         Get Component(s) by Id<br>(Version 0.2.73)
     </p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dl class="message-properties"><dt>payload <span class="property-type">array</span></dt><dd>Component Id or multiple Id's</dd></dl>
-<dl class="message-properties"><dt>payload.localOnly <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Only local available ones</dd></dl>
-<dl class="message-properties"><dt>payload.withProperties <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Return Properties/Actions Meta-Information<br>Default value: <code>true</code></dd></dl>
-<dl class="message-properties"><dt>payload.withMappings <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Return Mappings/Feedbacks Meta-Information<br>Default value: <code>true</code></dd></dl>
-<dl class="message-properties"><dt>payload.withData <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Return Data/Values<br>Default value: <code>true</code></dd></dl>
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">array</span></dt><dd>Component Id or multiple Id's</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.localOnly <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Only local available ones</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.withProperties <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Return Properties/Actions Meta-Information<br>Default value: <code>true</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.withMappings <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Return Mappings/Feedbacks Meta-Information<br>Default value: <code>true</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.withData <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Return Data/Values<br>Default value: <code>true</code></dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
-<dl class="message-properties"><dt>payload.name <span class="property-type">string</span></dt><dd>Component Name</dd></dl>
-<dl class="message-properties"><dt>payload.sid <span class="property-type">string</span></dt><dd>System ID</dd></dl>
-<dl class="message-properties"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID</dd></dl>
-<dl class="message-properties"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile Name</dd></dl>
-<dl class="message-properties"><dt>payload.className <span class="property-type">string</span></dt><dd>Class Name</dd></dl>
-<dl class="message-properties"><dt>payload.subClassName <span class="property-type">string</span></dt><dd>Subclass Name</dd></dl>
-<dl class="message-properties"><dt>payload.capabilities <span class="property-type">array</span></dt><dd>Capabilities</dd></dl>
-<dl class="message-properties"><dt>payload.engineType <span class="property-type">string</span></dt><dd>Engine Type</dd></dl>
-<dl class="message-properties"><dt>payload.version <span class="property-type">string</span></dt><dd>Library Version</dd></dl>
-<dl class="message-properties"><dt>payload.platform <span class="property-type">string</span></dt><dd>Platform</dd></dl>
-<dl class="message-properties"><dt>payload.manufacturer <span class="property-type">string</span></dt><dd>Manufacturer</dd></dl>
-<dl class="message-properties"><dt>payload.model <span class="property-type">string</span></dt><dd>Model</dd></dl>
-<dl class="message-properties"><dt>payload.host <span class="property-type">string</span></dt><dd><em>(optional)</em> Hostname/IP</dd></dl>
-<dl class="message-properties"><dt>payload.uuid <span class="property-type">string</span></dt><dd><em>(optional)</em> UUID</dd></dl>
-<dl class="message-properties"><dt>payload.mainComponent <span class="property-type">string</span></dt><dd><em>(optional)</em> Main Component ID (if a nested Component)</dd></dl>
-<dl class="message-properties"><dt>payload.type <span class="property-type">string</span></dt><dd>Device Type</dd></dl>
-<dl class="message-properties"><dt>payload.category <span class="property-type">string</span></dt><dd>Device Category</dd></dl>
-<dl class="message-properties"><dt>payload.tags <span class="property-type">array</span></dt><dd>Tags</dd></dl>
-<dl class="message-properties"><dt>payload.meta <span class="property-type">object</span></dt><dd>Additional Meta Informations</dd></dl>
-<dl class="message-properties"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
-<dl class="message-properties"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
-<dl class="message-properties"><dt>payload.rooms <span class="property-type">array</span></dt><dd>Rooms Assignment</dd></dl>
-<dl class="message-properties"><dt>payload.data <span class="property-type">array</span></dt><dd>Current Property Data/Values</dd></dl>
-<dl class="message-properties"><dt>payload.properties <span class="property-type">object</span></dt><dd><em>(optional)</em> Properties/Actions</dd></dl>
-<dl class="message-properties"><dt>payload.propertiesMeta <span class="property-type">object</span></dt><dd><em>(optional)</em> Properties/Actions Meta Data</dd></dl>
-<dl class="message-properties"><dt>payload.propertiesAddresses <span class="property-type">object</span></dt><dd><em>(optional)</em> KNX Group Addresses for Properties</dd></dl>
-<dl class="message-properties"><dt>payload.propertiesValues <span class="property-type">object</span></dt><dd><em>(optional)</em> Fixed/default Values for Properties</dd></dl>
-<dl class="message-properties"><dt>payload.propertiesOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Override Properties Settings</dd></dl>
-<dl class="message-properties"><dt>payload.mappingsOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Override Mappings Settings</dd></dl>
-<dl class="message-properties"><dt>payload.mappings <span class="property-type">object</span></dt><dd><em>(optional)</em> Mappings/Feedbacks</dd></dl>
-<dl class="message-properties"><dt>payload.mappingsMeta <span class="property-type">object</span></dt><dd><em>(optional)</em> Mappings/Feedbacks Meta Data</dd></dl>
-<dl class="message-properties"><dt>payload.mappingsAddresses <span class="property-type">object</span></dt><dd><em>(optional)</em> KNX Group Addresses for Mappings</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -112,7 +80,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getComponentsById" target="_blank">nomos system API Docs</a> - <strong>getComponentsById</strong> API Documentation</li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getComponentsById" target="_blank">getComponentsById nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
