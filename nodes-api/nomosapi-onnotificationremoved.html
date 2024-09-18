@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('nomosapi-onnotificationremoved', {
-        category: 'nomos system API Notification',
+        category: 'nomos API Notification',
         color: '#ccc',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -11,7 +11,7 @@
         inputs: 0,
         outputs: 1,
         outputLabels: ['Data'],
-        icon: 'feed.png',
+        icon: 'nomos.svg',
         paletteLabel: 'onNotificationRemoved',
         label: function() {
             return this.name || 'onNotificationRemoved';
@@ -20,7 +20,7 @@
 </script>
 <script data-template-name="nomosapi-onnotificationremoved" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">

@@ -12,7 +12,7 @@
         inputs: 1,
         outputs: 3,
         outputLabels: ['Control error', 'Events output', 'State' + ' output'],
-        icon: 'inject.png',
+        icon: 'nomos.svg',
         paletteLabel: 'State',
         label: function() {
             return this.name || 'State';
@@ -82,7 +82,7 @@
 </script>
 <script data-template-name="nomos-state" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">
@@ -104,11 +104,11 @@
     </div>
 </script>
 <script data-help-name="nomos-state" type="text/x-red">
-    <p>The Service node represents a single nomos Device/Component with <strong>State</strong> Property you want control or query.</p>
+    <p>The service node represents a single nomos system Device/Component with <strong>State</strong> Property you can control or query.</p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Component</strong>: Selected nomos device/component</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Component</strong>: Selected nomos system Device/Component</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>

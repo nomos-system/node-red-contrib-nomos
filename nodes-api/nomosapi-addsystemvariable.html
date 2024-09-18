@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('nomosapi-addsystemvariable', {
-        category: 'nomos system API SystemVariables',
+        category: 'nomos API SystemVariables',
         color: '#eee',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -11,7 +11,7 @@
         inputs: 1,
         outputs: 2,
         outputLabels: ['Success', 'Error'],
-        icon: 'function.png',
+        icon: 'nomos.svg',
         paletteLabel: 'addSystemVariable',
         label: function() {
             return this.name || 'addSystemVariable';
@@ -20,7 +20,7 @@
 </script>
 <script data-template-name="nomosapi-addsystemvariable" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">

@@ -12,7 +12,7 @@
         inputs: 1,
         outputs: 1,
         outputLabels: ['State'],
-        icon: 'envelope.png',
+        icon: 'nomos.svg',
         paletteLabel: 'Notification',
         label: function() {
             return this.name || 'Notification';
@@ -64,7 +64,7 @@
 </script>
 <script data-template-name="nomos-notificationprofile" type="text/x-red">
     <div class="form-row">
-        <label for="node-input-config"><i class="fa fa-globe"></i> nomos Controller</label>
+        <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
     </div>
     <div class="form-row">
@@ -86,11 +86,11 @@
     </div>
 </script>
 <script data-help-name="nomos-notificationprofile" type="text/x-red">
-    <p>The Service node represents a nomos Notification Profile you can trigger.</p>
+    <p>The service node represents a nomos system Notification Profile you can trigger.</p>
     <ul>
-        <li><strong>nomos Controller</strong>: The nomos Controller connected to</li>
-        <li><strong>Profile</strong>: Selected nomos notification profile</li>
-        <li><strong>Name</strong>: <em>optional</em></li>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Profile</strong>: Selected nomos system Notification Profile</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
         <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
             value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
     </ul>
@@ -104,7 +104,7 @@
         <dt>payload.variables
             <span class="property-type">string[]</span>
         </dt>
-        <dd><em>Optional</em> variables which can take place in notification text(s). </dd>
+        <dd><em>Optional</em> variables which can take place in notification text(s).</dd>
     </dl>
 
     <h3>Outputs</h3>
@@ -119,7 +119,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="http://docs.nomos-system.com/api/#api-Notification-sendNotification" target="_blank">nomos API Docs</a> - full Documentation</li>
-        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos GitHub Repository</li>
+        <li><a href="https://apidocs.nomos-system.com" target="_blank">nomos system API Documentation</a> - full Documentation</li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 </script>
