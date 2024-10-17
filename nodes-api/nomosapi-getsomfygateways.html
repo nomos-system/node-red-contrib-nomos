@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-softreset', {
-        category: 'nomos API System',
+    RED.nodes.registerType('nomosapi-getsomfygateways', {
+        category: 'nomos Somfy',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'softReset',
+        paletteLabel: 'getSomfyGateways',
         label: function() {
-            return this.name || 'softReset';
+            return this.name || 'getSomfyGateways';
         }
     });
 </script>
-<script data-template-name="nomosapi-softreset" type="text/x-red">
+<script data-template-name="nomosapi-getsomfygateways" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-softreset" type="text/x-red">
-    <p>The service node represents <strong>softReset</strong> nomos system API Function: <br>
-        Soft Reset System<br>(Version 0.3.0 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-getsomfygateways" type="text/x-red">
+    <p>The service node represents <strong>getSomfyGateways</strong> nomos system API Function: <br>
+        Get added Somfy Gateway(s)<br>(Version 0.3.12 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,20 +51,13 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.adminPassword <span class="property-type">string</span></dt><dd>New 'admin' Administrator Password</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.numberOfUsers <span class="property-type">number</span></dt><dd><em>(optional)</em> Number of new Users to create<br>Default value: <code>2</code><br>Maximum: <code>10</code></dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.numberOfAdmins <span class="property-type">number</span></dt><dd><em>(optional)</em> Number of new Admin Users to create<br>Default value: <code>1</code><br>Maximum: <code>5</code></dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.integratorInfo <span class="property-type">object</span></dt><dd><em>(optional)</em> Integrator Info</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.textTemplates <span class="property-type">object</span></dt><dd><em>(optional)</em> Text Templates</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.integratorLogo <span class="property-type">string</span></dt><dd><em>(optional)</em> Base64 png Content</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.url <span class="property-type">string</span></dt><dd>PDF Document Download Url (Expires after 15 secs)</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -82,9 +75,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-softReset" target="_blank">softReset nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSomfyGateways" target="_blank">getSomfyGateways nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System</em></div>
+    <div style="text-align: right"><em>Somfy</em></div>
 </script>

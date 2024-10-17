@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-migratesystem', {
-        category: 'nomos API System',
+    RED.nodes.registerType('nomosapi-getsomfyregion', {
+        category: 'nomos Somfy',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'migrateSystem',
+        paletteLabel: 'getSomfyRegion',
         label: function() {
-            return this.name || 'migrateSystem';
+            return this.name || 'getSomfyRegion';
         }
     });
 </script>
-<script data-template-name="nomosapi-migratesystem" type="text/x-red">
+<script data-template-name="nomosapi-getsomfyregion" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-migratesystem" type="text/x-red">
-    <p>The service node represents <strong>migrateSystem</strong> nomos system API Function: <br>
-        Migrate system<br>(Version 0.2.48 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-getsomfyregion" type="text/x-red">
+    <p>The service node represents <strong>getSomfyRegion</strong> nomos system API Function: <br>
+        Get Somfy Region<br>(Version 0.3.12 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,17 +51,14 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.source <span class="property-type">string</span></dt><dd>Source System</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional)</em> Username</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional)</em> Password</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.skipReboot <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Skip system reboot</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.region <span class="property-type">number</span></dt><dd><em>(optional)</em> Region<br>Maximum: <code>2</code></dd></dl>
 
          </li>
          <li>API error
@@ -79,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-migrateSystem" target="_blank">migrateSystem nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSomfyRegion" target="_blank">getSomfyRegion nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System</em></div>
+    <div style="text-align: right"><em>Somfy</em></div>
 </script>

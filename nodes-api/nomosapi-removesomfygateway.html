@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getuserauth', {
-        category: 'nomos API Users',
+    RED.nodes.registerType('nomosapi-removesomfygateway', {
+        category: 'nomos Somfy',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'getUserAuth',
+        paletteLabel: 'removeSomfyGateway',
         label: function() {
-            return this.name || 'getUserAuth';
+            return this.name || 'removeSomfyGateway';
         }
     });
 </script>
-<script data-template-name="nomosapi-getuserauth" type="text/x-red">
+<script data-template-name="nomosapi-removesomfygateway" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getuserauth" type="text/x-red">
-    <p>The service node represents <strong>getUserAuth</strong> nomos system API Function: <br>
-        Get User Authentication Enabled State<br>(Version 0.1.8)
+<script data-help-name="nomosapi-removesomfygateway" type="text/x-red">
+    <p>The service node represents <strong>removeSomfyGateway</strong> nomos system API Function: <br>
+        Remove a Somfy Gateway<br>(Version 0.3.12 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,6 +51,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>Gateway ID</dd></dl>
 
     </dl>
 
@@ -75,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getUserAuth" target="_blank">getUserAuth nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-removeSomfyGateway" target="_blank">removeSomfyGateway nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Users</em></div>
+    <div style="text-align: right"><em>Somfy</em></div>
 </script>

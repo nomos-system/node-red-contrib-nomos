@@ -29,7 +29,7 @@ module.exports = function(RED) {
                 if(typeof newPayload !== 'object') {
                     newPayload = {};
                 }
-                newPayload.__command = 'resetNodeRed';
+                newPayload.__command = 'authorizeSomfyGateway';
 
                 msg.payload = newPayload;
                 node.nomosHub.emit(msg, function(result) {

@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-disableuserauth', {
-        category: 'nomos API Users',
+    RED.nodes.registerType('nomosapi-setsomfyregion', {
+        category: 'nomos Somfy',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'disableUserAuth',
+        paletteLabel: 'setSomfyRegion',
         label: function() {
-            return this.name || 'disableUserAuth';
+            return this.name || 'setSomfyRegion';
         }
     });
 </script>
-<script data-template-name="nomosapi-disableuserauth" type="text/x-red">
+<script data-template-name="nomosapi-setsomfyregion" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-disableuserauth" type="text/x-red">
-    <p>The service node represents <strong>disableUserAuth</strong> nomos system API Function: <br>
-        Disable User Authentication<br>(Version 0.1.8 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-setsomfyregion" type="text/x-red">
+    <p>The service node represents <strong>setSomfyRegion</strong> nomos system API Function: <br>
+        Set Somfy Region<br>(Version 0.3.12 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,6 +51,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.region <span class="property-type">number</span></dt><dd>Region<br>Maximum: <code>2</code></dd></dl>
 
     </dl>
 
@@ -75,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-disableUserAuth" target="_blank">disableUserAuth nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setSomfyRegion" target="_blank">setSomfyRegion nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Users</em></div>
+    <div style="text-align: right"><em>Somfy</em></div>
 </script>

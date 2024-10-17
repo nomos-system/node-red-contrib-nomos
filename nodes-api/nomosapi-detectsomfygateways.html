@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-initsomfyauthorization', {
-        category: 'nomos API Somfy',
+    RED.nodes.registerType('nomosapi-detectsomfygateways', {
+        category: 'nomos Somfy',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'initSomfyAuthorization',
+        paletteLabel: 'detectSomfyGateways',
         label: function() {
-            return this.name || 'initSomfyAuthorization';
+            return this.name || 'detectSomfyGateways';
         }
     });
 </script>
-<script data-template-name="nomosapi-initsomfyauthorization" type="text/x-red">
+<script data-template-name="nomosapi-detectsomfygateways" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-initsomfyauthorization" type="text/x-red">
-    <p>The service node represents <strong>initSomfyAuthorization</strong> nomos system API Function: <br>
-        Initialize Somfy Authorization<br>(Version 0.2.53 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-detectsomfygateways" type="text/x-red">
+    <p>The service node represents <strong>detectSomfyGateways</strong> nomos system API Function: <br>
+        Get/find all Somfy Gateway Devices in local network<br>(Version 0.3.12 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -57,7 +57,7 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">string</span></dt><dd>Redirect Url</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -75,7 +75,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-initSomfyAuthorization" target="_blank">initSomfyAuthorization nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-detectSomfyGateways" target="_blank">detectSomfyGateways nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
