@@ -75,6 +75,13 @@ module.exports = function(RED) {
                         text: 'node-red:common.status.connecting'
                     };
                     break;
+                case 'reconnecting':
+                    s = {
+                        fill: 'red',
+                        shape: 'ring',
+                        text: 'reconnecting'
+                    };
+                    break;
                 case 'connect':
                     s = {
                         fill: 'green',
@@ -134,6 +141,7 @@ module.exports = function(RED) {
 
         function socketReconnect() {
             clearTimeout(node.reconnectTimer);
+            node.setStatus('reconnecting');
             node.reconnectTimer = setTimeout(function() {
                 node.socket.connect();
             }, 3000);
@@ -168,6 +176,11 @@ module.exports = function(RED) {
         });
 
         node.socket.on('error', function() {
+            node.socket.disconnect();
+            socketReconnect();
+        });
+
+        node.socket.on('connect_error', function() {
             node.socket.disconnect();
             socketReconnect();
         });
