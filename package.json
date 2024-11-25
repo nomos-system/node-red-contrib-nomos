@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.4.1",
+	"version": "1.4.2",
 	"description": "nomos system Node-RED Connector",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -398,6 +398,9 @@
 			"getsupportvpninfo": "nodes-api/nomosapi-getsupportvpninfo.js",
 			"removeportforwarding": "nodes-api/nomosapi-removeportforwarding.js",
 			"setportforwarding": "nodes-api/nomosapi-setportforwarding.js",
+			"enablesystemdebug": "nodes-api/nomosapi-enablesystemdebug.js",
+			"disablesystemdebug": "nodes-api/nomosapi-disablesystemdebug.js",
+			"getsystemdebuglog": "nodes-api/nomosapi-getsystemdebuglog.js",
 			"addsystemvariable": "nodes-api/nomosapi-addsystemvariable.js",
 			"getsystemvariable": "nodes-api/nomosapi-getsystemvariable.js",
 			"getsystemvariablevalue": "nodes-api/nomosapi-getsystemvariablevalue.js",
@@ -909,6 +912,9 @@
 		"getsupportvpninfo",
 		"removeportforwarding",
 		"setportforwarding",
+		"enablesystemdebug",
+		"disablesystemdebug",
+		"getsystemdebuglog",
 		"addsystemvariable",
 		"getsystemvariable",
 		"getsystemvariablevalue",
