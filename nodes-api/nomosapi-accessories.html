@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-gethomeconnectdevices', {
-        category: 'nomos HomeConnect',
+    RED.nodes.registerType('nomosapi-accessories', {
+        category: 'nomos PhilipsHUE',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'getHomeConnectDevices',
+        paletteLabel: 'Accessories',
         label: function() {
-            return this.name || 'getHomeConnectDevices';
+            return this.name || 'Accessories';
         }
     });
 </script>
-<script data-template-name="nomosapi-gethomeconnectdevices" type="text/x-red">
+<script data-template-name="nomosapi-accessories" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-gethomeconnectdevices" type="text/x-red">
-    <p>The service node represents <strong>getHomeConnectDevices</strong> nomos system API Function: <br>
-        Get HomeConnect devices<br>(Version 0.2.76 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-accessories" type="text/x-red">
+    <p>The service node represents <strong>Accessories</strong> nomos system API Function: <br>
+        Get (autodetected) HUE Accessories<br>(Version 0.3.22 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,7 +51,6 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.sortBy <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Information)</dd></dl>
 
     </dl>
 
@@ -76,9 +75,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getHomeConnectDevices" target="_blank">getHomeConnectDevices nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-Accessories" target="_blank">Accessories nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>HomeConnect</em></div>
+    <div style="text-align: right"><em>PhilipsHUE</em></div>
 </script>

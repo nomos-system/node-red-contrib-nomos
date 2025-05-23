@@ -29,7 +29,7 @@ module.exports = function(RED) {
                 if(typeof newPayload !== 'object') {
                     newPayload = {};
                 }
-                newPayload.__command = 'addHUELight';
+                newPayload.__command = 'addHUEDevice';
 
                 msg.payload = newPayload;
                 node.nomosHub.emit(msg, function(result) {
