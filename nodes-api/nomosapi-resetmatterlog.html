@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getmattersettings', {
+    RED.nodes.registerType('nomosapi-resetmatterlog', {
         category: 'nomos Matter',
         color: '#f1c7b2',
         defaults: {
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'getMatterSettings',
+        paletteLabel: 'resetMatterLog',
         label: function() {
-            return this.name || 'getMatterSettings';
+            return this.name || 'resetMatterLog';
         }
     });
 </script>
-<script data-template-name="nomosapi-getmattersettings" type="text/x-red">
+<script data-template-name="nomosapi-resetmatterlog" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getmattersettings" type="text/x-red">
-    <p>The service node represents <strong>getMatterSettings</strong> nomos system API Function: <br>
-        Get Matter Settings<br>(Version 0.3.21 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-resetmatterlog" type="text/x-red">
+    <p>The service node represents <strong>resetMatterLog</strong> nomos system API Function: <br>
+        Reset/Clear Matter Debug Log<br>(Version 0.3.26 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -57,14 +57,7 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.discriminator <span class="property-type">number</span></dt><dd><em>(optional)</em> Discriminator</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.passcode <span class="property-type">number</span></dt><dd><em>(optional)</em> Passcode</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.pincode <span class="property-type">string</span></dt><dd>Pairing Code</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.commissioned <span class="property-type">boolean</span></dt><dd>Commissioned State</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.commissioningWindowStatus <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Commissioning Window Status</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.ready <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Ready Status</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -82,7 +75,7 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getMatterSettings" target="_blank">getMatterSettings nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-resetMatterLog" target="_blank">resetMatterLog nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
