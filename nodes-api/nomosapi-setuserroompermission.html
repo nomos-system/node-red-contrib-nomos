@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getuser', {
-        category: 'nomos Users',
+    RED.nodes.registerType('nomosapi-setuserroompermission', {
+        category: 'nomos Permissions',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'getUser',
+        paletteLabel: 'setUserRoomPermission',
         label: function() {
-            return this.name || 'getUser';
+            return this.name || 'setUserRoomPermission';
         }
     });
 </script>
-<script data-template-name="nomosapi-getuser" type="text/x-red">
+<script data-template-name="nomosapi-setuserroompermission" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getuser" type="text/x-red">
-    <p>The service node represents <strong>getUser</strong> nomos system API Function: <br>
-        Get User Data/Information<br>(Version 0.2.64 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-setuserroompermission" type="text/x-red">
+    <p>The service node represents <strong>setUserRoomPermission</strong> nomos system API Function: <br>
+        Set/Update User Room Permission<br>(Version 0.3.26 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -52,24 +52,15 @@
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.uid <span class="property-type">number</span></dt><dd>User ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.off <span class="property-type">array</span></dt><dd>Room ID(s) user has no permission at all</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.restricted <span class="property-type">array</span></dt><dd>Room ID(s) user has restricted readonly permissions</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>The Name of the User</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.username <span class="property-type">string</span></dt><dd>Login Username</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>User enabled/disabled</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.removable <span class="property-type">boolean</span></dt><dd>User removable</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.email <span class="property-type">string</span></dt><dd>E-Mail Address</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.usergroup <span class="property-type">string</span></dt><dd>Usergroup</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp last update</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.perms <span class="property-type">object</span></dt><dd>Permissions</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.roomPerms <span class="property-type">object</span></dt><dd>Room Permissions</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.scenePerms <span class="property-type">object</span></dt><dd>Scene Permissions</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -87,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getUser" target="_blank">getUser nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setUserRoomPermission" target="_blank">setUserRoomPermission nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Users</em></div>
+    <div style="text-align: right"><em>Permissions</em></div>
 </script>
