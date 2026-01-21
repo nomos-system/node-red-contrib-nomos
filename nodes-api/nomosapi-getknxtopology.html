@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-pairmatterdevice', {
-        category: 'nomos Matter',
+    RED.nodes.registerType('nomosapi-getknxtopology', {
+        category: 'nomos KNX',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'pairMatterDevice',
+        paletteLabel: 'getKNXTopology',
         label: function() {
-            return this.name || 'pairMatterDevice';
+            return this.name || 'getKNXTopology';
         }
     });
 </script>
-<script data-template-name="nomosapi-pairmatterdevice" type="text/x-red">
+<script data-template-name="nomosapi-getknxtopology" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-pairmatterdevice" type="text/x-red">
-    <p>The service node represents <strong>pairMatterDevice</strong> nomos system API Function: <br>
-        Pair a Matter Device<br>(Version 0.3.21 | <em>admin</em> User Permission needed)
+<script data-help-name="nomosapi-getknxtopology" type="text/x-red">
+    <p>The service node represents <strong>getKNXTopology</strong> nomos system API Function: <br>
+        Get KNX Project Topology Information<br>(Version 0.3.28 | <em>admin</em> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,19 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional)</em> Device ID</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional)</em> Device Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.host <span class="property-type">string</span></dt><dd><em>(optional)</em> Device Host</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.code <span class="property-type">string</span></dt><dd>Pairing Code</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.addresses <span class="property-type">array</span></dt><dd><em>(optional)</em> Addresses of the Device</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Project Name/ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.sortBy <span class="property-type">array</span></dt><dd><em>(optional)</em> Sorting Options (see <a href="https://apidocs.nomos-system.com/#sorting">Sorting</a> for more Information)</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>Device ID</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd>Topology Objects</dd></dl>
 
          </li>
          <li>API error
@@ -81,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-pairMatterDevice" target="_blank">pairMatterDevice nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getKNXTopology" target="_blank">getKNXTopology nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Matter</em></div>
+    <div style="text-align: right"><em>KNX</em></div>
 </script>
