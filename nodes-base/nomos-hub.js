@@ -1,6 +1,9 @@
 module.exports = function(RED) {
 
     const ID = 'nomos-hub';
+    const axios = require('axios');
+    const ioV2 = require('socket.io-client');
+    const ioV4 = require('socket.io-client-v4');
 
     //
     // Config/Hub Node
@@ -121,69 +124,101 @@ module.exports = function(RED) {
         // Socket.io Connection Handling
         //
         node.connected = false;
-        const fullHost = 'http://' + config.host + ':' + config.port + '/api/v1';
+        const baseHost = 'http://' + config.host + ':' + config.port;
+        const fullHost = baseHost + '/api/v1';
         node.setStatus('connecting');
-        node.socket = require('socket.io-client')(fullHost + '?knxgroupaddresses=1');
 
-        function socketInitialization() {
-            node.socket.emit('init', {uagent: 'node-red-nomos v1', language: 'en'}, function() {
-                node.socket.emit('getProductProfile', {}, function(profile) {
-                    if(profile.modules.nodered === undefined) {
-                        node.setStatus('not enabled');
+        // Detect socket.io version: try v4 path first, fallback to v2
+        function createSocket(useV4) {
+            if(useV4) {
+                node.log('socket.io using v4');
+                return ioV4(baseHost, {
+                    path: '/socket.io-v4/',
+                    query: { knxgroupaddresses: 1 }
+                });
+            }
+            else {
+                node.log('socket.io using v2');
+                return ioV2(fullHost + '?knxgroupaddresses=1');
+            }
+        }
+
+        function detectAndConnect() {
+            axios.get(baseHost + '/socket.io-v4/', { timeout: 3000 })
+                .then(function() {
+                    node.socket = createSocket(true);
+                    setupSocketEvents();
+                })
+                .catch(function() {
+                    node.socket = createSocket(false);
+                    setupSocketEvents();
+                });
+        }
+
+        function setupSocketEvents() {
+
+            function socketInitialization() {
+                node.socket.emit('init', {uagent: 'node-red-nomos v1', language: 'en'}, function() {
+                    node.socket.emit('getProductProfile', {}, function(profile) {
+                        if(profile.modules.nodered === undefined) {
+                            node.setStatus('not enabled');
+                            setTimeout(function() {
+                                node.socket.close();
+                            }, 1000);
+                        }
+                    });
+                });
+                node.socket.on('onComponentUpdate', node.componentUpdateHandler);
+            }
+
+            function socketReconnect() {
+                clearTimeout(node.reconnectTimer);
+                node.setStatus('reconnecting');
+                node.reconnectTimer = setTimeout(function() {
+                    node.socket.connect();
+                }, 3000);
+            }
+
+            node.socket.on('connect', function() {
+                node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
+                    if(auth.errorCode || !auth) {
+                        // not successful
+                        node.error('socket.io invalid auth');
+                        node.setStatus('invalidauth');
                         setTimeout(function() {
                             node.socket.close();
-                        }, 1000);
+                        }, 3000);
+                    }
+                    else {
+                        // successful
+                        node.log('socket.io connected');
+                        node.connected = true;
+                        node.setStatus('connect');
+                        socketInitialization();
                     }
                 });
             });
-            node.socket.on('onComponentUpdate', node.componentUpdateHandler);
-        }
 
-        function socketReconnect() {
-            clearTimeout(node.reconnectTimer);
-            node.setStatus('reconnecting');
-            node.reconnectTimer = setTimeout(function() {
-                node.socket.connect();
-            }, 3000);
-        }
-
-        node.socket.on('connect', function() {
-            node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
-                if(auth.errorCode || !auth) {
-                    // not successful
-                    node.error('socket.io invalid auth');
-                    node.setStatus('invalidauth');
-                    setTimeout(function() {
-                        node.socket.close();
-                    }, 3000);
-                }
-                else {
-                    // successful
-                    node.log('socket.io connected');
-                    node.connected = true;
-                    node.setStatus('connect');
-                    socketInitialization();
-                }
+            node.socket.on('disconnect', function() {
+                node.warn('socket.io disconnected');
+                node.connected = false;
+                node.setStatus('disconnect');
+                node.socket.off('onComponentUpdate', node.componentUpdateHandler);
+                socketReconnect();
             });
-        });
 
-        node.socket.on('disconnect', function() {
-            node.warn('socket.io disconnected');
-            node.connected = false;
-            node.setStatus('disconnect');
-            node.socket.off('onComponentUpdate', node.componentUpdateHandler);
-            socketReconnect();
-        });
+            node.socket.on('error', function() {
+                node.socket.disconnect();
+                socketReconnect();
+            });
 
-        node.socket.on('error', function() {
-            node.socket.disconnect();
-            socketReconnect();
-        });
+            node.socket.on('connect_error', function() {
+                node.socket.disconnect();
+                socketReconnect();
+            });
+        }
 
-        node.socket.on('connect_error', function() {
-            node.socket.disconnect();
-            socketReconnect();
-        });
+        detectAndConnect();
     }
 
     RED.nodes.registerType(ID, nomosConfigNode, {
