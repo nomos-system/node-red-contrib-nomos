@@ -20,10 +20,9 @@
         oneditprepare: function() {
             var self = this;
             function loadProfiles() {
-                var host = $('#node-input-config option:selected').text();
-                if(host.indexOf('...') < 0 && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
+                var configNodeId = $('#node-input-config').val();
+                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
+                var host = configNode ? configNode.host + ':' + configNode.port : '';
 
                 if(host && host.indexOf('...') < 0) {
                     $('#node-input-profile').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');

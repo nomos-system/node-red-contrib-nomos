@@ -24,10 +24,9 @@
 
             // (re)load components on controller change
             function loadComponents() {
-                var host = $('#node-input-config option:selected').text();
-                if(host.indexOf('...') < 0 && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
+                var configNodeId = $('#node-input-config').val();
+                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
+                var host = configNode ? configNode.host + ':' + configNode.port : '';
 
                 if(host && host.indexOf('...') < 0) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
@@ -78,10 +77,9 @@
 
             // (re)load property & mapping names on component change
             function loadComponentProperties() {
-                var host = $('#node-input-config option:selected').text();
-                if(host.indexOf('...') < 0 && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
+                var configNodeId = $('#node-input-config').val();
+                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
+                var host = configNode ? configNode.host + ':' + configNode.port : '';
 
                 const cid = $('#node-input-cid').val();
                 if(host && cid) {
