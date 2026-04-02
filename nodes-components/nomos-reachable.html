@@ -22,6 +22,9 @@
                 var configNodeId = $('#node-input-config').val();
                 var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
                 var host = configNode ? configNode.host + ':' + configNode.port : '';
+                if(configNode && (configNode.host === '127.0.0.1' || configNode.host === 'localhost') && typeof getNomosHostSettings === 'function') {
+                    host = getNomosHostSettings().apihost;
+                }
 
                 if(host && host.indexOf('...') < 0) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
