@@ -11,6 +11,8 @@ module.exports = function(RED) {
     function nomosConfigNode(config) {
         RED.nodes.createNode(this, config);
         const node = this;
+        node.host = config.host;
+        node.port = config.port;
         const subscriptions = {};
         node.nodesList = {};
 
@@ -233,5 +235,32 @@ module.exports = function(RED) {
                 type: 'password'
             }
         }
+    });
+
+    // Proxy API endpoints for editor - routes requests through Node-RED server
+    // so that authentication works with external controllers
+    RED.httpAdmin.post('/nomos-api/:nodeId/*', function(req, res) {
+        var node = RED.nodes.getNode(req.params.nodeId);
+        if(!node) {
+            return res.status(404).json({error: 'Controller not found or not deployed'});
+        }
+
+        var apiPath = req.params[0];
+        var targetUrl = 'http://' + node.host + ':' + node.port + '/nodered/v1/' + apiPath;
+
+        axios.post(targetUrl, {}, {
+            headers: {
+                'auth-username': node.credentials.username,
+                'auth-password': node.credentials.password,
+                'auth-persistent': 'false'
+            }
+        })
+        .then(function(response) {
+            res.json(response.data);
+        })
+        .catch(function(err) {
+            var status = err.response ? err.response.status : 500;
+            res.status(status).json({error: err.message});
+        });
     });
 };

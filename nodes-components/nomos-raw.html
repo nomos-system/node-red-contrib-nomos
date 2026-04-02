@@ -25,15 +25,10 @@
             // (re)load components on controller change
             function loadComponents() {
                 var configNodeId = $('#node-input-config').val();
-                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
-                var host = configNode ? configNode.host + ':' + configNode.port : '';
-                if(configNode && (configNode.host === '127.0.0.1' || configNode.host === 'localhost') && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
 
-                if(host && host.indexOf('...') < 0) {
+                if(configNodeId) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/components/ALL'}).done(function(result) {
+                    $.ajax({method: 'POST', dataType: 'json', url: 'nomos-api/' + configNodeId + '/components/ALL'}).done(function(result) {
                         $('#node-input-cid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
 
                         const select = document.getElementById('node-input-cid');
@@ -81,17 +76,11 @@
             // (re)load property & mapping names on component change
             function loadComponentProperties() {
                 var configNodeId = $('#node-input-config').val();
-                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
-                var host = configNode ? configNode.host + ':' + configNode.port : '';
-                if(configNode && (configNode.host === '127.0.0.1' || configNode.host === 'localhost') && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
-
                 const cid = $('#node-input-cid').val();
-                if(host && cid) {
+                if(configNodeId && cid) {
                     $('#node-input-propertyname').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
                     $('#node-input-mappingname').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/properties/' + $('#node-input-cid').val()}).done(function(result) {
+                    $.ajax({method: 'POST', dataType: 'json', url: 'nomos-api/' + configNodeId + '/properties/' + $('#node-input-cid').val()}).done(function(result) {
                         $('#node-input-propertyname').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
                         $('#node-input-mappingname').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
 

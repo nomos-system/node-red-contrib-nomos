@@ -21,15 +21,10 @@
             var self = this;
             function loadScenes() {
                 var configNodeId = $('#node-input-config').val();
-                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
-                var host = configNode ? configNode.host + ':' + configNode.port : '';
-                if(configNode && (configNode.host === '127.0.0.1' || configNode.host === 'localhost') && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
 
-                if(host && host.indexOf('...') < 0) {
+                if(configNodeId) {
                     $('#node-input-eid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/scenes'}).done(function(result) {
+                    $.ajax({method: 'POST', dataType: 'json', url: 'nomos-api/' + configNodeId + '/scenes'}).done(function(result) {
                         $('#node-input-eid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
                         if(Array.isArray(result)) {
                             const select = document.getElementById('node-input-eid');

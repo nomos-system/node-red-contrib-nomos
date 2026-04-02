@@ -21,15 +21,10 @@
             var self = this;
             function loadComponents() {
                 var configNodeId = $('#node-input-config').val();
-                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
-                var host = configNode ? configNode.host + ':' + configNode.port : '';
-                if(configNode && (configNode.host === '127.0.0.1' || configNode.host === 'localhost') && typeof getNomosHostSettings === 'function') {
-                    host = getNomosHostSettings().apihost;
-                }
 
-                if(host && host.indexOf('...') < 0) {
+                if(configNodeId) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.ajax({dataType: 'json', headers: {Authorization: getNomosBearerToken()}, url: 'http://' + host + '/nodered/v1/components/' + 'motion-detected'}).done(function(result) {
+                    $.ajax({method: 'POST', dataType: 'json', url: 'nomos-api/' + configNodeId + '/components/' + 'motion-detected'}).done(function(result) {
                         $('#node-input-cid').empty().css('cursor', '').prop('disabled', false).append('<option value="">Please select...</option>');
                         const select = document.getElementById('node-input-cid');
                         if(Array.isArray(result)) {
