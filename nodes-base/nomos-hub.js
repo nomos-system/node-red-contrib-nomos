@@ -146,8 +146,10 @@ module.exports = function(RED) {
         }
 
         function detectAndConnect() {
-            axios.get(baseHost + '/socket.io-v4/', { timeout: 3000 })
-                .then(function() {
+            axios.get(baseHost + '/socket.io-v4/', { timeout: 3000, validateStatus: function() { return true; } })
+                .then(function(response) {
+                    // Socket.io v4 is available if the endpoint responds (any status),
+                    // only fall back to v2 on connection/network errors (catch)
                     node.socket = createSocket(true);
                     setupSocketEvents();
                 })
