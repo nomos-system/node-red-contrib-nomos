@@ -182,7 +182,7 @@ module.exports = function(RED) {
             }
 
             node.socket.on('connect', function() {
-                node.socket.emit('auth', {username: node.credentials.username, password: node.credentials.password, persistent: false}, function(auth) {
+                node.socket.emit('auth', {username: node.credentials.username || '', password: node.credentials.password || '', persistent: false}, function(auth) {
                     if(auth.errorCode || !auth) {
                         // not successful
                         node.error('socket.io invalid auth');
@@ -238,20 +238,30 @@ module.exports = function(RED) {
     });
 
     // Proxy API endpoints for editor - routes requests through Node-RED server
-    // so that authentication works with external controllers
-    RED.httpAdmin.post('/nomos-api/:nodeId/*', function(req, res) {
-        var node = RED.nodes.getNode(req.params.nodeId);
-        if(!node) {
-            return res.status(404).json({error: 'Controller not found or not deployed'});
+    // so that authentication works with external controllers.
+    // All parameters are sent via POST body to avoid credentials in URLs/logs.
+    // Server-side credentials are used when available (after deploy),
+    // otherwise falls back to credentials from the request body (before deploy).
+    RED.httpAdmin.post('/nomos-api/:nodeId', function(req, res) {
+        var body = req.body || {};
+        var apiPath = body.path;
+        var host = body.host;
+        var port = body.port;
+        if(!apiPath || !host || !port) {
+            return res.status(400).json({error: 'Missing path, host or port parameter'});
         }
 
-        var apiPath = req.params[0];
-        var targetUrl = 'http://' + node.host + ':' + node.port + '/nodered/v1/' + apiPath;
+        // Try server-side credentials first (deployed nodes), fall back to body (undeployed)
+        var credentials = RED.nodes.getCredentials(req.params.nodeId);
+        var username = (credentials && credentials.username) || body.username || '';
+        var password = (credentials && credentials.password) || body.password || '';
+
+        var targetUrl = 'http://' + host + ':' + port + '/nodered/v1/' + apiPath;
 
         axios.post(targetUrl, {}, {
             headers: {
-                'auth-username': node.credentials.username,
-                'auth-password': node.credentials.password,
+                'auth-username': username,
+                'auth-password': password,
                 'auth-persistent': 'false'
             }
         })

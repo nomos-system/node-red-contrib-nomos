@@ -21,10 +21,11 @@
             var self = this;
             function loadComponents() {
                 var configNodeId = $('#node-input-config').val();
+                var configNode = configNodeId ? RED.nodes.node(configNodeId) : null;
 
-                if(configNodeId) {
+                if(configNodeId && configNode) {
                     $('#node-input-cid').css('cursor', 'wait').prop('disabled', true).empty().append('<option value="">Loading...</option>');
-                    $.ajax({method: 'POST', dataType: 'json', url: 'nomos-api/' + configNodeId + '/components/' + 'hue'}).done(function(result) {
+                    $.ajax({method: 'POST', dataType: 'json', contentType: 'application/json', url: 'nomos-api/' + configNodeId, data: JSON.stringify({host: configNode.host, port: configNode.port, username: (configNode.credentials && configNode.credentials.username) || '', password: (configNode.credentials && configNode.credentials.password) || '', path: 'components/' + 'hue'})}).done(function(result) {
                         $('#node-input-cid').css('cursor', '').prop('disabled', false).empty().append('<option value="">Please select...</option>');
                         const select = document.getElementById('node-input-cid');
                         if(Array.isArray(result)) {
