@@ -134,7 +134,7 @@ module.exports = function(RED) {
         function createSocket(useV4) {
             if(useV4) {
                 node.log('socket.io using v4');
-                return ioV4(baseHost, {
+                return ioV4(fullHost, {
                     path: '/socket.io-v4/',
                     query: { knxgroupaddresses: 1 }
                 });
@@ -146,10 +146,8 @@ module.exports = function(RED) {
         }
 
         function detectAndConnect() {
-            axios.get(baseHost + '/socket.io-v4/', { timeout: 3000, validateStatus: function() { return true; } })
-                .then(function(response) {
-                    // Socket.io v4 is available if the endpoint responds (any status),
-                    // only fall back to v2 on connection/network errors (catch)
+            axios.get(baseHost + '/socket.io-v4/?EIO=4&transport=polling', { timeout: 3000 })
+                .then(function() {
                     node.socket = createSocket(true);
                     setupSocketEvents();
                 })
