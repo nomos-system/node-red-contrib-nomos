@@ -28,12 +28,16 @@ module.exports = function(RED) {
             return done();
         };
 
+        node.closing = false;
         this.on('close', function(done) {
+            node.closing = true;
+            clearTimeout(node.reconnectTimer);
             node.setStatus('disconnect');
-            setTimeout(function() {
-                node.socket.close();
-                done();
-            }, 200);
+            if(node.socket) {
+                node.socket.removeAllListeners();
+                try { node.socket.close(); } catch(e) {}
+            }
+            done();
         });
 
         // api command execution
@@ -148,10 +152,12 @@ module.exports = function(RED) {
         function detectAndConnect() {
             axios.get(baseHost + '/socket.io-v4/?EIO=4&transport=polling', { timeout: 3000 })
                 .then(function() {
+                    if(node.closing) return;
                     node.socket = createSocket(true);
                     setupSocketEvents();
                 })
                 .catch(function() {
+                    if(node.closing) return;
                     node.socket = createSocket(false);
                     setupSocketEvents();
                 });
@@ -174,9 +180,11 @@ module.exports = function(RED) {
             }
 
             function socketReconnect() {
+                if(node.closing) return;
                 clearTimeout(node.reconnectTimer);
                 node.setStatus('reconnecting');
                 node.reconnectTimer = setTimeout(function() {
+                    if(node.closing) return;
                     node.socket.connect();
                 }, 3000);
             }
@@ -202,6 +210,7 @@ module.exports = function(RED) {
             });
 
             node.socket.on('disconnect', function() {
+                if(node.closing) return;
                 node.warn('socket.io disconnected');
                 node.connected = false;
                 node.setStatus('disconnect');
@@ -210,11 +219,13 @@ module.exports = function(RED) {
             });
 
             node.socket.on('error', function() {
+                if(node.closing) return;
                 node.socket.disconnect();
                 socketReconnect();
             });
 
             node.socket.on('connect_error', function() {
+                if(node.closing) return;
                 node.socket.disconnect();
                 socketReconnect();
             });
