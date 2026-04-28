@@ -1,49 +1,118 @@
+<div align="center">
+
+<img src="https://github.com/nomos-system/node-red-contrib-nomos/raw/master/nodes-base/icons/nomos.svg" alt="nomos system" width="120" />
+
 # node-red-contrib-nomos
-> A <a href="http://nodered.org" target="_new">Node-RED</a> node to connect with nomos system Controller.
+
+**A [Node-RED](https://nodered.org) integration for the [nomos system](https://www.nomos-system.com) Controller.**
 
 [![npm version](https://badge.fury.io/js/node-red-contrib-nomos.svg)](https://badge.fury.io/js/node-red-contrib-nomos)
 [![License][mit-badge]][mit-url]
 
-With this Nodes you can connect [nomos system Controller](https://www.nomos-system.com) and [Node-RED](https://nodered.org/). Minimum requirement is you have nomos system Controller 2.0 up and running.
+</div>
+
+---
+
+Connect your [nomos system Controller](https://www.nomos-system.com) to [Node-RED](https://nodered.org) and build powerful automations with components, scenes, events and the full nomos system API at your fingertips.
+
+> **Requirement:** nomos system Controller **2.0** or newer.
 
 ## Installation
--------
 
-Run command on Node-RED installation directory.
+Run the following command in your Node-RED user directory (typically `~/.node-red`):
 
-	npm install node-red-contrib-nomos
+```bash
+npm install node-red-contrib-nomos
+```
 
-or use the palette manager.
+Alternatively, install it directly via the Node-RED **Palette Manager**.
 
 ## Configuration
------
-1. Add a nomos node
-2. Add a new *nomos-hub* if not done already
-![img2](https://github.com/nomos-system/node-red-contrib-nomos/raw/master/docs/img2.png)
-![img1](https://github.com/nomos-system/node-red-contrib-nomos/raw/master/docs/img1.png)
 
+1. Drag a **nomos** node onto the flow.
+2. Open the node and create a new **nomos-hub** configuration if none exists yet.
+
+<p align="center">
+  <img src="https://github.com/nomos-system/node-red-contrib-nomos/raw/master/docs/img2.png" alt="Add nomos-hub configuration" />
+  <br/><br/>
+  <img src="https://github.com/nomos-system/node-red-contrib-nomos/raw/master/docs/img1.png" alt="nomos-hub settings" />
+</p>
 
 ## Usage
------
 
-### nomos system Components
-With this nodes you can connect directly to nomos system Controller components/devices. The nodes are bound to certain properties. For example components with *Level/Brightness* property. *Component* and *Generic* nodes are more flexible in the way you can control or query component properties.
+### Components
 
-### nomos system Extras
-Direct access to *Events*, *Timers*, *Scenes* and *Notifications* you have configured on your nomos system Controller. Triggers are working as well. For example: You can use a *Scenes* node as trigger and attach for additional execution other Node-RED nodes to it.
+Connect directly to components and devices managed by your nomos system Controller. Each node is bound to a specific property — pick the one that matches what you want to read or write:
 
-### nomos system API
-The complete nomos system API available as Node-RED nodes. See the documentation of each node for further informations.
+| Node            | Purpose                                              |
+| --------------- | ---------------------------------------------------- |
+| `state`         | Boolean on/off state of a component                  |
+| `level`         | Level / brightness (0–100 %)                         |
+| `hue`           | Color (hue/saturation) for lighting                  |
+| `volume`        | Audio volume                                         |
+| `position`      | Blind / shutter position                             |
+| `angle`         | Slat angle for blinds                                |
+| `setpoint`      | Target temperature                                   |
+| `temperature`   | Measured temperature                                 |
+| `humidity`      | Measured humidity                                    |
+| `isheating`     | Heating state                                        |
+| `iscooling`     | Cooling state                                        |
+| `motion`        | Motion sensor                                        |
+| `contact`       | Contact / door sensor                                |
+| `openwindow`    | Open-window detection                                |
+| `battery`       | Battery level                                        |
+| `reachable`     | Reachability of a component                          |
+| `raw`           | Raw component data                                   |
+| `component`     | Generic node — read/write any component property     |
 
+> Use the **`component`** node when no specialized node fits — it can access any property of any component.
 
-## Changelog
+### Extras
 
-### v1.0.0
-* Initial release
+Direct access to system-level objects configured on your Controller. Each node can act as a **trigger** (chain further Node-RED logic to it) or as an **executor**.
+
+| Node                  | Purpose                                |
+| --------------------- | -------------------------------------- |
+| `event`               | nomos events                           |
+| `timer`               | nomos timers                           |
+| `scene`               | nomos scenes                           |
+| `notificationprofile` | nomos notification profiles            |
+| `hub`                 | Configuration node for the Controller  |
+
+### API
+
+The complete nomos system API is exposed as Node-RED nodes — over 500 endpoints covering device management, configuration, monitoring and more. See the inline help of each node for detailed information.
+
+<details>
+<summary><b>Supported integrations &amp; domains</b> (click to expand)</summary>
+
+<br/>
+
+**Smart-Home protocols & ecosystems**
+
+KNX · Matter · Zigbee · Z-Wave · Hue · free@home · Somfy · Wiser · Zeptrion · Lutron · Sonos · Spotify · Miele · HomeConnect · Netatmo · Nuki · Husqvarna
+
+**System management**
+
+Backups · Cameras · Floors · Rooms · Links · Users · System variables · Special events · Webhooks · SIP clients · Monitoring · Accessories
+
+**Networking & remote access**
+
+VPN · WireGuard (server / clients / peers) · Port forwarding · Remote devices · Cloud sync · Management pairing
+
+**Add-ons & online library**
+
+Add-on profiles · Add-on devices · Online library profiles · Auto-detection
+
+**Maintenance**
+
+Logging · System debug · Software updates · Soft reset · Emergency mode · MCP tokens · Ping devices
+
+</details>
 
 ## License
 
-MIT (c) nomos system AG
+[MIT](LICENSE) &copy; nomos system AG
 
 [mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat
 [mit-url]: LICENSE

@@ -1146,8 +1146,11 @@
 		"updatezwavenetwork",
 		"zwavestatechange"
 	],
+	"engines": {
+		"node": ">=18"
+	},
 	"dependencies": {
-		"axios": "^1.7.0",
+		"axios": "^1.15.0",
 		"socket.io-client": "2.5",
 		"socket.io-client-v4": "npm:socket.io-client@^4.7.0"
 	}
