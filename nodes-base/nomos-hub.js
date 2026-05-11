@@ -14,6 +14,7 @@ module.exports = function(RED) {
         node.host = config.host;
         node.port = config.port;
         const subscriptions = {};
+        const subscriptionsByNode = {};
         node.nodesList = {};
 
         //
@@ -24,6 +25,17 @@ module.exports = function(RED) {
         };
 
         this.deregister = function(n, done) {
+            const entries = subscriptionsByNode[n.id];
+            if(entries) {
+                entries.forEach(function(entry) {
+                    const arr = subscriptions[entry.key];
+                    if(!arr) return;
+                    const idx = arr.indexOf(entry.callback);
+                    if(idx !== -1) arr.splice(idx, 1);
+                    if(arr.length === 0) delete subscriptions[entry.key];
+                });
+                delete subscriptionsByNode[n.id];
+            }
             delete node.nodesList[n.id];
             return done();
         };
@@ -57,6 +69,10 @@ module.exports = function(RED) {
                 subscriptions[key] = [];
             }
             subscriptions[key].push(callback);
+            if(!subscriptionsByNode[id]) {
+                subscriptionsByNode[id] = [];
+            }
+            subscriptionsByNode[id].push({ key: key, callback: callback });
         };
 
         // emit updates to subscription nodes
