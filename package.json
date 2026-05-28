@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.5.10",
+	"version": "1.5.11",
 	"description": "nomos system Node-RED Connector",
 	"scripts": {
 		"test": "node --test \"test/*.test.js\""
@@ -202,6 +202,8 @@
 			"isknxgroupaddressused": "nodes-api/nomosapi-isknxgroupaddressused.js",
 			"knxremoveprogress": "nodes-api/nomosapi-knxremoveprogress.js",
 			"knxstatechange": "nodes-api/nomosapi-knxstatechange.js",
+			"onknxerror": "nodes-api/nomosapi-onknxerror.js",
+			"getlastknxerror": "nodes-api/nomosapi-getlastknxerror.js",
 			"removeknxgroupaddress": "nodes-api/nomosapi-removeknxgroupaddress.js",
 			"removeknxproject": "nodes-api/nomosapi-removeknxproject.js",
 			"setknxdevice": "nodes-api/nomosapi-setknxdevice.js",
@@ -337,6 +339,7 @@
 			"huestatechange": "nodes-api/nomosapi-huestatechange.js",
 			"identifyhue": "nodes-api/nomosapi-identifyhue.js",
 			"removehuegroup": "nodes-api/nomosapi-removehuegroup.js",
+			"resethuebridge": "nodes-api/nomosapi-resethuebridge.js",
 			"addpingdevice": "nodes-api/nomosapi-addpingdevice.js",
 			"removepingdevice": "nodes-api/nomosapi-removepingdevice.js",
 			"setpingdevice": "nodes-api/nomosapi-setpingdevice.js",
@@ -754,6 +757,8 @@
 		"isknxgroupaddressused",
 		"knxremoveprogress",
 		"knxstatechange",
+		"onknxerror",
+		"getlastknxerror",
 		"removeknxgroupaddress",
 		"removeknxproject",
 		"setknxdevice",
@@ -889,6 +894,7 @@
 		"huestatechange",
 		"identifyhue",
 		"removehuegroup",
+		"resethuebridge",
 		"addpingdevice",
 		"removepingdevice",
 		"setpingdevice",

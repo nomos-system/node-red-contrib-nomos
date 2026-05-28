@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-setprofilemeta" type="text/x-red">
     <p>The service node represents <strong>setProfileMeta</strong> nomos system API Function: <br>
-        Set Profile Meta Data<br>(Version 0.2.76 | <em>admin</em> User Permission needed)
+        Set Profile Meta Data<br>(Version 0.2.76 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -55,14 +55,19 @@
 <dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled Status</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.debug <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Debug Status</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.brokerUrl <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT only: Broker Url</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT only: Username/E-Mail</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT only: Password</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.connectionType <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Connection Type<br>Default value: <code>ROUTING</code><br>Allowed values: <code>ROUTING</code> <code>TUNNELING</code> <code>TUNNELING_BRIDGE</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.username <span class="property-type">string</span></dt><dd><em>(optional)</em> Username/E-Mail</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.password <span class="property-type">string</span></dt><dd><em>(optional)</em> Password</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.connectionType <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Connection Type<br>Default value: <code>ROUTING</code><br>Allowed values: <code>ROUTING</code> <code>TUNNELING</code> <code>TUNNELING_BRIDGE</code> <code>TUNNELING_SECURE</code> <code>ROUTING_SECURE</code> </dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.device_ip <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Device IP<br>Default value: <code>AUTO</code></dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.multicast_ip <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Multicast IP<br>Default value: <code>AUTO</code></dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.port <span class="property-type">string</span></dt><dd><em>(optional)</em> MQTT/KNX only: Port<br>Default value: <code>AUTO</code></dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.physaddr <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Physical Address</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.addrForm <span class="property-type">number</span></dt><dd><em>(optional)</em> KNX only: Address Format (2 or 3 Step)<br>Maximum: <code>3</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.physaddr <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX only: Physical Address<br>Default value: <code>1.1.254</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.addrForm <span class="property-type">number</span></dt><dd><em>(optional)</em> KNX only: Address Format (2 or 3 Step)<br>Default value: <code>3</code><br>Maximum: <code>3</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.user_id <span class="property-type">number</span></dt><dd><em>(optional)</em> KNX TUNNELING_SECURE only: tunnel user slot ID from keyring. ETS lays out slot 2 as the first tunnel user, so the backend defaults to 2 when this field is omitted or empty.<br>Default value: <code>2</code><br>Maximum: <code>127</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.user_password <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX TUNNELING_SECURE manual mode only: tunnel user password (overrides the value stored in the keyring).</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.device_auth <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX TUNNELING_SECURE manual mode only: device authentication code (overrides the value stored in the keyring).</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.knxkeys <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX *_SECURE only: keyring filename (relative to misc folder). Defaults to 'knx.knxkeys' when omitted.<br>Default value: <code>knx.knxkeys</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.knxkeys_password <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX *_SECURE only: keyring decryption password</dd></dl>
 
     </dl>
 
