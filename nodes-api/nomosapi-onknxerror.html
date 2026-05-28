@@ -34,7 +34,7 @@
 </script>
 <script data-help-name="nomosapi-onknxerror" type="text/x-red">
     <p>The service node represents <strong>onKNXError</strong> nomos system API Event: <br>
-        Push event emitted when the KNX daemon reports a structured error such as keyring_load_failed or backbone_missing. A payload of null clears the error state. Persists across backend restarts and auto-clears on successful bus connect.<br>(Version 1.0.0 | <span class="pill-o">admin</span> User Permission needed)
+        Push event emitted when a structured KNX error occurs, such as keyring_load_failed or backbone_missing. A null payload clears the error state. The most recent error is retained and clears automatically once the KNX connection is re-established.<br>(Version 0.3.33 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
