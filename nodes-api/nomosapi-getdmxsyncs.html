@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-setsystemvariable', {
-        category: 'nomos SystemVariables',
+    RED.nodes.registerType('nomosapi-getdmxsyncs', {
+        category: 'nomos DMX',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'setSystemVariable',
+        paletteLabel: 'getDmxSyncs',
         label: function() {
-            return this.name || 'setSystemVariable';
+            return this.name || 'getDmxSyncs';
         }
     });
 </script>
-<script data-template-name="nomosapi-setsystemvariable" type="text/x-red">
+<script data-template-name="nomosapi-getdmxsyncs" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-setsystemvariable" type="text/x-red">
-    <p>The service node represents <strong>setSystemVariable</strong> nomos system API Function: <br>
-        Set/Update a System Variable<br>(Version 0.3.35 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-getdmxsyncs" type="text/x-red">
+    <p>The service node represents <strong>getDmxSyncs</strong> nomos system API Function: <br>
+        Get configured DMX Sync mappings.<br>(Version 0.3.34 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,19 +51,13 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>Variable ID</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional)</em> Variable Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional)</em> Category</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Editable</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> New Value</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional)</em> Datatype<br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> </dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd>Configured Source/Destination pairs</dd></dl>
 
          </li>
          <li>API error
@@ -81,9 +75,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-setSystemVariable" target="_blank">setSystemVariable nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getDmxSyncs" target="_blank">getDmxSyncs nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables</em></div>
+    <div style="text-align: right"><em>DMX</em></div>
 </script>

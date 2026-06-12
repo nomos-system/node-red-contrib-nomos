@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-onsystemvariableadded', {
-        category: 'nomos SystemVariables',
+    RED.nodes.registerType('nomosapi-loginchallengeapproved', {
+        category: 'nomos Miscellaneous',
         color: '#fb93a1',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'nomos.svg',
-        paletteLabel: 'onSystemVariableAdded',
+        paletteLabel: 'loginChallengeApproved',
         label: function() {
-            return this.name || 'onSystemVariableAdded';
+            return this.name || 'loginChallengeApproved';
         }
     });
 </script>
-<script data-template-name="nomosapi-onsystemvariableadded" type="text/x-red">
+<script data-template-name="nomosapi-loginchallengeapproved" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -32,9 +32,9 @@
         <input type="text" id="node-input-topic" placeholder="Topic">
     </div>
 </script>
-<script data-help-name="nomosapi-onsystemvariableadded" type="text/x-red">
-    <p>The service node represents <strong>onSystemVariableAdded</strong> nomos system API Event: <br>
-        Event Update when a new System Variable has been added<br>(Version 0.3.35 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-loginchallengeapproved" type="text/x-red">
+    <p>The service node represents <strong>loginChallengeApproved</strong> nomos system API Event: <br>
+        Server event emitted to the waiting device once its login challenge has been approved. The device is now authenticated and should call `init` to complete the connection setup.<br>(Version 0.3.36)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -52,9 +52,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-receive-onSystemVariableAdded" target="_blank">onSystemVariableAdded nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-receive-loginChallengeApproved" target="_blank">loginChallengeApproved nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables</em></div>
+    <div style="text-align: right"><em>Miscellaneous</em></div>
 </script>

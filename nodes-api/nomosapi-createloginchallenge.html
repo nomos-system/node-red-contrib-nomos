@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addsystemvariable', {
-        category: 'nomos SystemVariables',
+    RED.nodes.registerType('nomosapi-createloginchallenge', {
+        category: 'nomos Miscellaneous',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addSystemVariable',
+        paletteLabel: 'createLoginChallenge',
         label: function() {
-            return this.name || 'addSystemVariable';
+            return this.name || 'createLoginChallenge';
         }
     });
 </script>
-<script data-template-name="nomosapi-addsystemvariable" type="text/x-red">
+<script data-template-name="nomosapi-createloginchallenge" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addsystemvariable" type="text/x-red">
-    <p>The service node represents <strong>addSystemVariable</strong> nomos system API Function: <br>
-        Set a System Variable<br>(Version 0.3.35 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-createloginchallenge" type="text/x-red">
+    <p>The service node represents <strong>createLoginChallenge</strong> nomos system API Function: <br>
+        Request a QR login challenge on an unauthenticated connection. The server returns a `challengeId`, a `nomos://login?…` deep-link URI (render as a QR code), an expiry timestamp, and a two-digit `matchCode`. An authenticated device scans the QR code and calls `approveLoginChallenge` to log the waiting device in. The waiting device receives a `loginChallengeApproved` server event upon approval and then calls `init`.<br>(Version 0.3.36)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,12 +51,9 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional)</em> Variable ID (will be generated if not specified)</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional)</em> Category</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Editable</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Current Value</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional)</em> Datatype<br>Default value: <code>string</code><br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.requestedGroup <span class="property-type">string</span></dt><dd><em>(optional)</em> User group the waiting device wants to log in as. Defaults to `admin`.<br>Default value: <code>admin</code></dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.deviceName <span class="property-type">string</span></dt><dd><em>(optional)</em> Human-readable name of the waiting device (e.g. "Living Room Panel")</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.platform <span class="property-type">string</span></dt><dd><em>(optional)</em> Platform identifier of the waiting device (e.g. `iOS`, `android`)</dd></dl>
 
     </dl>
 
@@ -64,7 +61,10 @@
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>The Variable ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.challengeId <span class="property-type">string</span></dt><dd>Unique identifier for this challenge. Pass it to `approveLoginChallenge` or `cancelLoginChallenge`.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.payload <span class="property-type">string</span></dt><dd>Deep-link URI (`nomos://login?...`) to render as a QR code. The approving device scans this code to identify the challenge.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.expiresAt <span class="property-type">string</span></dt><dd>ISO 8601 timestamp after which the challenge is no longer valid.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.matchCode <span class="property-type">string</span></dt><dd>Two-digit numeric code (e.g. `"07"`) displayed on both the waiting device and the approving app so the user can visually confirm they are approving the correct request.</dd></dl>
 
          </li>
          <li>API error
@@ -82,9 +82,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSystemVariable" target="_blank">addSystemVariable nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-createLoginChallenge" target="_blank">createLoginChallenge nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables</em></div>
+    <div style="text-align: right"><em>Miscellaneous</em></div>
 </script>
