@@ -22,4 +22,16 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - run: npm publish
+
+      # Every push to master runs this workflow, but only version bumps are
+      # releases. Without this guard, dependency merges fail with
+      # "cannot publish over the previously published versions".
+      - name: Publish if version is new
+        run: |
+          V=$(node -p "require('./package.json').version")
+          N=$(node -p "require('./package.json').name")
+          if npm view "$N@$V" version >/dev/null 2>&1; then
+            echo "$N@$V already published - skipping"
+          else
+            npm publish
+          fi
