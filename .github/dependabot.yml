@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+    # No scheduled "a newer version exists" PRs. Security fixes still come
+    # through automatically - they use a separate internal limit that this
+    # setting does not affect. Without this the file would ENABLE version
+    # updates, which the repo does not have today.
+    open-pull-requests-limit: 0
+
+    # Bundle whatever security PRs do arrive into a single PR.
+    groups:
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+    ignore:
+      # nomos-hub.js deliberately carries BOTH Socket.IO client lines side by
+      # side, mirroring the backend (which runs "socket.io" 4.x next to the
+      # aliased "socket.io-v2"). It probes /socket.io-v4/ and falls back to a
+      # v2 connection for older controllers:
+      #
+      #   const ioV2 = require('socket.io-client');       <- must stay 2.x
+      #   const ioV4 = require('socket.io-client-v4');    <- 4.x
+      #
+      # A v3+ client in the ioV2 slot speaks EIO=4 and cannot handshake with a
+      # Socket.IO 2.x backend, so the fallback silently dies. That is exactly
+      # what happened: PR #13 (2026-07-27) raised "socket.io-client" from 2.5
+      # to 4.8 as a security remedy, both slots resolved to 4.8.3, and the
+      # broken fallback shipped to npm as 1.5.16. Only minor/patch inside 2.x.
+      - dependency-name: "socket.io-client"
+        versions: [">=3"]
+
+      # Same reasoning for the v4 slot: it must stay on the major the backend
+      # serves under /socket.io-v4/. Patches within 4.x still flow.
+      - dependency-name: "socket.io-client-v4"
+        versions: [">=5"]
