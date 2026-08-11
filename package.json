@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.5.17",
+	"version": "1.5.18",
 	"description": "nomos system Node-RED Connector",
 	"scripts": {
 		"test": "node --test \"test/*.test.js\""
@@ -442,6 +442,9 @@
 			"getintegratorinfo": "nodes-api/nomosapi-getintegratorinfo.js",
 			"getoperatingsysteminfos": "nodes-api/nomosapi-getoperatingsysteminfos.js",
 			"getoperatingsystemload": "nodes-api/nomosapi-getoperatingsystemload.js",
+			"getusagesuggestions": "nodes-api/nomosapi-getusagesuggestions.js",
+			"onsuggestionschanged": "nodes-api/nomosapi-onsuggestionschanged.js",
+			"getusagesettings": "nodes-api/nomosapi-getusagesettings.js",
 			"getsystemconfigured": "nodes-api/nomosapi-getsystemconfigured.js",
 			"getsystemdatetime": "nodes-api/nomosapi-getsystemdatetime.js",
 			"getsystemdebuglog": "nodes-api/nomosapi-getsystemdebuglog.js",
@@ -984,6 +987,9 @@
 		"getintegratorinfo",
 		"getoperatingsysteminfos",
 		"getoperatingsystemload",
+		"getusagesuggestions",
+		"onsuggestionschanged",
+		"getusagesettings",
 		"getsystemconfigured",
 		"getsystemdatetime",
 		"getsystemdebuglog",

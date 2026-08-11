@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addspotifydevice', {
-        category: 'nomos Spotify',
+    RED.nodes.registerType('nomosapi-getusagesettings', {
+        category: 'nomos System',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addSpotifyDevice',
+        paletteLabel: 'getUsageSettings',
         label: function() {
-            return this.name || 'addSpotifyDevice';
+            return this.name || 'getUsageSettings';
         }
     });
 </script>
-<script data-template-name="nomosapi-addspotifydevice" type="text/x-red">
+<script data-template-name="nomosapi-getusagesettings" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addspotifydevice" type="text/x-red">
-    <p>The service node represents <strong>addSpotifyDevice</strong> nomos system API Function: <br>
-        Add a Spotify device as component<br>(Version 0.2.71 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-getusagesettings" type="text/x-red">
+    <p>The service node represents <strong>getUsageSettings</strong> nomos system API Function: <br>
+        Returns whether usage-based suggestions are enabled for this system, whether the calling user takes part in personalisation, and who receives the notification when the system notices an unusual situation.<br>(Version 0.3.38)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,14 +51,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>ID of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional)</em> Model of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID of the device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile of the device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.capabilities <span class="property-type">array</span></dt><dd><em>(optional)</em> Capabilities of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.tags <span class="property-type">array</span></dt><dd><em>(optional)</em> Tagging</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional)</em> Additional Meta Information</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.uid <span class="property-type">string | number</span></dt><dd><em>(optional)</em> Read this user's personalisation state instead of the calling user's, so the administrative user management can show the setting it is about to change. Requires the admin permission. `enabled`, `llm`, `notify`, `notifyPush` and `notifyEmail` are system-wide and read the same either way.</dd></dl>
 
     </dl>
 
@@ -66,7 +59,12 @@
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">string</span></dt><dd>New Component ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether usage recording is active for this system.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.llm <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether suggestion texts are phrased by the online service.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.notify <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether the system reports an unusual situation at all. When on, a message always appears in the notification list; `notifyPush` and `notifyEmail` additionally deliver it to the recipients listed there. When off, nothing is reported, whoever is listed.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.personalized <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether the target user's actions contribute to their personal suggestions. Without `uid` in the request this is the calling user.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.notifyPush <span class="property-type">array</span></dt><dd><em>(optional)</em> Recipients of the push notification sent when the system notices an unusual situation. Empty means no push is sent.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.notifyEmail <span class="property-type">array</span></dt><dd><em>(optional)</em> E-mail recipients for the same notification. Empty means no e-mail is sent.</dd></dl>
 
          </li>
          <li>API error
@@ -84,9 +82,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSpotifyDevice" target="_blank">addSpotifyDevice nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getUsageSettings" target="_blank">getUsageSettings nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Spotify</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addspotifydevice', {
-        category: 'nomos Spotify',
+    RED.nodes.registerType('nomosapi-getusagesuggestions', {
+        category: 'nomos System',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addSpotifyDevice',
+        paletteLabel: 'getUsageSuggestions',
         label: function() {
-            return this.name || 'addSpotifyDevice';
+            return this.name || 'getUsageSuggestions';
         }
     });
 </script>
-<script data-template-name="nomosapi-addspotifydevice" type="text/x-red">
+<script data-template-name="nomosapi-getusagesuggestions" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addspotifydevice" type="text/x-red">
-    <p>The service node represents <strong>addSpotifyDevice</strong> nomos system API Function: <br>
-        Add a Spotify device as component<br>(Version 0.2.71 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-getusagesuggestions" type="text/x-red">
+    <p>The service node represents <strong>getUsageSuggestions</strong> nomos system API Function: <br>
+        Returns suggestions derived from how the installation is operated, for example a device the calling user reaches for often, or a contradiction such as heating running with a window open. Strongest first, and an empty list whenever there is nothing worth proposing.<br>(Version 0.3.38)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,22 +51,14 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>ID of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional)</em> Model of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.lid <span class="property-type">string</span></dt><dd>Library ID of the device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd>Profile of the device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.capabilities <span class="property-type">array</span></dt><dd><em>(optional)</em> Capabilities of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.tags <span class="property-type">array</span></dt><dd><em>(optional)</em> Tagging</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional)</em> Additional Meta Information</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.kind <span class="property-type">string</span></dt><dd><em>(optional)</em> Restrict the answer to one sort of suggestion. Omit it to receive every sort. The reply does not repeat the value.<br>Allowed values: <code>nextAction</code> <code>frequent</code> <code>automation</code> <code>scene</code> <code>anomaly</code> </dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">string</span></dt><dd>New Component ID</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd>Suggestions, strongest first. An empty list is the normal case and means there is nothing worth proposing right now.</dd></dl>
 
          </li>
          <li>API error
@@ -84,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSpotifyDevice" target="_blank">addSpotifyDevice nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getUsageSuggestions" target="_blank">getUsageSuggestions nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Spotify</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>
