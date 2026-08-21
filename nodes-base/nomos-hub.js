@@ -15,6 +15,9 @@ module.exports = function(RED) {
         node.port = config.port;
         const subscriptions = {};
         const subscriptionsByNode = {};
+        const eventSubscriptions = {};
+        const eventSubscriptionsByNode = {};
+        const eventDispatchers = {};
         node.nodesList = {};
 
         //
@@ -35,6 +38,17 @@ module.exports = function(RED) {
                     if(arr.length === 0) delete subscriptions[entry.key];
                 });
                 delete subscriptionsByNode[n.id];
+            }
+            const eventEntries = eventSubscriptionsByNode[n.id];
+            if(eventEntries) {
+                eventEntries.forEach(function(entry) {
+                    const arr = eventSubscriptions[entry.eventName];
+                    if(!arr) return;
+                    const idx = arr.indexOf(entry.handler);
+                    if(idx !== -1) arr.splice(idx, 1);
+                    if(arr.length === 0) delete eventSubscriptions[entry.eventName];
+                });
+                delete eventSubscriptionsByNode[n.id];
             }
             delete node.nodesList[n.id];
             return done();
@@ -59,6 +73,35 @@ module.exports = function(RED) {
                 command = msg.payload.__command;
                 delete msg.payload.__command;
                 node.socket.emit(command, msg.payload, callback);
+            }
+        };
+
+        // subscribe socket.io server events (onSceneTriggered, onEventTriggered, ...).
+        // The socket is created asynchronously, so handlers are buffered here and
+        // attached once the socket exists; nodes must never touch hub.socket directly.
+        function attachEventDispatcher(eventName) {
+            if(eventDispatchers[eventName]) return;
+            eventDispatchers[eventName] = function(data) {
+                const handlers = eventSubscriptions[eventName];
+                if(!handlers) return;
+                handlers.slice().forEach(function(handler) {
+                    handler(data);
+                });
+            };
+            node.socket.on(eventName, eventDispatchers[eventName]);
+        }
+
+        this.subscribeEvent = function(id, eventName, handler) {
+            if(!eventSubscriptions[eventName]) {
+                eventSubscriptions[eventName] = [];
+            }
+            eventSubscriptions[eventName].push(handler);
+            if(!eventSubscriptionsByNode[id]) {
+                eventSubscriptionsByNode[id] = [];
+            }
+            eventSubscriptionsByNode[id].push({ eventName: eventName, handler: handler });
+            if(node.socket) {
+                attachEventDispatcher(eventName);
             }
         };
 
@@ -180,6 +223,10 @@ module.exports = function(RED) {
         }
 
         function setupSocketEvents() {
+
+            // the socket exists now — attach dispatchers for all events
+            // that nodes subscribed while it was still being created
+            Object.keys(eventSubscriptions).forEach(attachEventDispatcher);
 
             function socketInitialization() {
                 node.socket.emit('init', {uagent: 'node-red-nomos v1', language: 'en'}, function() {
