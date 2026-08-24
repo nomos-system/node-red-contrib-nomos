@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-onsceneupdated', {
-        category: 'nomos Scenes',
+    RED.nodes.registerType('nomosapi-onpluginstatechange', {
+        category: 'nomos Plugins',
         color: '#fb93a1',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 1,
         outputLabels: ['Data'],
         icon: 'nomos.svg',
-        paletteLabel: 'onSceneUpdated',
+        paletteLabel: 'onPluginStateChange',
         label: function() {
-            return this.name || 'onSceneUpdated';
+            return this.name || 'onPluginStateChange';
         }
     });
 </script>
-<script data-template-name="nomosapi-onsceneupdated" type="text/x-red">
+<script data-template-name="nomosapi-onpluginstatechange" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -32,9 +32,9 @@
         <input type="text" id="node-input-topic" placeholder="Topic">
     </div>
 </script>
-<script data-help-name="nomosapi-onsceneupdated" type="text/x-red">
-    <p>The service node represents <strong>onSceneUpdated</strong> nomos system API Event: <br>
-        Event Update when a Scene has been updated<br>(Version 0.2.47 | <span class="pill-o">admin</span> User Permission needed)<br><br>Not delivered for a Scene the User has no permission for.
+<script data-help-name="nomosapi-onpluginstatechange" type="text/x-red">
+    <p>The service node represents <strong>onPluginStateChange</strong> nomos system API Event: <br>
+        Event Update when a plugin is enabled, disabled or reset.<br>(Version 0.3.39 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -52,9 +52,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-receive-onSceneUpdated" target="_blank">onSceneUpdated nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-receive-onPluginStateChange" target="_blank">onPluginStateChange nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Scenes</em></div>
+    <div style="text-align: right"><em>Plugins</em></div>
 </script>

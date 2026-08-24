@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addsystemvariable', {
-        category: 'nomos SystemVariables',
+    RED.nodes.registerType('nomosapi-probeshellydevice', {
+        category: 'nomos Shelly',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addSystemVariable',
+        paletteLabel: 'probeShellyDevice',
         label: function() {
-            return this.name || 'addSystemVariable';
+            return this.name || 'probeShellyDevice';
         }
     });
 </script>
-<script data-template-name="nomosapi-addsystemvariable" type="text/x-red">
+<script data-template-name="nomosapi-probeshellydevice" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addsystemvariable" type="text/x-red">
-    <p>The service node represents <strong>addSystemVariable</strong> nomos system API Function: <br>
-        Set a System Variable<br>(Version 0.3.35 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-probeshellydevice" type="text/x-red">
+    <p>The service node represents <strong>probeShellyDevice</strong> nomos system API Function: <br>
+        Probes a Shelly device at a given address without changing anything on it: reports its generation, model, id, and whether it requires a password before configuration changes are accepted. Use this to fill in a confirmation dialog before calling addShellyDevice.<br>(Version 0.3.39 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,13 +51,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional)</em> Variable ID (will be generated if not specified)</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional)</em> Category</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Editable</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.unremovable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Protects the variable from being deleted</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Current Value</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional)</em> Datatype<br>Default value: <code>string</code><br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> <code>currency</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.host <span class="property-type">string</span></dt><dd>IP address or hostname of the device</dd></dl>
 
     </dl>
 
@@ -65,7 +59,13 @@
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>The Variable ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.gen <span class="property-type">number</span></dt><dd>Shelly generation, as reported by the device. Generation 2 and later (3, 4, ...) all use the same RPC/MQTT scheme; support for generation 3/4 rests on that and has not been hardware-verified, since no such device is available here</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.model <span class="property-type">string</span></dt><dd>Model designation</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.deviceId <span class="property-type">string</span></dt><dd>Device id, as reported by the device itself</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.authRequired <span class="property-type">boolean</span></dt><dd>Whether the device requires a password before it accepts configuration changes</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.usernameFixed <span class="property-type">boolean</span></dt><dd>True on Gen2 and later devices, which accept no username other than admin regardless of what is sent</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>nomos device name matched from the device catalogue; null when the model is not in the catalogue</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.known <span class="property-type">boolean</span></dt><dd>Whether the model is in the device catalogue</dd></dl>
 
          </li>
          <li>API error
@@ -83,9 +83,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSystemVariable" target="_blank">addSystemVariable nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-probeShellyDevice" target="_blank">probeShellyDevice nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables</em></div>
+    <div style="text-align: right"><em>Shelly</em></div>
 </script>

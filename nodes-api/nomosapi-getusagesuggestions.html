@@ -58,7 +58,7 @@
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd>Suggestions, strongest first. An empty list is the normal case and means there is nothing worth proposing right now.</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd>Suggestions, strongest first. An empty list is the normal case and means there is nothing worth proposing right now. A suggestion about a device that has since been deleted is never returned, and neither is a device the installation already operates on its own -- a light on a presence detector needs no shortcut.</dd></dl>
 
          </li>
          <li>API error
