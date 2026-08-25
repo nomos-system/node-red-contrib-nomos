@@ -16,7 +16,6 @@ module.exports = function(RED) {
             this.nomosHub.register(node);
 
             this.on('close', function(done) {
-                node.nomosHub.socket.off('zwaveStateChange', node.eventHandler);
                 node.nomosHub.deregister(node, done);
             });
         }
@@ -29,7 +28,7 @@ module.exports = function(RED) {
         //
         if(node._wireCount) {
             if(this.nomosHub) {
-                node.nomosHub.socket.on('zwaveStateChange', node.eventHandler);
+                node.nomosHub.subscribeEvent(node.id, 'zwaveStateChange', node.eventHandler);
             }
         }
     }
