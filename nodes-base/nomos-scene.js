@@ -63,13 +63,16 @@ module.exports = function(RED) {
                     case 'call':
                         newPayload.__command = 'executeScene';
                     break;
+                    default:
+                        log(node.warn, 'Unknown trigger value \'' + newPayload.trigger + '\'. Dropping message.');
+                        return;
                 }
                 delete newPayload.trigger;
 
                 msg.payload = newPayload;
                 node.nomosHub.emit(msg, function(result) {
                     const topic = config.topic ? config.topic : node.topic_in;
-                    if(result.errorCode) {
+                    if(result && result.errorCode) {
                         node.send([{payload: true, topic: topic}]);
                     }
                     else {
