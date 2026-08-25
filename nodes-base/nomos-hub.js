@@ -18,6 +18,7 @@ module.exports = function(RED) {
         const eventSubscriptions = {};
         const eventSubscriptionsByNode = {};
         const eventDispatchers = {};
+        const pendingCommands = [];
         node.nodesList = {};
 
         //
@@ -57,6 +58,7 @@ module.exports = function(RED) {
         node.closing = false;
         this.on('close', function(done) {
             node.closing = true;
+            pendingCommands.length = 0;
             clearTimeout(node.reconnectTimer);
             node.setStatus('disconnect');
             if(node.socket) {
@@ -66,15 +68,32 @@ module.exports = function(RED) {
             done();
         });
 
-        // api command execution
+        // api command execution.
+        // The socket is created only after the async version probe resolves, so a
+        // message arriving right after a deploy would hit an undefined socket.
+        // Commands are buffered until it exists; from there on socket.io buffers
+        // them itself until the connection is up, as it did before the probe.
         this.emit = function(msg, callback) {
-            let command = null;
-            if(msg.payload && msg.payload.__command) {
-                command = msg.payload.__command;
-                delete msg.payload.__command;
-                node.socket.emit(command, msg.payload, callback);
+            if(!msg.payload || !msg.payload.__command) {
+                if(callback) callback({errorCode: 'noCommand', error: 'no command in payload'});
+                return;
             }
+            const command = msg.payload.__command;
+            delete msg.payload.__command;
+            if(!node.socket) {
+                if(node.closing) return;
+                pendingCommands.push({command: command, payload: msg.payload, callback: callback});
+                return;
+            }
+            node.socket.emit(command, msg.payload, callback);
         };
+
+        function flushPendingCommands() {
+            while(pendingCommands.length) {
+                const pending = pendingCommands.shift();
+                node.socket.emit(pending.command, pending.payload, pending.callback);
+            }
+        }
 
         // subscribe socket.io server events (onSceneTriggered, onEventTriggered, ...).
         // The socket is created asynchronously, so handlers are buffered here and
@@ -225,13 +244,16 @@ module.exports = function(RED) {
         function setupSocketEvents() {
 
             // the socket exists now — attach dispatchers for all events
-            // that nodes subscribed while it was still being created
+            // that nodes subscribed while it was still being created, and hand
+            // over the commands that arrived in the same window
             Object.keys(eventSubscriptions).forEach(attachEventDispatcher);
+            flushPendingCommands();
 
             function socketInitialization() {
                 node.socket.emit('init', {uagent: 'node-red-nomos v1', language: 'en'}, function() {
                     node.socket.emit('getProductProfile', {}, function(profile) {
-                        if(profile.modules.nodered === undefined) {
+                        // an error reply (missing permissions, licence) carries no modules
+                        if(!profile || !profile.modules || profile.modules.nodered === undefined) {
                             node.setStatus('not enabled');
                             setTimeout(function() {
                                 node.socket.close();
@@ -254,7 +276,7 @@ module.exports = function(RED) {
 
             node.socket.on('connect', function() {
                 node.socket.emit('auth', {username: node.credentials.username || '', password: node.credentials.password || '', persistent: false}, function(auth) {
-                    if(auth.errorCode || !auth) {
+                    if(!auth || auth.errorCode) {
                         // not successful
                         node.error('socket.io invalid auth');
                         node.setStatus('invalidauth');

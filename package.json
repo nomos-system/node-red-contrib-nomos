@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.5.20",
+	"version": "1.5.21",
 	"description": "nomos system Node-RED Connector",
 	"scripts": {
 		"test": "node --test \"test/*.test.js\""

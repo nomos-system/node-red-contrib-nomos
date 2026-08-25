@@ -16,7 +16,6 @@ module.exports = function(RED) {
             this.nomosHub.register(node);
 
             this.on('close', function(done) {
-                node.nomosHub.socket.off('onFloorImageUpload', node.eventHandler);
                 node.nomosHub.deregister(node, done);
             });
         }
@@ -29,7 +28,7 @@ module.exports = function(RED) {
         //
         if(node._wireCount) {
             if(this.nomosHub) {
-                node.nomosHub.socket.on('onFloorImageUpload', node.eventHandler);
+                node.nomosHub.subscribeEvent(node.id, 'onFloorImageUpload', node.eventHandler);
             }
         }
     }
