@@ -28,7 +28,7 @@ module.exports = function(RED) {
         //
         if(node._wireCount) {
             if(this.nomosHub) {
-                node.nomosHub.subscribeEvent(node.id, 'onSuggestionsChanged', node.eventHandler);
+                node.nomosHub.subscribeEvent(node.id, 'knxBusDevicesChange', node.eventHandler);
             }
         }
     }

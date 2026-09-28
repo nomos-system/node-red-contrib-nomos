@@ -28,7 +28,7 @@ module.exports = function(RED) {
         //
         if(node._wireCount) {
             if(this.nomosHub) {
-                node.nomosHub.subscribeEvent(node.id, 'engineLogUpdate', node.eventHandler);
+                node.nomosHub.subscribeEvent(node.id, 'onPluginStatusChange', node.eventHandler);
             }
         }
     }

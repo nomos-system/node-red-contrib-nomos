@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-stopenginelogging', {
-        category: 'nomos Scripting',
+    RED.nodes.registerType('nomosapi-getvehiclechargingprofiles', {
+        category: 'nomos Vehicles',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'stopEngineLogging',
+        paletteLabel: 'getVehicleChargingProfiles',
         label: function() {
-            return this.name || 'stopEngineLogging';
+            return this.name || 'getVehicleChargingProfiles';
         }
     });
 </script>
-<script data-template-name="nomosapi-stopenginelogging" type="text/x-red">
+<script data-template-name="nomosapi-getvehiclechargingprofiles" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-stopenginelogging" type="text/x-red">
-    <p>The service node represents <strong>stopEngineLogging</strong> nomos system API Function: <br>
-        Stop Engine/Daemon Logging<br>(Version 0.1.8 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-getvehiclechargingprofiles" type="text/x-red">
+    <p>The service node represents <strong>getVehicleChargingProfiles</strong> nomos system API Function: <br>
+        Lists the charging profiles stored in the car, one per saved charging location. Counts against the car brand's request quota.<br>(Version 0.3.40 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,13 +51,14 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID of the vehicle</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -75,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-stopEngineLogging" target="_blank">stopEngineLogging nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getVehicleChargingProfiles" target="_blank">getVehicleChargingProfiles nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Scripting</em></div>
+    <div style="text-align: right"><em>Vehicles</em></div>
 </script>

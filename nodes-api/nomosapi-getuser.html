@@ -68,8 +68,8 @@
 <dl class="message-properties" style="border: none;"><dt>payload.created <span class="property-type">string</span></dt><dd>Timestamp created</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.lastUpdate <span class="property-type">string</span></dt><dd>Timestamp of the last update</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.perms <span class="property-type">object</span></dt><dd>Permissions</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.roomPerms <span class="property-type">object</span></dt><dd>Room Permissions</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.scenePerms <span class="property-type">object</span></dt><dd>Scene Permissions</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.roomPerms <span class="property-type">object</span></dt><dd>Room Permissions: the IDs of the Rooms the User may not see (`off`) and of those they may only read (`restricted`). Both lists are always present and are empty when the User is not restricted at all.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.scenePerms <span class="property-type">object</span></dt><dd>Scene Permissions: the IDs of the Scenes the User may not run (`off`). The list is always present and is empty when the User is not restricted at all.</dd></dl>
 
          </li>
          <li>API error

@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-getsystemdebuglog', {
-        category: 'nomos System',
+    RED.nodes.registerType('nomosapi-updatevehiclechargingprofile', {
+        category: 'nomos Vehicles',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'getSystemDebugLog',
+        paletteLabel: 'updateVehicleChargingProfile',
         label: function() {
-            return this.name || 'getSystemDebugLog';
+            return this.name || 'updateVehicleChargingProfile';
         }
     });
 </script>
-<script data-template-name="nomosapi-getsystemdebuglog" type="text/x-red">
+<script data-template-name="nomosapi-updatevehiclechargingprofile" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-getsystemdebuglog" type="text/x-red">
-    <p>The service node represents <strong>getSystemDebugLog</strong> nomos system API Function: <br>
-        Get System Debug Log<br>(Version 0.3.14 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-updatevehiclechargingprofile" type="text/x-red">
+    <p>The service node represents <strong>updateVehicleChargingProfile</strong> nomos system API Function: <br>
+        Writes one charging profile back to the car. Read it with getVehicleChargingProfiles first and send the complete profile with the changed fields applied; the car confirms the change only in a later update (the vehicle component's pending_command property shows "charging_profile_update" until then). Counts against the car brand's request quota.<br>(Version 0.3.40 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,15 +51,16 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.filter <span class="property-type">array</span></dt><dd><em>(optional)</em> Filter by Module Name(s), leave blank to fetch all</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID of the vehicle</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">number</span></dt><dd>Profile id, from getVehicleChargingProfiles. An id the car does not know fails with `invalid_request`.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">object</span></dt><dd>The complete profile as returned by getVehicleChargingProfiles, with the changed fields applied. Its `id`, if present, must equal `id`. A one-off timer needs a weekday in `oneOffDay` and no `recurringOn` days; weekdays are "MONDAY" to "SUNDAY". Otherwise the call fails with `invalid_request` and nothing is sent to the car.</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.module <span class="property-type">array</span></dt><dd>Module Log</dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -77,9 +78,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-getSystemDebugLog" target="_blank">getSystemDebugLog nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-updateVehicleChargingProfile" target="_blank">updateVehicleChargingProfile nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>System</em></div>
+    <div style="text-align: right"><em>Vehicles</em></div>
 </script>

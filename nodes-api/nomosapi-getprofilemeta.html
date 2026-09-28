@@ -79,6 +79,8 @@
 <dl class="message-properties" style="border: none;"><dt>payload.knxkeys <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX *_SECURE only: keyring filename (relative to misc folder)</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.knxkeys_password <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX *_SECURE only: keyring decryption password</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.offline <span class="property-type">boolean</span></dt><dd><em>(optional)</em> KNX only: Offline State</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.devicemgmt <span class="property-type">boolean</span></dt><dd><em>(optional)</em> KNX only. Allows this installation to be put into device management mode, which is what commissioning a KNX device without the ETS requires. Off by default. Switching it changes the KNX configuration, so the KNX connection is re-established afterwards. Allowing it does not put the installation into that mode -- it only permits it.
+</dd></dl>
 
          </li>
          <li>API error

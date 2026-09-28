@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-componentupdate" type="text/x-red">
     <p>The service node represents <strong>componentUpdate</strong> nomos system API Function: <br>
-        Do a Property Update on one or multiple Component(s)<br>(Version 0.2.60)
+        Do a Property Update on one or multiple Component(s)<br>(Version 0.2.60)<br><br>A Component standing in a Room the User has no permission for reports `false` instead of being updated. The same applies to Components that are not devices: imported KNX Group Addresses (Component IDs beginning with `S`) and the built-in automation Components (`native_*`) may only be updated by an <span class="pill-o">admin</span> User.
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -57,7 +57,7 @@
 <dl class="message-properties" style="border: none;"><dt>payload.filterCategory <span class="property-type">string</span></dt><dd><em>(optional)</em> Filter by component category. Used in conjunction with floor or room property.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.filterType <span class="property-type">string</span></dt><dd><em>(optional)</em> Filter by component type. Used in conjunction with floor or room property.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.property <span class="property-type">string</span></dt><dd>Property Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Value to set. To increase or decrease a value use `+=` or `-=` followed by the amount. For example `+=10`.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Value to set. To increase or decrease a value use `+=` or `-=` followed by the amount. For example `+=10`. `color-temperature` is given in mired (1,000,000 / Kelvin, lower is colder, e.g. 370 for 2700 K); the component's `min`/`max` are the range the light supports.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.index <span class="property-type">number</span></dt><dd><em>(optional)</em> Cover Index (only available on "Cover" calls)</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.length <span class="property-type">number</span></dt><dd><em>(optional)</em> Cover Length (only available on "Cover" calls)</dd></dl>
 

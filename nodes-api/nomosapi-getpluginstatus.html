@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addsystemvariable', {
-        category: 'nomos SystemVariables',
+    RED.nodes.registerType('nomosapi-getpluginstatus', {
+        category: 'nomos Plugins',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addSystemVariable',
+        paletteLabel: 'getPluginStatus',
         label: function() {
-            return this.name || 'addSystemVariable';
+            return this.name || 'getPluginStatus';
         }
     });
 </script>
-<script data-template-name="nomosapi-addsystemvariable" type="text/x-red">
+<script data-template-name="nomosapi-getpluginstatus" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addsystemvariable" type="text/x-red">
-    <p>The service node represents <strong>addSystemVariable</strong> nomos system API Function: <br>
-        Set a System Variable<br>(Version 0.3.35 | <span class="pill-o">admin</span> User Permission needed)<br><br>Before a variable with the given ID is created, the control system is asked whether it already knows it. If the control system does not answer in time (for example while the controller is starting up), the call is refused with error 116 ("The control system is not reachable. Please try again in a moment."): nothing is created, and the call can simply be repeated.
+<script data-help-name="nomosapi-getpluginstatus" type="text/x-red">
+    <p>The service node represents <strong>getPluginStatus</strong> nomos system API Function: <br>
+        Get what a plugin is doing right now, e.g. which motion lighting instance has its lights on and for how long still. Clients showing it refetch on onPluginStatusChange.<br>(Version 0.3.40 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,13 +51,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional)</em> Variable ID (will be generated if not specified)</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional)</em> Category</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Editable</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.unremovable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Protects the variable from being deleted</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Current Value</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional)</em> Datatype<br>Default value: <code>string</code><br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> <code>currency</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>Plugin ID</dd></dl>
 
     </dl>
 
@@ -65,7 +59,9 @@
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>The Variable ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>Plugin ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.running <span class="property-type">boolean</span></dt><dd>Whether the plugin is currently running</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.status <span class="property-type">object | null</span></dt><dd>What the plugin is doing right now. Which fields exist is defined by the plugin itself; null when the plugin is not running or reports no live status. Motion lighting reports `instances`, keyed by instance ID, each with `state` (`idle`, `on` or `prewarn`), `remainingMs` (time until the lights switch off or the prewarning starts, null while motion is still reported or "permanently on" holds the lights), `lockedMs` (remaining lockout after a manual switch-off, or null), `motion`, `enabled` and `permanent`. Vacation mode reports `state`, `planned`, `manual` and `simulation`: `enabled`, `running` (switching only happens while vacation mode is on), `day`, today's `entries` per selected device (`cid`, `on` and `off` as HH:MM on the controller's clock, `lit` when the simulation switched it on) and `next` (the next switching today: `cid`, `state`, `at`, `inMs`), or null when nothing is left today. Places reports `zones` and `sources`. `zones` lists home first, then the configured places, each with `id`, `cid` (its component), `name`, `lat`/`lng` of the centre (null for home while the controller has no location), `radius` in metres and `members`: the devices inside, each with `cid`, `name` and `since`. `sources` lists every device with a position: `cid`, `name`, `tracked` (false when excluded in the settings), `zone` (the place it is in, or null), `positionAge` (seconds since the last valid position received since the plugin started, or null), `stale` (the last report carried no valid position) and, for tracked devices with a known position, `lat`/`lng`.</dd></dl>
 
          </li>
          <li>API error
@@ -83,9 +79,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSystemVariable" target="_blank">addSystemVariable nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getPluginStatus" target="_blank">getPluginStatus nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables</em></div>
+    <div style="text-align: right"><em>Plugins</em></div>
 </script>

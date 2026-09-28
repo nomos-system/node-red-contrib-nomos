@@ -68,6 +68,8 @@
 <dl class="message-properties" style="border: none;"><dt>payload.device_auth <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX TUNNELING_SECURE manual mode only: device authentication code (overrides the value stored in the keyring).</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.knxkeys <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX *_SECURE only: keyring filename (relative to misc folder). Defaults to 'knx.knxkeys' when omitted.<br>Default value: <code>knx.knxkeys</code></dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.knxkeys_password <span class="property-type">string</span></dt><dd><em>(optional)</em> KNX *_SECURE only: keyring decryption password</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.devicemgmt <span class="property-type">boolean</span></dt><dd><em>(optional)</em> KNX only. Allows this installation to be put into device management mode, which is what commissioning a KNX device without the ETS requires. Off by default. Switching it changes the KNX configuration, so the KNX connection is re-established afterwards. Allowing it does not put the installation into that mode -- it only permits it.
+</dd></dl>
 
     </dl>
 

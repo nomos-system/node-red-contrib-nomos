@@ -1,0 +1,94 @@
+<script type="text/javascript">
+    RED.nodes.registerType('nomosapi-getvehiclestatus', {
+        category: 'nomos Vehicles',
+        color: '#f1c7b2',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ['Success', 'Error'],
+        icon: 'nomos.svg',
+        paletteLabel: 'getVehicleStatus',
+        label: function() {
+            return this.name || 'getVehicleStatus';
+        }
+    });
+</script>
+<script data-template-name="nomosapi-getvehiclestatus" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-filter" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
+    </div>
+</script>
+<script data-help-name="nomosapi-getvehiclestatus" type="text/x-red">
+    <p>The service node represents <strong>getVehicleStatus</strong> nomos system API Function: <br>
+        Gets diagnostics of a vehicle: remaining request quota, when its data was last fetched, and a command still waiting for the car to confirm. The vehicle's own values (battery, range, charging, lock, climate) are component properties, not part of this reply.<br>(Version 0.3.40 | <span class="pill-o">admin</span> User Permission needed)
+    </p>
+    <ul>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
+            value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID of the vehicle</dd></dl>
+
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>API result
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.quota <span class="property-type">object | null</span></dt><dd>The car brand's request quota for this vehicle; null before the first request was made. Each call that talks to the car (a poll, a command, or a call such as getVehicleChargingProfiles) counts against it.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.lastFetch <span class="property-type">string | null</span></dt><dd>When the vehicle's data was last requested from the car brand; null before the first request</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.reachable <span class="property-type">boolean | null</span></dt><dd>Whether the vehicle answered its last few requests; null before the first one</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.failures <span class="property-type">number</span></dt><dd>Consecutive failed requests since the last success</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.forbidden <span class="property-type">boolean</span></dt><dd>Whether the access no longer covers this VIN. Fix by checking the vehicles selected for the brand's API key, then calling updateVehicleAccount.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.capturedAt <span class="property-type">object</span></dt><dd>For each part of the vehicle's data the car reports (e.g. "battery", "charging", "status", "position"), when the car itself last captured that value. Absent for parts the car does not report at all.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.pending <span class="property-type">string | null</span></dt><dd>Command waiting for the car to confirm it, or null when nothing is pending. Mirrors the vehicle component's `pending_command` property.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.spinSet <span class="property-type">boolean</span></dt><dd>Whether an S-PIN is stored for this vehicle</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.positionEnabled <span class="property-type">boolean</span></dt><dd>Whether the car's position is published on the component.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.licensePlate <span class="property-type">string</span></dt><dd>License plate of the vehicle; an empty string when none is set</dd></dl>
+
+         </li>
+         <li>API error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>
+                    <dt>payload.errorCode <span class="property-type">integer</span></dt>
+                    <dd>Error Code</dd>
+                    <dt>payload.errorText <span class="property-type">string</span></dt>
+                    <dd>Error Message Text</dd>
+                 </dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getVehicleStatus" target="_blank">getVehicleStatus nomos system API Documentation</a></li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Vehicles</em></div>
+</script>

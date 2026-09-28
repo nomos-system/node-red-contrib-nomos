@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addsystemvariable', {
-        category: 'nomos SystemVariables',
+    RED.nodes.registerType('nomosapi-geteventlogsettings', {
+        category: 'nomos System',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addSystemVariable',
+        paletteLabel: 'getEventLogSettings',
         label: function() {
-            return this.name || 'addSystemVariable';
+            return this.name || 'getEventLogSettings';
         }
     });
 </script>
-<script data-template-name="nomosapi-addsystemvariable" type="text/x-red">
+<script data-template-name="nomosapi-geteventlogsettings" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addsystemvariable" type="text/x-red">
-    <p>The service node represents <strong>addSystemVariable</strong> nomos system API Function: <br>
-        Set a System Variable<br>(Version 0.3.35 | <span class="pill-o">admin</span> User Permission needed)<br><br>Before a variable with the given ID is created, the control system is asked whether it already knows it. If the control system does not answer in time (for example while the controller is starting up), the call is refused with error 116 ("The control system is not reachable. Please try again in a moment."): nothing is created, and the call can simply be repeated.
+<script data-help-name="nomosapi-geteventlogsettings" type="text/x-red">
+    <p>The service node represents <strong>getEventLogSettings</strong> nomos system API Function: <br>
+        Whether the event log records security-relevant events (logins, user and permission changes, restores, resets, updates). Enabled by default; the switch is the operator's opt-out.<br>(Version 3.0.2 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,13 +51,6 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd><em>(optional)</em> Variable ID (will be generated if not specified)</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Variable Name</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.category <span class="property-type">string</span></dt><dd><em>(optional)</em> Category</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.editable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Editable</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.unremovable <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Protects the variable from being deleted</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.value <span class="property-type">string</span></dt><dd><em>(optional)</em> Current Value</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd><em>(optional)</em> Datatype<br>Default value: <code>string</code><br>Allowed values: <code>string</code> <code>int</code> <code>float</code> <code>boolean</code> <code>date</code> <code>time</code> <code>currency</code> </dd></dl>
 
     </dl>
 
@@ -65,7 +58,7 @@
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">string</span></dt><dd>The Variable ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -83,9 +76,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addSystemVariable" target="_blank">addSystemVariable nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getEventLogSettings" target="_blank">getEventLogSettings nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>SystemVariables</em></div>
+    <div style="text-align: right"><em>System</em></div>
 </script>

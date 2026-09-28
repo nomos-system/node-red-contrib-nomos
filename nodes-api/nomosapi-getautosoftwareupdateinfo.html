@@ -59,6 +59,8 @@
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd>Enabled status</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.scope <span class="property-type">string</span></dt><dd>What the automatic installs: `security` (default) only the security update the update server offers for the installed version, `all` every newer version<br>Allowed values: <code>security</code> <code>all</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.securityUpdate <span class="property-type">object</span></dt><dd><em>(optional)</em> The announced security update, or null when none is pending. It installs in the update window at `installAt` unless postponed (`postponeSoftwareUpdate`)</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.weekday <span class="property-type">number</span></dt><dd>Weekday<br>Allowed values: <code>(0) Sunday</code> <code>(1) Monday</code> <code>(2) Tuesday</code> <code>(3) Wednesday</code> <code>(4) Thursday</code> <code>(5) Friday</code> <code>(6) Saturday</code> </dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.start <span class="property-type">string</span></dt><dd>Time Range Start</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.end <span class="property-type">string</span></dt><dd>Time Range End</dd></dl>
