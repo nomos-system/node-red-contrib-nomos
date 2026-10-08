@@ -15,7 +15,7 @@
 
 Connect your [nomos system Controller](https://www.nomos-system.com) to [Node-RED](https://nodered.org) and build powerful automations with components, scenes, events and the full nomos system API at your fingertips.
 
-> **Requirement:** nomos system Controller **2.0** or newer.
+> **Requirement:** nomos system Controller **2.8.2** or newer (required since plugin version 1.5.3).
 
 ## Installation
 
