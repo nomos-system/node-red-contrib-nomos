@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-addaddonprofile', {
-        category: 'nomos Addons',
+    RED.nodes.registerType('nomosapi-gethueaccessories', {
+        category: 'nomos PhilipsHUE',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'addAddonProfile',
+        paletteLabel: 'getHUEAccessories',
         label: function() {
-            return this.name || 'addAddonProfile';
+            return this.name || 'getHUEAccessories';
         }
     });
 </script>
-<script data-template-name="nomosapi-addaddonprofile" type="text/x-red">
+<script data-template-name="nomosapi-gethueaccessories" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-addaddonprofile" type="text/x-red">
-    <p>The service node represents <strong>addAddonProfile</strong> nomos system API Function: <br>
-        Add/import an Addon Profile<br>(Version 0.2.71 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-gethueaccessories" type="text/x-red">
+    <p>The service node represents <strong>getHUEAccessories</strong> nomos system API Function: <br>
+        Get (autodetected) HUE Accessories<br>(Version 0.3.22 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,17 +51,13 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd>Name of the Profile. Must not be empty or contain `/`, `\` or NUL. A hidden Profile must not carry the name of a built-in library Profile or start with `plugin_`. Otherwise the call is refused with errorCode 106.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.hidden <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hidden Profile</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.overwrite <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Overwrite if exists</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.content <span class="property-type">object</span></dt><dd>Profile Content</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">number</span></dt><dd></dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -79,9 +75,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-addAddonProfile" target="_blank">addAddonProfile nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-getHUEAccessories" target="_blank">getHUEAccessories nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Addons</em></div>
+    <div style="text-align: right"><em>PhilipsHUE</em></div>
 </script>

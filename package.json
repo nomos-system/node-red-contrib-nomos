@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.5.22",
+	"version": "1.5.23",
 	"description": "nomos system Node-RED Connector",
 	"scripts": {
 		"test": "node --test \"test/*.test.js\""
@@ -130,6 +130,8 @@
 			"cloneevent": "nodes-api/nomosapi-cloneevent.js",
 			"disableevent": "nodes-api/nomosapi-disableevent.js",
 			"enableevent": "nodes-api/nomosapi-enableevent.js",
+			"describeevent": "nodes-api/nomosapi-describeevent.js",
+			"describeevents": "nodes-api/nomosapi-describeevents.js",
 			"getevent": "nodes-api/nomosapi-getevent.js",
 			"getevents": "nodes-api/nomosapi-getevents.js",
 			"geteventsbytag": "nodes-api/nomosapi-geteventsbytag.js",
@@ -309,7 +311,7 @@
 			"getuserscenepermission": "nodes-api/nomosapi-getuserscenepermission.js",
 			"addhuedevice": "nodes-api/nomosapi-addhuedevice.js",
 			"createhuegroup": "nodes-api/nomosapi-createhuegroup.js",
-			"accessories": "nodes-api/nomosapi-accessories.js",
+			"gethueaccessories": "nodes-api/nomosapi-gethueaccessories.js",
 			"gethuedevices": "nodes-api/nomosapi-gethuedevices.js",
 			"gethuegroups": "nodes-api/nomosapi-gethuegroups.js",
 			"gethuelights": "nodes-api/nomosapi-gethuelights.js",
@@ -646,6 +648,8 @@
 		"cloneevent",
 		"disableevent",
 		"enableevent",
+		"describeevent",
+		"describeevents",
 		"getevent",
 		"getevents",
 		"geteventsbytag",
@@ -825,7 +829,7 @@
 		"getuserscenepermission",
 		"addhuedevice",
 		"createhuegroup",
-		"accessories",
+		"gethueaccessories",
 		"gethuedevices",
 		"gethuegroups",
 		"gethuelights",

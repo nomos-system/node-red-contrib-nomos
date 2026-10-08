@@ -52,7 +52,7 @@
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.type <span class="property-type">string</span></dt><dd>Type of the Profile</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd>Name of the Profile</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd>Name of the Profile. Must not be empty or contain `/`, `\` or NUL. A hidden Profile must not carry the name of a built-in library Profile or start with `plugin_`. Otherwise the call is refused with errorCode 106.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.hidden <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Hidden Profile</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.overwrite <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Overwrite if exists</dd></dl>
 
