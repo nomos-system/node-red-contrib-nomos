@@ -53,6 +53,7 @@
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.event <span class="property-type">object</span></dt><dd>The automation, saved or not, in the form setEvent takes (triggers, conditions, positiveActions, negativeActions, onChange)</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.triggersMode <span class="property-type">string</span></dt><dd><em>(optional)</em> How triggers without '||'/'&&' markers between them are joined (default '||')<br>Allowed values: <code>||</code> <code>&&</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.language <span class="property-type">string</span></dt><dd><em>(optional)</em> Language of the sentence, one of lang/languages.json (de, en, fr, it, nl); without it the language of the connection. Error 106 for any other</dd></dl>
 
     </dl>
 
@@ -60,7 +61,8 @@
     <ol class="node-ports">
          <li>API result
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.text <span class="property-type">string</span></dt><dd><em>(optional)</em> The automation in one sentence, in the language of the connection (e.g. "When Motion (Hall): Motion Detected is on, then Wall light (Hall): Turn On.")</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.text <span class="property-type">string</span></dt><dd><em>(optional)</em> The automation in one sentence, in the language asked for or else the language of the connection (e.g. "When Motion Detected of Motion (Hall) is on, then Wall light (Hall): Turn On.")</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.parts <span class="property-type">array</span></dt><dd><em>(optional)</em> The same sentence in parts, for clients that set names and the sentence's frame words apart; the texts joined are `text`</dd></dl>
 
          </li>
          <li>API error

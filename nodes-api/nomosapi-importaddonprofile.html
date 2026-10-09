@@ -51,8 +51,8 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.content <span class="property-type">string</span></dt><dd>Base64-encoded content of the addon profile file (.csv or .json)</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.fileName <span class="property-type">string</span></dt><dd>Original file name including extension, e.g. 'my-addon.csv' or 'my-addon.json'</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.content <span class="property-type">string</span></dt><dd>Base64-encoded content of the addon profile file (.csv or .json). The `className` of a .json file names the Addon's .csv file and may contain letters, digits, `_` and `-` only (or be empty), otherwise the call is refused with errorCode 106; a .csv file gets one from its file name.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.fileName <span class="property-type">string</span></dt><dd>Original file name including extension, e.g. 'my-addon.csv' or 'my-addon.json'. The name without its extension becomes the name of the Profile and must not contain `\`; such a name, or an extension other than .csv and .json, is refused with errorCode 106.</dd></dl>
 
     </dl>
 

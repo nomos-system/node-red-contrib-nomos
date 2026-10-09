@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('nomosapi-describeevents', {
-        category: 'nomos Events',
+    RED.nodes.registerType('nomosapi-setsceneicon', {
+        category: 'nomos Scenes',
         color: '#f1c7b2',
         defaults: {
             config: {value: '', type: 'nomos-hub', required: true},
@@ -12,13 +12,13 @@
         outputs: 2,
         outputLabels: ['Success', 'Error'],
         icon: 'nomos.svg',
-        paletteLabel: 'describeEvents',
+        paletteLabel: 'setSceneIcon',
         label: function() {
-            return this.name || 'describeEvents';
+            return this.name || 'setSceneIcon';
         }
     });
 </script>
-<script data-template-name="nomosapi-describeevents" type="text/x-red">
+<script data-template-name="nomosapi-setsceneicon" type="text/x-red">
     <div class="form-row">
         <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
         <input type="text" id="node-input-config">
@@ -37,9 +37,9 @@
         <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
     </div>
 </script>
-<script data-help-name="nomosapi-describeevents" type="text/x-red">
-    <p>The service node represents <strong>describeEvents</strong> nomos system API Function: <br>
-        Describe every automation in one sentence<br>(Version 0.3.45 | <span class="pill-o">admin</span> User Permission needed)
+<script data-help-name="nomosapi-setsceneicon" type="text/x-red">
+    <p>The service node represents <strong>setSceneIcon</strong> nomos system API Function: <br>
+        Set a new Scene Icon; broadcasts onSceneUpdated<br>(Version 0.3.46 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,15 +51,15 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.eids <span class="property-type">array</span></dt><dd><em>(optional)</em> Only these Event IDs. Without it all automations.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.language <span class="property-type">string</span></dt><dd><em>(optional)</em> Language of the sentences, one of lang/languages.json (de, en, fr, it, nl); without it the language of the connection. Error 106 for any other</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.id <span class="property-type">number</span></dt><dd>Scene ID</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.icon <span class="property-type">string</span></dt><dd>Icon name (Font Awesome name without the fa- prefix)</dd></dl>
 
     </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
          <li>API result
-             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">array</span></dt><dd></dd></dl>
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">boolean</span></dt><dd></dd></dl>
 
          </li>
          <li>API error
@@ -77,9 +77,9 @@
 
     <h3>References</h3>
     <ul>
-        <li><a href="https://apidocs.nomos-system.com/#operation-request-describeEvents" target="_blank">describeEvents nomos system API Documentation</a></li>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-setSceneIcon" target="_blank">setSceneIcon nomos system API Documentation</a></li>
         <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
     </ul>
 
-    <div style="text-align: right"><em>Events</em></div>
+    <div style="text-align: right"><em>Scenes</em></div>
 </script>
