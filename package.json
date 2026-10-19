@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-nomos",
-	"version": "1.5.24",
+	"version": "1.5.25",
 	"description": "nomos system Node-RED Connector",
 	"scripts": {
 		"test": "node --test \"test/*.test.js\""
@@ -521,6 +521,7 @@
 			"startzigbeeincludemode": "nodes-api/nomosapi-startzigbeeincludemode.js",
 			"stopzigbeeincludemode": "nodes-api/nomosapi-stopzigbeeincludemode.js",
 			"zigbeedeviceupdate": "nodes-api/nomosapi-zigbeedeviceupdate.js",
+			"zigbeenetworkscanprogress": "nodes-api/nomosapi-zigbeenetworkscanprogress.js",
 			"zigbeestatechange": "nodes-api/nomosapi-zigbeestatechange.js",
 			"addzwaveassociation": "nodes-api/nomosapi-addzwaveassociation.js",
 			"addzwavedevice": "nodes-api/nomosapi-addzwavedevice.js",
@@ -546,6 +547,8 @@
 			"stopzwaveexcludemode": "nodes-api/nomosapi-stopzwaveexcludemode.js",
 			"stopzwaveincludemode": "nodes-api/nomosapi-stopzwaveincludemode.js",
 			"updatezwavenetwork": "nodes-api/nomosapi-updatezwavenetwork.js",
+			"getzwavenetwork": "nodes-api/nomosapi-getzwavenetwork.js",
+			"zwavenetworkscanprogress": "nodes-api/nomosapi-zwavenetworkscanprogress.js",
 			"zwavestatechange": "nodes-api/nomosapi-zwavestatechange.js",
 			"getplugins": "nodes-api/nomosapi-getplugins.js",
 			"getpluginstatus": "nodes-api/nomosapi-getpluginstatus.js",
@@ -1040,6 +1043,7 @@
 		"startzigbeeincludemode",
 		"stopzigbeeincludemode",
 		"zigbeedeviceupdate",
+		"zigbeenetworkscanprogress",
 		"zigbeestatechange",
 		"addzwaveassociation",
 		"addzwavedevice",
@@ -1065,6 +1069,8 @@
 		"stopzwaveexcludemode",
 		"stopzwaveincludemode",
 		"updatezwavenetwork",
+		"getzwavenetwork",
+		"zwavenetworkscanprogress",
 		"zwavestatechange",
 		"getplugins",
 		"getpluginstatus",

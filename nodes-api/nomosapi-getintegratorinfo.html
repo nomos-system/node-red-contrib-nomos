@@ -63,6 +63,7 @@
 <dl class="message-properties" style="border: none;"><dt>payload.phone <span class="property-type">string</span></dt><dd>Phone Number</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.defaultColorScheme <span class="property-type">string</span></dt><dd>Default app color scheme suggested to app users on first login. Empty string for the app default (pink), a preset code (db, dg, dr, do, dp, dl, ds, dt, dd, di), or 'd-' for a custom brand color (see defaultCustomColor).<br>Allowed values: <code></code> <code>db</code> <code>dg</code> <code>dr</code> <code>do</code> <code>dp</code> <code>dl</code> <code>ds</code> <code>dt</code> <code>dd</code> <code>di</code> <code>dn</code> <code>d-</code> </dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.defaultCustomColor <span class="property-type">string</span></dt><dd>Custom brand color as an "r,g,b" string (e.g. "30,143,230"). Only meaningful when defaultColorScheme is 'd-', otherwise an empty string.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.hasLogo <span class="property-type">boolean</span></dt><dd>Whether an integrator logo is uploaded; the image URL falls back to the product logo otherwise. Read-only, ignored by setIntegratorInfo (Version 0.3.48).</dd></dl>
 
          </li>
          <li>API error

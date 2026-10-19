@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-settexttemplates" type="text/x-red">
     <p>The service node represents <strong>setTextTemplates</strong> nomos system API Function: <br>
-        Set Text Templates<br>(Version 0.2.75 | <span class="pill-o">admin</span> User Permission needed)
+        Set Text Templates<br>(Version 0.2.75; paper size and orientation are checked from Version 0.3.47 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,6 +51,13 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.installationBlock1 <span class="property-type">string</span></dt><dd><em>(optional)</em> First text block of the handover document</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.installationBlock2 <span class="property-type">string</span></dt><dd><em>(optional)</em> Second text block of the handover document</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.installationBlock3 <span class="property-type">string</span></dt><dd><em>(optional)</em> Third text block of the handover document</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.pageSize <span class="property-type">string</span></dt><dd><em>(optional)</em> Paper size of the handover document (case-insensitive, stored in upper case)<br>Allowed values: <code>A4</code> <code>LETTER</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.pageOrientation <span class="property-type">string</span></dt><dd><em>(optional)</em> Paper orientation of the handover document (case-insensitive, stored in lower case)<br>Allowed values: <code>portrait</code> <code>landscape</code> </dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.reportIntro <span class="property-type">string</span></dt><dd><em>(optional)</em> Introduction on the cover page of the system report (Version 0.3.50)</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.reportClosing <span class="property-type">string</span></dt><dd><em>(optional)</em> Closing text of the system report, before the signature block (Version 0.3.50)</dd></dl>
 
     </dl>
 

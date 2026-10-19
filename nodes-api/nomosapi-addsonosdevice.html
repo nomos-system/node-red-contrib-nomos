@@ -56,8 +56,8 @@
 <dl class="message-properties" style="border: none;"><dt>payload.uuid <span class="property-type">string</span></dt><dd>Sonos UUID</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.lid <span class="property-type">string</span></dt><dd><em>(optional)</em> Library ID of the Device<br>Default value: <code>sonos.default</code></dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd><em>(optional)</em> Profile of the Device<br>Default value: <code>sonos</code></dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional)</em> Sonos Model</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.capabilities <span class="property-type">array</span></dt><dd><em>(optional)</em> Capabilities of the Device</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.model <span class="property-type">string</span></dt><dd><em>(optional)</em> Sonos model, as reported by getSonosDevices (e.g. `Arc`). When missing, the model of the detected player with this uuid (or host) is used.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.capabilities <span class="property-type">array</span></dt><dd><em>(optional)</em> Capabilities of the Device. When missing, the capabilities of the model: `sonos_hometheater` (night mode, speech enhancement) for players with a TV input.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.tags <span class="property-type">array</span></dt><dd><em>(optional)</em> Tagging</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional)</em> Additional Meta Information</dd></dl>
 

@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getzigbeenetwork" type="text/x-red">
     <p>The service node represents <strong>getZigBeeNetwork</strong> nomos system API Function: <br>
-        Get ZigBee Network Map<br>(Version 0.2.73 | <span class="pill-o">admin</span> User Permission needed)
+        Get ZigBee Network Map. Asks every router and the coordinator for its neighbours and routes, one per second, so it takes a while and loads the network; zigbeeNetworkScanProgress reports how far it is. Only one scan runs at a time: a call during a scan gets that scan's answer.<br>(Version 0.2.73 | <span class="pill-o">admin</span> User Permission needed)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
