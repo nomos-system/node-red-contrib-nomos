@@ -53,7 +53,7 @@
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.cid <span class="property-type">string</span></dt><dd>Component ID</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd><em>(optional)</em> Name of the Device</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.configOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Config Parameter Overrides</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.configOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Config Parameter Overrides. Only settings the device has; an unknown one is refused with errorCode 112. Each value must fit into the add-on's settings file: no `;` (except in HEARTBEATCMD and SERVERPORT, which hold several columns), no control characters (line breaks, tabs) and no `/*` or `*/`. Otherwise the call is refused with errorCode 106 and the name of the setting in errorText, and nothing is written, the name included.</dd></dl>
 
     </dl>
 

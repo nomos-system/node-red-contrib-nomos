@@ -59,6 +59,8 @@
 <dl class="message-properties" style="border: none;"><dt>payload.internal <span class="property-type">object</span></dt><dd><em>(optional)</em> Internal Message System Options/Settings (see <a href="https://apidocs.nomos-system.com/#operation-request-sendNotification">sendNotification</a> for more information)</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.email <span class="property-type">object</span></dt><dd><em>(optional)</em> E-Mail System Options/Settings (see <a href="https://apidocs.nomos-system.com/#operation-request-sendNotification">sendNotification</a> for more information)</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.push <span class="property-type">object</span></dt><dd><em>(optional)</em> Push Notification Message Options/Settings (see <a href="https://apidocs.nomos-system.com/#operation-request-sendNotification">sendNotification</a> for more information)</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.services <span class="property-type">object | null</span></dt><dd><em>(optional)</em> The channel "services": targets (ids from getNotificationServices), title and text; null switches it off</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.telegram <span class="property-type">object | null</span></dt><dd><em>(optional)</em> The channel "telegram": people as receivers (user:<uid>, group:admin, group:all; those who linked their Telegram), title and text; null switches it off</dd></dl>
 
     </dl>
 
