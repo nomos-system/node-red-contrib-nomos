@@ -53,10 +53,10 @@
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.name <span class="property-type">string</span></dt><dd>Name of the Device</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.profile <span class="property-type">string</span></dt><dd>Addon Name/Profile. Must not contain `/`, `\` or NUL, otherwise the call is refused with errorCode 106.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.configOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Config Parameter Overrides</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.pollingOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Polling Parameter Overrides</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.tags <span class="property-type">array</span></dt><dd><em>(optional)</em> Tagging</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional)</em> Additional Meta Information</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.configOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Config Parameter Overrides (an object, otherwise errorCode 106). Each value must fit into the add-on's settings file: no `;` (except in HEARTBEATCMD and SERVERPORT, which hold several columns), no control characters (line breaks, tabs) and no `/*` or `*/`. Otherwise the call is refused with errorCode 106 and the name of the setting in errorText, and nothing is written.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.pollingOverrides <span class="property-type">object</span></dt><dd><em>(optional)</em> Polling Parameter Overrides (an object, otherwise errorCode 106)</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.tags <span class="property-type">array</span></dt><dd><em>(optional)</em> Tagging (a list of strings, otherwise errorCode 106)</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.meta <span class="property-type">object</span></dt><dd><em>(optional)</em> Additional Meta Information (an object, otherwise errorCode 106)</dd></dl>
 
     </dl>
 

@@ -52,7 +52,10 @@
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.content <span class="property-type">string</span></dt><dd>Base64-encoded content of the addon profile file (.csv or .json). The `className` of a .json file names the Addon's .csv file and may contain letters, digits, `_` and `-` only (or be empty), otherwise the call is refused with errorCode 106; a .csv file gets one from its file name.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.fileName <span class="property-type">string</span></dt><dd>Original file name including extension, e.g. 'my-addon.csv' or 'my-addon.json'. The name without its extension becomes the name of the Profile and must not contain `\`; such a name, or an extension other than .csv and .json, is refused with errorCode 106.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.fileName <span class="property-type">string</span></dt><dd>Original file name including extension, e.g. 'my-addon.csv' or 'my-addon.json'. The name without its extension becomes the name of the Profile and must not contain `\`; such a name, or an extension other than .csv and .json, is refused with errorCode 106. A `.` in the name becomes `_`.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.overwrite <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Also replace a Profile of the same name that was changed in the profile editor (otherwise errorCode 138)</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.copy <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Keep an existing Profile of the same name and store this one as a copy (`<name>_2`)</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.acceptRemoved <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Replace even when the new version drops actions, feedback values or templates of the stored Profile (otherwise errorCode 139)</dd></dl>
 
     </dl>
 

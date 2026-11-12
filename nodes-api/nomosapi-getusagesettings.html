@@ -39,7 +39,7 @@
 </script>
 <script data-help-name="nomosapi-getusagesettings" type="text/x-red">
     <p>The service node represents <strong>getUsageSettings</strong> nomos system API Function: <br>
-        Returns whether usage-based suggestions are enabled for this system, whether the calling user takes part in personalisation, and who receives the notification when the system notices an unusual situation.<br>(Version 0.3.38)
+        Returns whether usage-based suggestions are enabled for this system and whether the calling user takes part in personalisation. Whether and to whom an unusual situation is reported is the system notification profile `unusual`.<br>(Version 0.3.38)
     </p>
     <ul>
         <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
@@ -51,7 +51,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.uid <span class="property-type">string | number</span></dt><dd><em>(optional)</em> Read this user's personalisation state instead of the calling user's, so the administrative user management can show the setting it is about to change. Requires the admin permission. `enabled`, `llm`, `notify`, `notifyPush` and `notifyEmail` are system-wide and read the same either way.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.uid <span class="property-type">string | number</span></dt><dd><em>(optional)</em> Read this user's personalisation state instead of the calling user's, so the administrative user management can show the setting it is about to change. Requires the admin permission. `enabled` and `llm` are system-wide and read the same either way.</dd></dl>
 
     </dl>
 
@@ -61,10 +61,7 @@
              <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.enabled <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether usage recording is active for this system.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.llm <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether suggestion texts are phrased by the online service.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.notify <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether the system reports an unusual situation at all. When on, a message always appears in the notification list; `notifyPush` and `notifyEmail` additionally deliver it to the recipients listed there. When off, nothing is reported, whoever is listed.</dd></dl>
 <dl class="message-properties" style="border: none;"><dt>payload.personalized <span class="property-type">boolean</span></dt><dd><em>(optional)</em> Whether the target user's actions contribute to their personal suggestions. Without `uid` in the request this is the calling user.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.notifyPush <span class="property-type">array</span></dt><dd><em>(optional)</em> Recipients of the push notification sent when the system notices an unusual situation. Empty means no push is sent.</dd></dl>
-<dl class="message-properties" style="border: none;"><dt>payload.notifyEmail <span class="property-type">array</span></dt><dd><em>(optional)</em> E-mail recipients for the same notification. Empty means no e-mail is sent.</dd></dl>
 
          </li>
          <li>API error

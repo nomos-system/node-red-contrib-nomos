@@ -1,0 +1,86 @@
+<script type="text/javascript">
+    RED.nodes.registerType('nomosapi-initvehicleauthorization', {
+        category: 'nomos Vehicles',
+        color: '#f1c7b2',
+        defaults: {
+            config: {value: '', type: 'nomos-hub', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            filter: {value: false}
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ['Success', 'Error'],
+        icon: 'nomos.svg',
+        paletteLabel: 'initVehicleAuthorization',
+        label: function() {
+            return this.name || 'initVehicleAuthorization';
+        }
+    });
+</script>
+<script data-template-name="nomosapi-initvehicleauthorization" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-globe"></i> Controller</label>
+        <input type="text" id="node-input-config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-filter" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-filter" style="width: 70%;">&nbsp;&nbsp;<i class="fa fa-filter"></i> Filter on Topic</label>
+    </div>
+</script>
+<script data-help-name="nomosapi-initvehicleauthorization" type="text/x-red">
+    <p>The service node represents <strong>initVehicleAuthorization</strong> nomos system API Function: <br>
+        Starts the sign-in to a vehicle brand the customer signs in to (see `oauth` in getVehicleBrands; a brand not offered there is refused). Replies with the address of the brand's sign-in page, which the client opens as a pop-up. Only one sign-in is open at a time: a new one replaces the open one, whose client is told with `onVehicleAuthorization` `false`. The sign-in is open for five minutes.<br>(Version 0.3.51 | <span class="pill-o">admin</span> User Permission needed)
+    </p>
+    <ul>
+        <li><strong>nomos Controller</strong>: The nomos system Controller connected to</li>
+        <li><strong>Name</strong>: <em>optional</em> Name</li>
+        <li><strong>Topic</strong>: An <em>optional</em> property that can be configured in the node or, if left blank, can be set by <code>msg.topic</code>. If <em>Filter on Topic</em> is selected <code>msg.topic</code> of incoming messages must match the configured
+            value for the message to be accepted. If <em>Filter on Topic</em> is selected and no <em>Topic</em> is set on the node, then <code>msg.topic</code> must match the nodes <em>Name</em></li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">object</span></dt><dd>The payload object</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.brand <span class="property-type">string</span></dt><dd>Brand identifier of a brand getVehicleBrands lists with `oauth`. A brand with credentialFields is refused.</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.label <span class="property-type">string</span></dt><dd><em>(optional)</em> Label of the access the sign-in creates, to tell several accesses apart</dd></dl>
+<dl class="message-properties" style="border: none;"><dt>payload.accountId <span class="property-type">string</span></dt><dd><em>(optional)</em> ID of an existing access of this brand whose sign-in is to be renewed (version 0.3.51). Its tokens are replaced and the end of the authorisation is set anew; no second access is created and the vehicles stay with it. The brand must match, otherwise the call fails and the cloud is not asked.</dd></dl>
+
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+         <li>API result
+             <dl class="message-properties" style="border: none;"><dt>payload <span class="property-type">string</span></dt><dd>Address of the brand's sign-in page, to open in a pop-up. The key the address carries stays valid for one sign-in only; the backend keeps it and completes the sign-in itself.</dd></dl>
+
+         </li>
+         <li>API error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>
+                    <dt>payload.errorCode <span class="property-type">integer</span></dt>
+                    <dd>Error Code</dd>
+                    <dt>payload.errorText <span class="property-type">string</span></dt>
+                    <dd>Error Message Text</dd>
+                 </dd>
+             </dl>
+         </li>
+    </ol>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://apidocs.nomos-system.com/#operation-request-initVehicleAuthorization" target="_blank">initVehicleAuthorization nomos system API Documentation</a></li>
+        <li><a href="https://github.com/nomos-system" target="_blank">GitHub</a> - the nomos system GitHub Repository</li>
+    </ul>
+
+    <div style="text-align: right"><em>Vehicles</em></div>
+</script>
